@@ -1,0 +1,7 @@
+<aura:component description="GS_NewProduct" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction">
+    <aura:attribute name="recordId" type="String"/>
+
+    <aura:handler event="c:GS_OpenNewProductForm" action="{! c.doInit }"/>
+
+    <lightning:overlayLibrary aura:id="newProductForm"/>
+</aura:component>

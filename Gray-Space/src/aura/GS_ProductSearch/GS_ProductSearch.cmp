@@ -1,0 +1,33 @@
+<aura:component description="GS_ProductSearch" controller="GS_ProductController" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction">
+    <aura:attribute name="products" type="Product2[]"/>
+    <aura:attribute name="page" type="Integer" default="1"/>
+    <aura:attribute name="productsCount" type="Integer"/>
+    <aura:attribute name="pageCount" type="Integer" default="1"/>
+    <aura:attribute name="pagesList" type="Integer[]" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="20"/>
+
+    <aura:handler name="searchEvent" event="c:GS_ProductSearchEvent" action="{! c.search }"/>
+
+    <lightning:card>
+        <c:GS_ProductSearchForm/>
+    </lightning:card>
+
+    <aura:if isTrue="{! if(v.products.length > 0, true, false) }">
+        <lightning:card title="{! $Label.c.GS_Results+' ('+v.productsCount+')' }">
+            <c:GS_ProductListWithTile products="{! v.products }"/>
+
+            <div class="resultsFooter slds-p-horizontal_medium">
+                <div>
+                    {! $Label.c.GS_Page }: {! v.page }/{! v.pageCount }
+                </div>
+                <div>
+                    <lightning:buttonIcon iconName="utility:left" variant="border" alternativeText="Left" iconClass="dark" disabled="{! v.page == 1 }" onclick="{! c.previousPage }"/>
+                    <aura:iteration items="{! v.pagesList }" var="page">
+                        <lightning:button variant="{! page == v.page ? 'brand' : 'neutral' }" label="{! page }" onclick="{! c.setPage }"/>
+                    </aura:iteration>
+                    <lightning:buttonIcon iconName="utility:right" variant="border" alternativeText="Right" iconClass="dark" disabled="{! v.page == v.pageCount }" onclick="{! c.nextPage }"/>
+                </div>
+            </div>
+        </lightning:card>
+    </aura:if>
+</aura:component>

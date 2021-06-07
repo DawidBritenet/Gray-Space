@@ -1,0 +1,24 @@
+<aura:component description="GS_ProductPhotos" controller="GS_ProductController" implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="photos" type="String[]"/>
+    <aura:attribute name="slide" type="Integer" default="0"/>
+
+    <ltng:require scripts="{! $Resource.sliderJs }" />
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <aura:if isTrue="{! v.photos.length > 1 }">
+        <lightning:card title="{! $Label.c.GS_Gallery }">
+            <div class="photosContainer">
+                <aura:iteration items="{! v.photos }" var="photo" indexVar="index">
+                    <div aura:id="photoSlide" class="{! if(equals(index, v.slide), 'SlideBlock', 'SlideNone') }">
+                        <div class="slds-align_absolute-center" style="height:100%">
+                            <img class="photo" src="{! photo }"/>
+                        </div>
+                    </div>
+                </aura:iteration>
+                <a class="prev" onclick="{! c.prevPage }">&#10094;</a>
+                <a class="next" onclick="{! c.nextPage }">&#10095;</a>
+            </div>
+        </lightning:card>
+    </aura:if>
+</aura:component>

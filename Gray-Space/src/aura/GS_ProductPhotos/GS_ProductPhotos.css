@@ -1,0 +1,62 @@
+.THIS .photosContainer {
+    height: 400px;
+}
+
+.THIS .SlideNone {
+    display: none;
+}
+
+.THIS .SlideBlock {
+    height: 100%;
+    display: block;
+}
+
+.THIS .photo {
+    height: 100%;
+    width: auto;
+    margin: auto;
+}
+
+.THIS .prev, .THIS .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #ababab;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.THIS .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.THIS .prev:hover, .THIS .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.THIS .imagesSmall:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.THIS .smallImage {
+    float: left;
+    width: 16.66%;
+}
+
+.THIS .imagesSmall {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.THIS .active, .THIS .imagesSmall:hover {
+    opacity: 1;
+}

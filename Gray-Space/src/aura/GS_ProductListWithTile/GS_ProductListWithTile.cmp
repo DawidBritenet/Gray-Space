@@ -1,0 +1,11 @@
+<aura:component description="GS_ProductListWithTile">
+
+    <aura:attribute name="products" type="Product2[]"/>
+
+    <div class="productsContainer">
+        <aura:iteration items="{! v.products }" var="product">
+            <c:GS_ProductTile product="{! product }"/>
+        </aura:iteration>
+    </div>
+
+</aura:component>

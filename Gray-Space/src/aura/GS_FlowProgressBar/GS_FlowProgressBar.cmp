@@ -1,0 +1,10 @@
+<aura:component description="GS_FlowProgressBar" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="stages" type="String[]"/>
+    <aura:attribute name="currentStage" type="String"/>
+
+    <lightning:progressIndicator currentStep="{! v.currentStage }" type="path" variant="base">
+        <aura:iteration items="{! v.stages }" var="stage">
+            <lightning:progressStep label="{! stage }" value="{! stage }"/>
+        </aura:iteration>
+    </lightning:progressIndicator>
+</aura:component>

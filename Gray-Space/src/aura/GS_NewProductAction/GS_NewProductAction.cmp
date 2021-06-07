@@ -1,0 +1,5 @@
+<aura:component description="GS_NewProductAction" implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" access="global">
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <c:GS_NewProduct />
+</aura:component>

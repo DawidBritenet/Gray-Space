@@ -1,0 +1,19 @@
+.THIS .photoContainesr {
+    width: var(width);
+    height: var(height);
+    padding: 5px;
+}
+
+.THIS .photoContainer {
+    width: 100%;
+    height: 500px;
+    padding: 5px;
+}
+
+.THIS .photo {
+    width: var(--width);
+    height: var(--height);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

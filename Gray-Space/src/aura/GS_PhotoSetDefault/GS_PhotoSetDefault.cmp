@@ -1,0 +1,17 @@
+<aura:component description="GS_PhotoSetDefault" controller="GS_ProductController" implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="photoId" type="String"/>
+    <aura:attribute name="photoLink" type="String"/>
+    <aura:attribute name="idDefault" type="Boolean"/>
+
+    <aura:registerEvent name="selectedDefaultPhoto" type="c:GS_DefaultPhotoSelected"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler name="change" value="{!v.idDefault}" action="{!c.doInit}"/>
+
+    <aura:method name="refresh" action="{! c.doInit }"/>
+
+    <lightning:button class="{! if(v.idDefault, 'photoTitleButton defaultPhoto', 'photoTitleButton') }" onclick="{! c.selectDefault }">
+        <div class="tile" style="{! 'background-image: url(\'' + v.photoLink + '\');'}">
+        </div>
+    </lightning:button>
+</aura:component>

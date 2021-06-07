@@ -1,0 +1,22 @@
+<aura:component description="GS_ProductSearchForm" controller="GS_ProductController">
+    <aura:attribute name="SpaceTypePicklist" type="List"/>
+    <aura:attribute name="TypePicklist" type="List"/>
+
+    <aura:registerEvent name="searchEvent" type="c:GS_ProductSearchEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:layout horizontalAlign="center" verticalAlign="end">
+        <lightning:layoutItem class="slds-p-around_small">
+            <lightning:input aura:id="name" label="{! $Label.c.GS_Product_Name }" minlength="1"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem class="slds-p-around_small">
+            <lightning:combobox aura:id="spaceType" label="{! $Label.c.GS_Space_Type }" options="{! v.SpaceTypePicklist }" placeholder="All"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem class="slds-p-around_small">
+            <lightning:combobox aura:id="type" label="{! $Label.c.GS_Type }" options="{! v.TypePicklist }" placeholder="All"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <div class="slds-align_absolute-center">
+        <lightning:button variant="brand" label="{! $Label.c.GS_Search }" onclick="{! c.search }"/>
+    </div>
+</aura:component>

@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="GS_ProductSearchEvent">
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="spaceType" type="String"/>
+    <aura:attribute name="type" type="String"/>
+</aura:event>
