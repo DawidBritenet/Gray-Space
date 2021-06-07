@@ -1,5 +1,5 @@
 ({
-    searchProducts : function(component, event) {
+    searchProducts: function (component, event) {
         var name = event.getParam('name');
         var spaceType = event.getParam('spaceType');
         var type = event.getParam('type');
@@ -13,7 +13,7 @@
             'resultLimit': pageSize,
             'offset': 0
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 if (response.getReturnValue() != null) {
                     var results = response.getReturnValue();
@@ -34,13 +34,13 @@
         $A.enqueueAction(action);
     },
 
-    changePage : function(component, event) {
+    changePage: function (component, event) {
         var name = event.getParam('name');
         var spaceType = event.getParam('spaceType');
         var type = event.getParam('type');
         var page = component.get('v.page');
         var pageSize = component.get('v.pageSize');
-        var offset = (page-1)*pageSize;
+        var offset = (page - 1) * pageSize;
         var action = component.get('c.searchProduct');
         action.setParams({
             'name': name,
@@ -49,7 +49,7 @@
             'resultLimit': pageSize,
             'offset': offset
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 component.set('v.products', response.getReturnValue());
             }
@@ -64,7 +64,7 @@
         $A.enqueueAction(action);
     },
 
-    getPagesCount : function(component, event) {
+    getPagesCount: function (component, event) {
         var name = event.getParam('name');
         var spaceType = event.getParam('spaceType');
         var type = event.getParam('type');
@@ -74,13 +74,13 @@
             'spaceType': spaceType,
             'type': type
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 var results = response.getReturnValue();
 
                 component.set('v.productsCount', results);
                 var pageCount = results / component.get('v.pageSize');
-                pageCount = parseInt(pageCount);
+                pageCount = Math.ceil(pageCount);
                 if (pageCount == 0) {
                     pageCount = 1;
                 }
@@ -91,10 +91,11 @@
                 }
                 component.set('v.pagesList', pages);
                 if (results > 0) {
-                    this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Success_1')+' '+results+' '+$A.get('$Label.c.GS_Search_Success_2'), 'success');
-                 } else {
-                     this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Without_Results'), 'info');
-                 };
+                    this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Success_1') + ' ' + results + ' ' + $A.get('$Label.c.GS_Search_Success_2'), 'success');
+                } else {
+                    this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Without_Results'), 'info');
+                }
+                ;
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -107,7 +108,7 @@
         $A.enqueueAction(action);
     },
 
-    sendMessage : function(title, message, type) {
+    sendMessage: function (title, message, type) {
         var toastParams = {
             title: title,
             message: message,
