@@ -46,6 +46,11 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
+    public static List<Product2> getPromotedProducts() {
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 WHERE GS_Promoted__c = True ];
+    }
+
+    @AuraEnabled
     public static List<Product2> getProducts(Integer offset, Integer recordLimit) {
         return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 LIMIT :recordLimit OFFSET :offset];
     }

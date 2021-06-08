@@ -1,5 +1,18 @@
-.THIS .resultsFooter {
+.THIS .label-hidden > label {
+    display: none;
+}
+
+.THIS .paginationFooter {
     display: flex;
     justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.THIS .paginationInfo {
+    display: flex;
     align-items: center;
+}
+
+.THIS .paginationInfoText {
+    margin-left: 5px;
 }

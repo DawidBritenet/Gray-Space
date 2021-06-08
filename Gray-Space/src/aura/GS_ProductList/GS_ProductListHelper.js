@@ -32,7 +32,6 @@
 
                 component.set('v.productsCount', results);
                 let pageCount = results / component.get('v.pageSize');
-                console.log(pageCount);
                 pageCount = Math.ceil(pageCount);
                 if (pageCount == 0) {
                     pageCount = 1;
