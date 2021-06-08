@@ -1,9 +1,12 @@
-<aura:component description="GS_ProductPhotos" controller="GS_ProductController" implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
-    <aura:attribute name="recordId" type="String" />
+<aura:component description="GS_ProductPhotos" controller="GS_ProductController"
+                implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="photos" type="String[]"/>
     <aura:attribute name="slide" type="Integer" default="0"/>
+    <aura:attribute name="selectedPhoto" type="String"/>
+    <aura:attribute name="modalOpen" type="Boolean" default="false"/>
 
-    <ltng:require scripts="{! $Resource.sliderJs }" />
+    <ltng:require scripts="{! $Resource.sliderJs }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
     <aura:if isTrue="{! v.photos.length > 1 }">
@@ -12,13 +15,42 @@
                 <aura:iteration items="{! v.photos }" var="photo" indexVar="index">
                     <div aura:id="photoSlide" class="{! if(equals(index, v.slide), 'SlideBlock', 'SlideNone') }">
                         <div class="slds-align_absolute-center" style="height:100%">
-                            <img class="photo" src="{! photo }"/>
+                            <img class="photo" src="{! photo }" onclick="{! c.openLarge }"/>
                         </div>
                     </div>
                 </aura:iteration>
                 <a class="prev" onclick="{! c.prevPage }">&#10094;</a>
                 <a class="next" onclick="{! c.nextPage }">&#10095;</a>
             </div>
+            <div class="photosSmall">
+                <aura:iteration items="{! v.photos }" var="photo" indexVar="index">
+                    <div class="smallPhotoContainer" onclick="{! c.selectPage }" data-value="{! index }">
+                        <img class="{! if(index == v.slide, 'selectedImage smallPhoto', 'smallPhoto') }"
+                             src="{! photo }"/>
+                    </div>
+                </aura:iteration>
+            </div>
         </lightning:card>
+
+        <aura:if isTrue="{! v.modalOpen }">
+            <div class="slds-modal slds-fade-in-open slds-backdrop slds-modal_large">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" alternativeText="Close this window" size="large"
+                                              variant="bare-inverse" class="slds-modal__close"
+                                              onclick="{! c.closeLarge }"/>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <div class="slds-align_absolute-center">
+                            <img class="largeImage" src="{! v.selectedPhoto }"/>
+                        </div>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <lightning:button label="Close" variant="brand" onclick="{! c.closeLarge }"/>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+
     </aura:if>
 </aura:component>

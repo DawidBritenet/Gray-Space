@@ -17,6 +17,37 @@
     margin: auto;
 }
 
+.THIS .photosSmall {
+    max-height: 220px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.THIS .smallPhotoContainer {
+    height: 200px;
+}
+
+.THIS .smallPhoto {
+    opacity: 0.6;
+    object-fit: contain;
+    height: 100%;
+    min-width: 200px;
+}
+
+.THIS .smallPhoto:hover {
+    opacity: 1;
+}
+
+.THIS .selectedImage {
+    opacity: 1;
+}
+
+.THIS .largeImage {
+    height: 100%;
+}
+
 .THIS .prev, .THIS .next {
     cursor: pointer;
     position: absolute;
