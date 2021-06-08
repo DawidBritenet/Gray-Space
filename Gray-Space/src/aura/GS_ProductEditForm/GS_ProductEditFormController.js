@@ -1,7 +1,6 @@
 ({
-    refreshComponent : function(component, event, helper) {
-        var photoGallery = component.find('photoGallery');
-        photoGallery.reload();
+    updatePhotoGallery: function (component, event, helper) {
+        component.find('photoGallery').reload();
     },
 
     afterSave : function(component, event, helper) {

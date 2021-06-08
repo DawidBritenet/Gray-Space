@@ -4,11 +4,11 @@
     <aura:attribute name="photosIds" type="String[]"/>
 
     <ltng:require styles="{!$Resource.bigModal}"/>
-    <aura:handler name="refreshEvent" event="c:GS_RefreshEditForm" action="{!c.refreshComponent}"/>
+    <aura:handler name="photoAdded" event="c:GS_PhotoAdded" action="{! c.updatePhotoGallery }"/>
 
     <lightning:messages/>
     <lightning:card title="{! $Label.c.GS_Product_Details }">
-        <lightning:recordEditForm objectApiName="Product2" recordId="{! v.recordId }">
+        <lightning:recordEditForm objectApiName="Product2" recordId="{! v.recordId }" onsuccess="{! c.afterSave }">
             <lightning:layout class="detailsLayout" multipleRows="true">
                 <lightning:layoutItem size="6">
                     <lightning:inputField fieldName="Name"/>

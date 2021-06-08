@@ -1,6 +1,6 @@
 ({
     getPhotosIds : function(component, event) {
-        var action = component.get('c.getPhotosIds');
+        let action = component.get('c.getPhotosIds');
         action.setParams({
             'productId': component.get('v.recordId')
         });
@@ -21,7 +21,7 @@
 
     getDefaultPhoto : function(component, event) {
 
-        var action = component.get('c.getDefaultPhotoId');
+        let action = component.get('c.getDefaultPhotoId');
         action.setParams({
             'productId': component.get('v.recordId')
         });

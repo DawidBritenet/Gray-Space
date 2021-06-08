@@ -1,15 +1,15 @@
 ({
     photoAdded : function(component, event, photoId) {
-        var action = component.get('c.afterAddPhoto');
+        let action = component.get('c.afterAddPhoto');
         action.setParams({
             'productId': component.get('v.recordId'),
             'photoId': photoId,
         });
         action.setCallback(this, function(response) {
             if (response.getState() === "SUCCESS") {
-                var refreshEvent = component.getEvent('refreshEvent');
+                let refreshEvent = component.getEvent('refreshEvent');
                 refreshEvent.fire();
-                var photoAddedEvent = component.getEvent('photoAdded');
+                let photoAddedEvent = component.getEvent('photoAdded');
                 photoAddedEvent.fire();
             }
             if (response.getState() === "INCOMPLETE") {
@@ -23,12 +23,12 @@
     },
 
     sendMessage : function(title, message, type) {
-        var toastParams = {
+        let toastParams = {
             title: title,
             message: message,
             type: type
         }
-        var toastEvent = $A.get("e.force:showToast");
+        let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }
