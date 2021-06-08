@@ -27,7 +27,7 @@
         action.setCallback(this, function(response) {
             if (response.getState() === "SUCCESS") {
                 this.throwRecordChanged();
-                this.throwDefaultPhotoSelected(component, event);
+                this.throwDefaultPhotoSelected();
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_updated_default_photo'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
@@ -52,7 +52,7 @@
 
     },
 
-    throwDefaultPhotoSelected : function(component, event) {
+    throwDefaultPhotoSelected : function() {
         var event = $A.get('e.c:GS_DefaultPhotoSelected');
         event.fire();
     },

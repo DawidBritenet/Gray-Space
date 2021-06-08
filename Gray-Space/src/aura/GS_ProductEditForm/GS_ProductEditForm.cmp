@@ -4,7 +4,6 @@
     <aura:attribute name="photosIds" type="String[]"/>
 
     <ltng:require styles="{!$Resource.bigModal}"/>
-    <aura:handler name="refreshEvent" event="c:GS_RefreshEditForm" action="{!c.refreshComponent}"/>
 
     <lightning:messages/>
     <lightning:card title="{! $Label.c.GS_Product_Details }">
