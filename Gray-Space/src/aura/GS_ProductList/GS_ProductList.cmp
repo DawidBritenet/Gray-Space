@@ -36,7 +36,7 @@
                     <option value="30">30</option>
                 </lightning:select>
                 <p class="paginationInfoText">
-                    {! $Label.c.GS_Showing } {! v.recordsStart }-{! v.recordsEnd } {! $Label.c.GS_out_of } {! v.productsCount }
+                        {! $Label.c.GS_Showing + ' ' + v.recordsStart +'-' + v.recordsEnd +' '+ $Label.c.GS_out_of +' '+ v.productsCount }
                 </p>
             </div>
 
