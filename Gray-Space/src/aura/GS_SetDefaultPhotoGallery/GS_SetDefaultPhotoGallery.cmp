@@ -4,6 +4,7 @@
     <aura:attribute name="defaultPhotoId" type="String"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.doInit }"/>
 
     <aura:method name="reload" action="{! c.doInit }"/>
 

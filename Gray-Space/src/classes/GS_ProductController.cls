@@ -46,8 +46,13 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
-    public static List<Product2> getProducts() {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2];
+    public static List<Product2> getProducts(Integer offset, Integer recordLimit) {
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 LIMIT :recordLimit OFFSET :offset];
+    }
+
+    @AuraEnabled
+    public static Integer getProductsCount() {
+        return Database.countQuery('SELECT COUNT() FROM Product2');
     }
 
     @AuraEnabled
@@ -99,6 +104,17 @@ public with sharing class GS_ProductController {
             return createPhotoLink(versions[0].id);
         }
         return PageReference.forResource('GS_NoPhoto').getUrl();
+    }
+
+    @AuraEnabled
+    public static void deleteProduct(Id productId) {
+        Database.delete(productId);
+    }
+
+    @AuraEnabled
+    public static void deleteProducts(String productsId) {
+        List<String> toDelete = productsId.split(',');
+        Database.delete(toDelete);
     }
 
     @AuraEnabled

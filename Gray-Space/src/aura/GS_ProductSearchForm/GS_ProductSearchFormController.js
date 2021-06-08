@@ -5,7 +5,7 @@
     },
 
     search : function(component, event, helper) {
-        var myEvent = component.getEvent('searchEvent');
+        let myEvent = component.getEvent('searchEvent');
         myEvent.setParams({
             'name': component.find('name').get('v.value'),
             'spaceType': component.find('spaceType').get('v.value'),
