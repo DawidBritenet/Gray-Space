@@ -5,7 +5,9 @@
     <aura:registerEvent name="photoAdded" type="c:GS_PhotoAdded"/>
 
     <lightning:card title="{! $Label.c.GS_Add_Photo}">
-        <lightning:fileUpload recordId="{! v.recordId }" label="" onuploadfinished="{! c.photoAdded }" multiple="true" accept="['.png', '.jpg', '.jpeg']"/>
-        <span>{! $Label.c.GS_multiple_photos_info }</span>
+        <div align="center">
+            <lightning:fileUpload recordId="{! v.recordId }" label="" onuploadfinished="{! c.photoAdded }" multiple="true" accept="['.png', '.jpg', '.jpeg']"/>
+            <span>{! $Label.c.GS_multiple_photos_info }</span>
+        </div>
     </lightning:card>
 </aura:component>
