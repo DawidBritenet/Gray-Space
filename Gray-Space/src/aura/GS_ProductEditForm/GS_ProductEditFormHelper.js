@@ -1,11 +1,11 @@
 ({
     sendMessage : function(title, message, type) {
-        var toastParams = {
+        let toastParams = {
           title: title,
           message: message,
           type: type
         }
-        var toastEvent = $A.get("e.force:showToast");
+        let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }

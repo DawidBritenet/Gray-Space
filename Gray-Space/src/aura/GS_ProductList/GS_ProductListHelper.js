@@ -1,7 +1,7 @@
 ({
     getProducts: function (component, event) {
-        var action = component.get('c.getProducts');
-        var offset = component.get('v.page') - 1;
+        let action = component.get('c.getProducts');
+        let offset = component.get('v.page') - 1;
         offset *= component.get('v.pageSize');
         action.setParams({
             offset: offset,
@@ -25,13 +25,13 @@
     },
 
     getPagesCount: function (component, event) {
-        var action = component.get('c.getProductsCount');
+        let action = component.get('c.getProductsCount');
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                var results = response.getReturnValue();
+                let results = response.getReturnValue();
 
                 component.set('v.productsCount', results);
-                var pageCount = results / component.get('v.pageSize');
+                let pageCount = results / component.get('v.pageSize');
                 console.log(pageCount);
                 pageCount = Math.ceil(pageCount);
                 if (pageCount == 0) {
@@ -50,7 +50,7 @@
     },
 
     deleteProduct: function (component, productId) {
-        var action = component.get('c.deleteProduct');
+        let action = component.get('c.deleteProduct');
         action.setParam('productId', productId);
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
@@ -69,7 +69,7 @@
     },
 
     deleteProducts: function (component, productsId) {
-        var action = component.get('c.deleteProducts');
+        let action = component.get('c.deleteProducts');
         action.setParam('productsId', productsId.join(','));
         console.log(productsId.join(','));
         action.setCallback(this, function (response) {
@@ -96,7 +96,7 @@
             onclick: component.getReference("c.closeEditForm")
         }]], function (content, status) {
             if (status === "SUCCESS") {
-                var modalPromise = component.find('editProductModal').showCustomModal({
+                let modalPromise = component.find('editProductModal').showCustomModal({
                     header: $A.get('$Label.c.GS_New_Product'),
                     body: content[0],
                     footer: content[1],
@@ -111,17 +111,17 @@
     },
 
     fireReInit: function () {
-        var appEvent = $A.get('e.c:GS_ReInit');
+        let appEvent = $A.get('e.c:GS_ReInit');
         appEvent.fire();
     },
 
     sendMessage: function (title, message, type) {
-        var toastParams = {
+        let toastParams = {
             title: title,
             message: message,
             type: type
         };
-        var toastEvent = $A.get("e.force:showToast");
+        let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }

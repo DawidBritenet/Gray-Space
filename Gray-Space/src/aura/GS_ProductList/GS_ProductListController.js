@@ -3,7 +3,7 @@
         helper.getProducts(component, event);
         helper.getPagesCount(component, event);
 
-        var actions = [
+        let actions = [
             {label: 'Edit', name: 'edit'},
             {label: 'Delete', name: 'delete'}
         ];
@@ -23,8 +23,8 @@
     },
 
     handleRowAction: function (component, event, helper) {
-        var action = event.getParam('action');
-        var row = event.getParam('row');
+        let action = event.getParam('action');
+        let row = event.getParam('row');
 
         switch (action.name) {
             case 'edit':
@@ -36,8 +36,8 @@
         }
     },
 
-    newProduct: function (component, event, helper) {
-        var event = $A.get('e.c:GS_OpenNewProductForm');
+    newProduct: function () {
+        let event = $A.get('e.c:GS_OpenNewProductForm');
         event.fire();
     },
 
@@ -72,7 +72,7 @@
     },
 
     deleteButton : function (component, event, helper) {
-        var productsIds = [];
+        let productsIds = [];
         component.get('v.selectedRows').forEach(row => productsIds.push(row.Id));
         helper.deleteProducts(component, productsIds);
     },
