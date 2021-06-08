@@ -7,10 +7,12 @@
     <aura:attribute name="modalOpen" type="Boolean" default="false"/>
 
     <ltng:require scripts="{! $Resource.sliderJs }"/>
+    <aura:handler name="photoAdded" event="c:GS_PhotoAdded" action="{! c.doInit }"/>
+    <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.doInit }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
-    <aura:if isTrue="{! v.photos.length > 1 }">
-        <lightning:card title="{! $Label.c.GS_Gallery }">
+    <lightning:card title="{! $Label.c.GS_Gallery }">
+        <aura:if isTrue="{! v.photos.length > 0 }">
             <div class="photosContainer">
                 <aura:iteration items="{! v.photos }" var="photo" indexVar="index">
                     <div aura:id="photoSlide" class="{! if(equals(index, v.slide), 'SlideBlock', 'SlideNone') }">
@@ -19,9 +21,13 @@
                         </div>
                     </div>
                 </aura:iteration>
-                <a class="prev" onclick="{! c.prevPage }">&#10094;</a>
-                <a class="next" onclick="{! c.nextPage }">&#10095;</a>
+                <aura:if isTrue="{! v.photos.length > 1 }">
+                    <a class="prev" onclick="{! c.prevPage }">&#10094;</a>
+                    <a class="next" onclick="{! c.nextPage }">&#10095;</a>
+                </aura:if>
             </div>
+        </aura:if>
+        <aura:if isTrue="{! v.photos.length > 1 }">
             <div class="photosSmall">
                 <aura:iteration items="{! v.photos }" var="photo" indexVar="index">
                     <div class="smallPhotoContainer" onclick="{! c.selectPage }" data-value="{! index }">
@@ -30,27 +36,34 @@
                     </div>
                 </aura:iteration>
             </div>
-        </lightning:card>
-
-        <aura:if isTrue="{! v.modalOpen }">
-            <div class="slds-modal slds-fade-in-open slds-backdrop slds-modal_large">
-                <div class="slds-modal__container">
-                    <div class="slds-modal__header">
-                        <lightning:buttonIcon iconName="utility:close" alternativeText="Close this window" size="large"
-                                              variant="bare-inverse" class="slds-modal__close"
-                                              onclick="{! c.closeLarge }"/>
-                    </div>
-                    <div class="slds-modal__content slds-p-around_medium">
-                        <div class="slds-align_absolute-center">
-                            <img class="largeImage" src="{! v.selectedPhoto }"/>
-                        </div>
-                    </div>
-                    <div class="slds-modal__footer">
-                        <lightning:button label="Close" variant="brand" onclick="{! c.closeLarge }"/>
-                    </div>
+        </aura:if>
+        <aura:if isTrue="{! v.photos.length == 0 }">
+            <div class="slds-align_absolute-center">
+                <div style="width: 300px">
+                    <c:GS_AddPhoto recordId="{! v.recordId }"/>
                 </div>
             </div>
         </aura:if>
+    </lightning:card>
 
+
+    <aura:if isTrue="{! v.modalOpen }">
+        <div class="slds-modal slds-fade-in-open slds-backdrop slds-modal_large">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" alternativeText="Close this window" size="large"
+                                          variant="bare-inverse" class="slds-modal__close"
+                                          onclick="{! c.closeLarge }"/>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-align_absolute-center">
+                        <img class="largeImage" src="{! v.selectedPhoto }"/>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning:button label="Close" variant="brand" onclick="{! c.closeLarge }"/>
+                </div>
+            </div>
+        </div>
     </aura:if>
 </aura:component>

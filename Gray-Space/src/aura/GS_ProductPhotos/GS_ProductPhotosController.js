@@ -1,6 +1,7 @@
 ({
     doInit : function(component, event, helper) {
-        helper.getPhotos(component, event)
+        helper.getPhotos(component, event);
+        component.set('v.slide', 0);
     },
 
     nextPage : function(component, event, helper) {
