@@ -6,6 +6,8 @@
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
     <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.doInit }"/>
 
+    <aura:method name="reload" action="{! c.doInit }"/>
+
     <lightning:card title="{! $Label.c.GS_Choose_Default_Photo }">
         <div class="productPhotoGallery">
             <aura:iteration items="{! v.photosIds }" var="photoId">

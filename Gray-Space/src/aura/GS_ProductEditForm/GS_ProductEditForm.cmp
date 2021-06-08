@@ -4,6 +4,7 @@
     <aura:attribute name="photosIds" type="String[]"/>
 
     <ltng:require styles="{!$Resource.bigModal}"/>
+    <aura:handler name="photoAdded" event="c:GS_PhotoAdded" action="{! c.updatePhotoGallery }"/>
 
     <lightning:messages/>
     <lightning:card title="{! $Label.c.GS_Product_Details }">
