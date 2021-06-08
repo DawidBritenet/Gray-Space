@@ -4,21 +4,21 @@
     },
 
     nextPage : function(component, event, helper) {
-        var page = component.get('v.page');
+        let page = component.get('v.page');
         page += 1;
         component.set('v.page', page);
         helper.changePage(component, event);
     },
 
     previousPage : function(component, event, helper) {
-        var page = component.get('v.page');
+        let page = component.get('v.page');
         page -= 1;
         component.set('v.page', page);
         helper.changePage(component, event);
     },
 
     setPage : function(component, event, helper) {
-        var page = event.getSource().get('v.label');
+        let page = event.getSource().get('v.label');
         console.log(page);
         component.set('v.page', parseInt(page));
         helper.changePage(component, event);

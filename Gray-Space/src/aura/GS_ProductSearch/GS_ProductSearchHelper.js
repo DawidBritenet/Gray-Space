@@ -1,11 +1,11 @@
 ({
     searchProducts: function (component, event) {
-        var name = event.getParam('name');
-        var spaceType = event.getParam('spaceType');
-        var type = event.getParam('type');
-        var page = component.get('v.page');
-        var pageSize = component.get('v.pageSize');
-        var action = component.get('c.searchProduct');
+        let name = event.getParam('name');
+        let spaceType = event.getParam('spaceType');
+        let type = event.getParam('type');
+        let page = component.get('v.page');
+        let pageSize = component.get('v.pageSize');
+        let action = component.get('c.searchProduct');
         action.setParams({
             'name': name,
             'spaceType': spaceType,
@@ -16,7 +16,7 @@
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 if (response.getReturnValue() != null) {
-                    var results = response.getReturnValue();
+                    let results = response.getReturnValue();
                     component.set('v.products', results);
                     this.getPagesCount(component, event);
                 } else {
@@ -35,13 +35,13 @@
     },
 
     changePage: function (component, event) {
-        var name = event.getParam('name');
-        var spaceType = event.getParam('spaceType');
-        var type = event.getParam('type');
-        var page = component.get('v.page');
-        var pageSize = component.get('v.pageSize');
-        var offset = (page - 1) * pageSize;
-        var action = component.get('c.searchProduct');
+        let name = event.getParam('name');
+        let spaceType = event.getParam('spaceType');
+        let type = event.getParam('type');
+        let page = component.get('v.page');
+        let pageSize = component.get('v.pageSize');
+        let offset = (page - 1) * pageSize;
+        let action = component.get('c.searchProduct');
         action.setParams({
             'name': name,
             'spaceType': spaceType,
@@ -65,10 +65,10 @@
     },
 
     getPagesCount: function (component, event) {
-        var name = event.getParam('name');
-        var spaceType = event.getParam('spaceType');
-        var type = event.getParam('type');
-        var action = component.get('c.getSearchCount');
+        let name = event.getParam('name');
+        let spaceType = event.getParam('spaceType');
+        let type = event.getParam('type');
+        let action = component.get('c.getSearchCount');
         action.setParams({
             'name': name,
             'spaceType': spaceType,
@@ -76,17 +76,17 @@
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                var results = response.getReturnValue();
+                let results = response.getReturnValue();
 
                 component.set('v.productsCount', results);
-                var pageCount = results / component.get('v.pageSize');
+                let pageCount = results / component.get('v.pageSize');
                 pageCount = Math.ceil(pageCount);
                 if (pageCount == 0) {
                     pageCount = 1;
                 }
                 component.set('v.pageCount', pageCount);
-                var pages = [];
-                for (var i = 1; i <= pageCount; i++) {
+                let pages = [];
+                for (let i = 1; i <= pageCount; i++) {
                     pages.push(i);
                 }
                 component.set('v.pagesList', pages);
@@ -109,12 +109,12 @@
     },
 
     sendMessage: function (title, message, type) {
-        var toastParams = {
+        let toastParams = {
             title: title,
             message: message,
             type: type
         }
-        var toastEvent = $A.get("e.force:showToast");
+        let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }

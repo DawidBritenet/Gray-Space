@@ -1,6 +1,6 @@
 ({
     getSpaceTypePickList : function(component, event) {
-        var action = component.get('c.getPicklistValues');
+        let action = component.get('c.getPicklistValues');
         action.setParams({
             'objectName': 'product2',
             'fieldApiName': 'GS_Space_Type__c'
@@ -20,7 +20,7 @@
     },
 
     getTypePickList : function(component, event) {
-        var action = component.get('c.getPicklistValues');
+        let action = component.get('c.getPicklistValues');
         action.setParams({
             'objectName': 'product2',
             'fieldApiName': 'GS_Type__c'

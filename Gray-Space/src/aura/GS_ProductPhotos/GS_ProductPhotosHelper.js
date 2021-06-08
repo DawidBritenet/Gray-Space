@@ -1,6 +1,6 @@
 ({
     getPhotos : function(component, event) {
-        var action = component.get('c.getPhotosLinks');
+        let action = component.get('c.getPhotosLinks');
         action.setParams({
             'productId': component.get('v.recordId')
         });
