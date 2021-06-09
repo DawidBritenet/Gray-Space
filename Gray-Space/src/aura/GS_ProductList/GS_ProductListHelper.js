@@ -89,23 +89,16 @@
     },
 
     createEditProductModal: function (component, event, recordId) {
-        $A.createComponents([['c:GS_ProductEditForm', {'recordId': recordId}], ["lightning:button", {
-            label: $A.get('$Label.c.GS_Close'),
-            title: 'Close',
-            variant: 'brand',
-            onclick: component.getReference("c.closeEditForm")
-        }]], function (content, status) {
+        $A.createComponent('c:GS_ProductFormFlow', {'recordId': recordId}, function (content, status) {
             if (status === "SUCCESS") {
                 var modalPromise = component.find('editProductModal').showCustomModal({
-                    header: $A.get('$Label.c.GS_New_Product'),
-                    body: content[0],
-                    footer: content[1],
+                    header: $A.get('$Label.c.GS_Edit_Product'),
+                    body: content,
                     showCloseButton: true,
                     closeCallback: function () {
                         this.fireReInit();
                     }
                 });
-                component.set('v.modalPromise', modalPromise);
             }
         });
     },

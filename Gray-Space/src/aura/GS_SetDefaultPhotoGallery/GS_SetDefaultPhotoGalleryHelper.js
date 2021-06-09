@@ -1,12 +1,17 @@
 ({
     getPhotosIds : function(component, event) {
-        var action = component.get('c.getPhotosIds');
+        let action = component.get('c.getPhotosIds');
         action.setParams({
             'productId': component.get('v.recordId')
         });
         action.setCallback(this, function(response) {
             if (response.getState() === "SUCCESS") {
-                component.set('v.photosIds', response.getReturnValue());
+                if (response.getReturnValue().length < 2) {
+                    let selectedPhotoEvent = $A.get('e.c:GS_DefaultPhotoSelected');
+                    selectedPhotoEvent.fire();
+                } else {
+                    component.set('v.photosIds', response.getReturnValue());
+                }
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -21,7 +26,7 @@
 
     getDefaultPhoto : function(component, event) {
 
-        var action = component.get('c.getDefaultPhotoId');
+        let action = component.get('c.getDefaultPhotoId');
         action.setParams({
             'productId': component.get('v.recordId')
         });
