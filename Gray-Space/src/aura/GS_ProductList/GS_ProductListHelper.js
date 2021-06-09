@@ -1,7 +1,7 @@
 ({
     getProducts: function (component, event) {
-        var action = component.get('c.getProducts');
-        var offset = component.get('v.page') - 1;
+        let action = component.get('c.getProducts');
+        let offset = component.get('v.page') - 1;
         offset *= component.get('v.pageSize');
         action.setParams({
             offset: offset,
@@ -25,14 +25,13 @@
     },
 
     getPagesCount: function (component, event) {
-        var action = component.get('c.getProductsCount');
+        let action = component.get('c.getProductsCount');
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                var results = response.getReturnValue();
+                let results = response.getReturnValue();
 
                 component.set('v.productsCount', results);
-                var pageCount = results / component.get('v.pageSize');
-                console.log(pageCount);
+                let pageCount = results / component.get('v.pageSize');
                 pageCount = Math.ceil(pageCount);
                 if (pageCount == 0) {
                     pageCount = 1;
@@ -50,13 +49,13 @@
     },
 
     deleteProduct: function (component, productId) {
-        var action = component.get('c.deleteProduct');
+        let action = component.get('c.deleteProduct');
         action.setParam('productId', productId);
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 console.log('success')
                 this.fireReInit();
-                this.sendMessage($A.get('$Label.c.GS_Success', $A.get('$Label.c.GS_Deleted_product'), 'success'));
+                this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_product'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -69,14 +68,14 @@
     },
 
     deleteProducts: function (component, productsId) {
-        var action = component.get('c.deleteProducts');
+        let action = component.get('c.deleteProducts');
         action.setParam('productsId', productsId.join(','));
         console.log(productsId.join(','));
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 console.log('success');
                 this.fireReInit();
-                this.sendMessage($A.get('$Label.c.GS_Success', $A.get('$Label.c.GS_Deleted_Products'), 'success'));
+                this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_Products'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -104,17 +103,17 @@
     },
 
     fireReInit: function () {
-        var appEvent = $A.get('e.c:GS_ReInit');
+        let appEvent = $A.get('e.c:GS_ReInit');
         appEvent.fire();
     },
 
     sendMessage: function (title, message, type) {
-        var toastParams = {
+        let toastParams = {
             title: title,
             message: message,
             type: type
         };
-        var toastEvent = $A.get("e.force:showToast");
+        let toastEvent = $A.get("e.force:showToast");
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }
