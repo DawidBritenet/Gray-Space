@@ -2,10 +2,14 @@
 
     <aura:attribute name="products" type="Product2[]"/>
 
-    <div class="productsContainer">
+    <lightning:layout multipleRows="true">
         <aura:iteration items="{! v.products }" var="product">
-            <c:GS_ProductTile product="{! product }"/>
+            <lightning:layoutItem class="slds-size_1-of-5">
+                <div class="slds-align_absolute-center">
+                    <c:GS_ProductTile product="{! product }"/>
+                </div>
+            </lightning:layoutItem>
         </aura:iteration>
-    </div>
+    </lightning:layout>
 
 </aura:component>

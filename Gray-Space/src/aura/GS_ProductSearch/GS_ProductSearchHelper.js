@@ -3,22 +3,24 @@
         let name = event.getParam('name');
         let spaceType = event.getParam('spaceType');
         let type = event.getParam('type');
-        let page = component.get('v.page');
         let pageSize = component.get('v.pageSize');
+        let page = component.get('v.page');
+        let offset = (page - 1) * pageSize;
         let action = component.get('c.searchProduct');
         action.setParams({
             'name': name,
             'spaceType': spaceType,
             'type': type,
             'resultLimit': pageSize,
-            'offset': 0
+            'offset': offset
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 if (response.getReturnValue() != null) {
-                    let results = response.getReturnValue();
-                    component.set('v.products', results);
                     this.getPagesCount(component, event);
+                    component.set('v.recordsStart', offset+1);
+                    component.set('v.recordsEnd', offset + response.getReturnValue().length);
+                    component.set('v.products', response.getReturnValue());
                 } else {
                     this.sendMessage('Error', 'Unknown error.', 'Error');
                 }
@@ -30,7 +32,7 @@
                 this.sendMessage('Error', 'Search error. Check console', 'Error');
                 console.log(response.getError());
             }
-        })
+        });
         $A.enqueueAction(action);
     },
 
@@ -51,6 +53,8 @@
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
+                component.set('v.recordsStart', offset + 1);
+                component.set('v.recordsEnd', offset + response.getReturnValue().length);
                 component.set('v.products', response.getReturnValue());
             }
             if (response.getState() === "INCOMPLETE") {
@@ -60,7 +64,23 @@
                 this.sendMessage('Error', 'Search error. Check console', 'Error');
                 console.log(response.getError());
             }
-        })
+        });
+        $A.enqueueAction(action);
+    },
+
+    getPromotedProducts: function (component, event) {
+        let action = component.get('c.getPromotedProducts');
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                component.set('v.products', response.getReturnValue());
+            }
+            if (response.getState() === "INCOMPLETE") {
+                console.log('incomplete');
+            }
+            if (response.getState() === "ERROR") {
+                console.log(response.getError());
+            }
+        });
         $A.enqueueAction(action);
     },
 
@@ -94,8 +114,7 @@
                     this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Success_1') + ' ' + results + ' ' + $A.get('$Label.c.GS_Search_Success_2'), 'success');
                 } else {
                     this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Without_Results'), 'info');
-                }
-                ;
+                };
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');

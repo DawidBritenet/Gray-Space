@@ -21,6 +21,7 @@
                 <lightning:layoutItem size="6">
                     <lightning:inputField fieldName="GS_Colour__c"/>
                     <lightning:inputField fieldName="GS_Type__c"/>
+                    <lightning:inputField fieldName="GS_Promoted__c"/>
                     <lightning:inputField fieldName="GS_Space_Type__c"/>
                 </lightning:layoutItem>
                 <lightning:inputField fieldName="GS_Description__c"/>

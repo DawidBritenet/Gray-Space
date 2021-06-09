@@ -7,9 +7,9 @@
     <aura:attribute name="pageCount" type="Integer" default="1"/>
     <aura:attribute name="pageSize" type="Integer" default="20"/>
     <aura:attribute name="productsCount" type="Integer"/>
-    <aura:attribute name="modalPromise" type="Aura.Action"/>
     <aura:attribute name="recordsStart" type="Integer"/>
     <aura:attribute name="recordsEnd" type="Integer"/>
+    <aura:attribute name="modalPromise" type="Aura.Action"/>
 
     <aura:handler event="c:GS_ReInit" action="{! c.doInit }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
@@ -36,7 +36,7 @@
                     <option value="30">30</option>
                 </lightning:select>
                 <p class="paginationInfoText">
-                        {! $Label.c.GS_Showing + ' ' + v.recordsStart +'-' + v.recordsEnd +' '+ $Label.c.GS_out_of +' '+ v.productsCount }
+                        {! $Label.c.GS_Showing+ ' ' +v.recordsStart + '-' + v.recordsEnd + ' ' + $Label.c.GS_out_of + ' ' + v.productsCount }
                 </p>
             </div>
 
