@@ -6,7 +6,12 @@
         });
         action.setCallback(this, function(response) {
             if (response.getState() === "SUCCESS") {
-                component.set('v.photosIds', response.getReturnValue());
+                if (response.getReturnValue().length < 2) {
+                    let selectedPhotoEvent = $A.get('e.c:GS_DefaultPhotoSelected');
+                    selectedPhotoEvent.fire();
+                } else {
+                    component.set('v.photosIds', response.getReturnValue());
+                }
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
