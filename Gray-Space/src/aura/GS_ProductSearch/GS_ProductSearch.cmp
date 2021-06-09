@@ -1,5 +1,5 @@
 <aura:component description="GS_ProductSearch" controller="GS_ProductController"
-                implements="flexipage:availableForAllPageTypes,force:lightningQuickAction">
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
     <aura:attribute name="products" type="Product2[]"/>
     <aura:attribute name="productsCount" type="Integer"/>
     <aura:attribute name="page" type="Integer" default="1"/>

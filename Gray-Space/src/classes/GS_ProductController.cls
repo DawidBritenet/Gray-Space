@@ -85,6 +85,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<String> getPhotosLinks(String productId) {
+        GS_General__c settings = GS_General__c.getOrgDefaults();
         List<ContentDocumentLink> photos = [SELECT ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :productId];
         List<String> photosLinks = new List<String>();
         List<ID> photosIds = new List<ID>();
@@ -98,19 +99,19 @@ public with sharing class GS_ProductController {
 
         List<ContentVersion> versions = new List<ContentVersion>();
 
-        List<ContentVersion> defaultPhotos = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :defaultPhoto];
+        List<ContentVersion> defaultPhotos = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :defaultPhoto AND IsLatest = True AND FileType IN ('PNG', 'JPG', 'JPEG') ];
         if (defaultPhotos.size() > 0) {
             versions.add(defaultPhotos[0]);
         }
 
-        versions.addAll([SELECT Id FROM ContentVersion WHERE ContentDocumentId IN :photosIds]);
+        versions.addAll([SELECT Id FROM ContentVersion WHERE ContentDocumentId IN :photosIds AND IsLatest = True AND FileType IN ('PNG', 'JPG', 'JPEG')]);
 
         List<Id> idsAdded = new List<Id>();
 
         for (ContentVersion version : versions) {
             if (!idsAdded.contains(version.id)) {
                 idsAdded.add(version.id);
-                photosLinks.add('/sfc/servlet.shepherd/version/download/' + version.id);
+                photosLinks.add(settings.GS_Base_Photo_URL__c + version.id);
             }
         }
 
@@ -119,7 +120,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static String getPhotoLink(String photoId) {
-        List<ContentVersion> versions = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :photoId];
+        List<ContentVersion> versions = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :photoId AND IsLatest = True AND FileType IN ('PNG', 'JPG', 'JPEG')];
         if (versions.size() > 0) {
             return createPhotoLink(versions[0].id);
         }
@@ -202,8 +203,10 @@ public with sharing class GS_ProductController {
     }
 
     public static String createPhotoLink(String versionId) {
+        GS_General__c settings = GS_General__c.getOrgDefaults();
+
         if (String.isNotBlank(versionId)) {
-            return '/sfc/servlet.shepherd/version/download/' + versionId;
+            return settings.GS_Base_Photo_URL__c + versionId;
         }
         return PageReference.forResource('GS_NoPhoto').getUrl();
     }

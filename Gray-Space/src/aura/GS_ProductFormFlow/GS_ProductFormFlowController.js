@@ -3,7 +3,7 @@
         let payload = event.getParams().response;
         component.set('v.recordId', payload.id);
         helper.nextStep(component, event);
-        // helper.fireReInit();
+        helper.fireReInit();
     },
 
     addedPhoto: function (component, event, helper) {
@@ -29,7 +29,9 @@
     },
 
     closeModal: function (component, event, helper) {
-        helper.fireReInit();
         component.find("newProductForm").notifyClose();
+        let dismissActionPanel = $A.get("e.force:closeQuickAction");
+        dismissActionPanel.fire();
+        helper.fireReInit();
     }
 })

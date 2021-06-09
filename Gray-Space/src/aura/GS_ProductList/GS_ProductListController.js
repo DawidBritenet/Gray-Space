@@ -43,6 +43,7 @@
 
     setPageSize: function (component, event, helper) {
         component.set('v.pageSize', component.find('pageSizePickList').get('v.value'));
+        component.set('v.maxRowSelection', component.find('pageSizePickList').get('v.value'));
         component.set('v.page', 1);
         helper.getProducts(component, event);
         helper.getPagesCount(component, event);
@@ -51,20 +52,24 @@
     previousPage: function (component, event, helper) {
         component.set('v.page', component.get('v.page') - 1);
         helper.getProducts(component, event);
+        helper.resetSelection(component);
     },
 
     firstPage: function (component, event, helper) {
         component.set('v.page', 1);
         helper.getProducts(component, event);
+        helper.resetSelection(component);
     },
     nextPage: function (component, event, helper) {
         component.set('v.page', component.get('v.page') + 1);
         helper.getProducts(component, event);
+        helper.resetSelection(component);
     },
 
     lastPage: function (component, event, helper) {
         component.set('v.page', component.get('v.pageCount'));
         helper.getProducts(component, event);
+        helper.resetSelection(component);
     },
 
     updateRowSelection: function (component, event) {

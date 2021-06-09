@@ -12,6 +12,7 @@
                 component.set('v.recordsStart', offset + 1);
                 component.set('v.recordsEnd', offset + response.getReturnValue().length);
                 component.set('v.products', response.getReturnValue());
+                this.resetSelection(component);
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -55,6 +56,7 @@
             if (response.getState() === "SUCCESS") {
                 console.log('success')
                 this.fireReInit();
+                this.resetSelection(component);
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_product'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
@@ -73,8 +75,11 @@
         console.log(productsId.join(','));
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                console.log('success');
+                console.log('success1');
                 this.fireReInit();
+                console.log('success2');
+                this.resetSelection(component);
+                console.log('success3');
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_Products'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
@@ -105,6 +110,11 @@
     fireReInit: function () {
         let appEvent = $A.get('e.c:GS_ReInit');
         appEvent.fire();
+    },
+
+    resetSelection: function (component) {
+        component.set('v.maxRowSelection', 0);
+        component.set('v.maxRowSelection', component.get('v.pageSize'));
     },
 
     sendMessage: function (title, message, type) {

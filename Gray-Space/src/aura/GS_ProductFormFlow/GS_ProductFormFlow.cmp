@@ -7,6 +7,7 @@
     <aura:handler name="photoAdded" event="c:GS_PhotoAdded" action="{! c.addedPhoto }"/>
     <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.successClose }"/>
 
+    <aura:registerEvent name="GS_ReInit" type="c:GS_ReInit"/>
     <aura:registerEvent name="closeModal" type="c:GS_CloseOverlay"/>
     <lightning:overlayLibrary aura:id="newProductForm"/>
 
@@ -17,13 +18,9 @@
         .slds-p-around--medium {
         padding: 0rem !important;
         }
-        .slds-modal__content{
-        overflow-y:hidden !important;
-        height:unset !important;
-        max-height:unset !important;
-        }
-        .modal-footer slds-modal__footer {
-        display: none;
+        .slds-modal__content {
+        height: unset !important;
+        max-height: unset !important;
         }
     </aura:html>
 
@@ -44,24 +41,26 @@
     <aura:if isTrue="{! v.step == 1 }">
         <lightning:recordEditForm objectApiName="Product2" onsuccess="{! c.saveProduct }"
                                   recordId="{! if(v.recordId, v.recordId, '') }">
-            <div class="slds-p-around_medium">
-                <lightning:layout class="detailsLayout" multipleRows="true">
-                    <lightning:layoutItem size="6">
-                        <lightning:inputField fieldName="Name"/>
-                        <lightning:inputField fieldName="ProductCode"/>
-                        <lightning:inputField fieldName="StockKeepingUnit"/>
-                        <lightning:inputField fieldName="GS_Height__c"/>
-                        <lightning:inputField fieldName="GS_Width__c"/>
-                        <lightning:inputField fieldName="GS_Depth__c"/>
-                    </lightning:layoutItem>
-                    <lightning:layoutItem size="6">
-                        <lightning:inputField fieldName="GS_Colour__c"/>
-                        <lightning:inputField fieldName="GS_Type__c"/>
-                        <lightning:inputField fieldName="GS_Space_Type__c"/>
-                    </lightning:layoutItem>
-                    <lightning:inputField fieldName="GS_Description__c"/>
-                </lightning:layout>
-            </div>
+            <ui:scrollerWrapper>
+                <div class="slds-p-around_medium">
+                    <lightning:layout class="detailsLayout" multipleRows="true">
+                        <lightning:layoutItem size="6">
+                            <lightning:inputField fieldName="Name"/>
+                            <lightning:inputField fieldName="ProductCode"/>
+                            <lightning:inputField fieldName="StockKeepingUnit"/>
+                            <lightning:inputField fieldName="GS_Height__c"/>
+                            <lightning:inputField fieldName="GS_Width__c"/>
+                            <lightning:inputField fieldName="GS_Depth__c"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:inputField fieldName="GS_Colour__c"/>
+                            <lightning:inputField fieldName="GS_Type__c"/>
+                            <lightning:inputField fieldName="GS_Space_Type__c"/>
+                        </lightning:layoutItem>
+                        <lightning:inputField fieldName="GS_Description__c"/>
+                    </lightning:layout>
+                </div>
+            </ui:scrollerWrapper>
 
             <footer class="slds-modal__footer">
                 <lightning:button label="{! $Label.c.GS_Cancel }" variant="neutral" type="button"
