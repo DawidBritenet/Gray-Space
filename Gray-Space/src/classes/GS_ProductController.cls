@@ -63,7 +63,7 @@ public with sharing class GS_ProductController {
     @AuraEnabled
     public static List<ContentDocument> getPhotos(String productId) {
         List<ContentDocumentLink> photos = [SELECT ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :productId];
-        List<ID> photosIds = new List<ID>();
+        List<Id> photosIds = new List<ID>();
 
         for (ContentDocumentLink photo : photos) {
             photosIds.add(photo.ContentDocumentId);
@@ -89,14 +89,29 @@ public with sharing class GS_ProductController {
         List<String> photosLinks = new List<String>();
         List<ID> photosIds = new List<ID>();
 
+        Id defaultPhoto = getDefaultPhotoId(productId);
+
+
         for (ContentDocumentLink photo : photos) {
             photosIds.add(photo.ContentDocumentId);
         }
 
-        List<ContentVersion> versions = [SELECT Id FROM ContentVersion WHERE ContentDocumentId IN :photosIds];
+        List<ContentVersion> versions = new List<ContentVersion>();
+
+        List<ContentVersion> defaultPhotos = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :defaultPhoto];
+        if (defaultPhotos.size() > 0) {
+            versions.add(defaultPhotos[0]);
+        }
+
+        versions.addAll([SELECT Id FROM ContentVersion WHERE ContentDocumentId IN :photosIds]);
+
+        List<Id> idsAdded = new List<Id>();
 
         for (ContentVersion version : versions) {
-            photosLinks.add('/sfc/servlet.shepherd/version/download/' + version.id);
+            if (!idsAdded.contains(version.id)) {
+                idsAdded.add(version.id);
+                photosLinks.add('/sfc/servlet.shepherd/version/download/' + version.id);
+            }
         }
 
         return photosLinks;
@@ -123,8 +138,8 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
-    public static List<Map<String,String>> getPicklistValues(String objectName, String fieldApiName) {
-        List<Map<String,String>> optionList = new List<Map<String,String>>();
+    public static List<Map<String, String>> getPicklistValues(String objectName, String fieldApiName) {
+        List<Map<String, String>> optionList = new List<Map<String, String>>();
         Map<String, Schema.SObjectType> globalDescribe = Schema.getGlobalDescribe();
 
         Map<String, Schema.SObjectField> fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
@@ -149,7 +164,7 @@ public with sharing class GS_ProductController {
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        List<Product2> products = Database.query('SELECT Id, Name, defaultPhotoId__c FROM Product2'+arguments+' LIMIT '+resultLimit+' OFFSET '+offset);
+        List<Product2> products = Database.query('SELECT Id, Name, defaultPhotoId__c FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
         return products;
     }
 
@@ -157,7 +172,7 @@ public with sharing class GS_ProductController {
     public static Integer getSearchCount(String name, String spaceType, String type) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        return Database.countQuery('SELECT COUNT() FROM Product2'+arguments);
+        return Database.countQuery('SELECT COUNT() FROM Product2' + arguments);
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {
@@ -166,21 +181,21 @@ public with sharing class GS_ProductController {
 
         if (String.isNotBlank(name)) {
             name = String.escapeSingleQuotes(name);
-            arguments.add('name LIKE \'%'+name+'%\'');
+            arguments.add('name LIKE \'%' + name + '%\'');
         }
 
         if (String.isNotBlank(spaceType)) {
             spaceType = String.escapeSingleQuotes(spaceType);
-            arguments.add('GS_Space_Type__c includes (\''+spaceType+'\')');
+            arguments.add('GS_Space_Type__c includes (\'' + spaceType + '\')');
         }
 
         if (String.isNotBlank(type)) {
             type = String.escapeSingleQuotes(type);
-            arguments.add('GS_Type__c LIKE \''+type+'\'');
+            arguments.add('GS_Type__c LIKE \'' + type + '\'');
         }
 
         if (arguments.size() > 0) {
-            argumentsString = ' WHERE '+ String.join(arguments, ' AND ');
+            argumentsString = ' WHERE ' + String.join(arguments, ' AND ');
         }
 
         return argumentsString;

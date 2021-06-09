@@ -55,7 +55,7 @@
             if (response.getState() === "SUCCESS") {
                 console.log('success')
                 this.fireReInit();
-                this.sendMessage($A.get('$Label.c.GS_Success', $A.get('$Label.c.GS_Deleted_product'), 'success'));
+                this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_product'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');
@@ -75,7 +75,7 @@
             if (response.getState() === "SUCCESS") {
                 console.log('success');
                 this.fireReInit();
-                this.sendMessage($A.get('$Label.c.GS_Success', $A.get('$Label.c.GS_Deleted_Products'), 'success'));
+                this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_Products'), 'success');
             }
             if (response.getState() === "INCOMPLETE") {
                 console.log('incomplete');

@@ -3,22 +3,23 @@
         let name = event.getParam('name');
         let spaceType = event.getParam('spaceType');
         let type = event.getParam('type');
-        let page = component.get('v.page');
         let pageSize = component.get('v.pageSize');
+        let page = component.get('v.page');
+        let offset = (page - 1) * pageSize;
         let action = component.get('c.searchProduct');
         action.setParams({
             'name': name,
             'spaceType': spaceType,
             'type': type,
             'resultLimit': pageSize,
-            'offset': 0
+            'offset': offset
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 if (response.getReturnValue() != null) {
-                    this.getPagesCount();
-                    component.set('v.recordsStart', 1);
-                    component.set('v.recordsEnd', response.getReturnValue().length);
+                    this.getPagesCount(component, event);
+                    component.set('v.recordsStart', offset+1);
+                    component.set('v.recordsEnd', offset + response.getReturnValue().length);
                     component.set('v.products', response.getReturnValue());
                 } else {
                     this.sendMessage('Error', 'Unknown error.', 'Error');
