@@ -1,10 +1,10 @@
 ({
-    getPhotosIds : function(component, event) {
+    getPhotosIds: function (component, event) {
         let action = component.get('c.getPhotosIds');
         action.setParams({
             'productId': component.get('v.recordId')
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 if (response.getReturnValue().length < 2) {
                     let selectedPhotoEvent = $A.get('e.c:GS_DefaultPhotoSelected');
@@ -13,37 +13,49 @@
                     component.set('v.photosIds', response.getReturnValue());
                 }
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                this.sendMessage('Error', $A.get('$Label.c.GS_Check_Console'), 'Error');
-                console.log(response.getError());
+                this.sendErrorMessage(response);
             }
-        })
+        });
         $A.enqueueAction(action);
     },
 
-    getDefaultPhoto : function(component, event) {
+    getDefaultPhoto: function (component, event) {
 
         let action = component.get('c.getDefaultPhotoId');
         action.setParams({
             'productId': component.get('v.recordId')
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                console.log(component.get('v.recordId'));
                 component.set('v.defaultPhotoId', response.getReturnValue());
                 this.getPhotosIds(component, event);
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                this.sendMessage('Error', $A.get('$Label.c.GS_Check_Console'), 'Error');
-                console.log(response.getError());
+                this.sendErrorMessage(response);
             }
-        })
+        });
         $A.enqueueAction(action);
     },
-})
+
+    sendErrorMessage: function (response) {
+        let message;
+        try {
+            message = response.getError()[0].message;
+        } catch (e) {
+            message = $A.get('$Label.c.GS_Unknown_Error');
+        }
+        this.sendMessage('Error', message, 'error');
+    },
+
+    sendMessage: function (title, message, type) {
+        let toastParams = {
+            title: title,
+            message: message,
+            type: type
+        };
+        let toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams(toastParams);
+        toastEvent.fire();
+    }
+});

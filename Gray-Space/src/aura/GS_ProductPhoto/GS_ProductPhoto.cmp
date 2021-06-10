@@ -1,5 +1,6 @@
-<aura:component description="GS_ProductPhoto" controller="GS_ProductController" implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
-    <aura:attribute name="recordId" type="String" />
+<aura:component description="GS_ProductPhoto" controller="GS_ProductController"
+                implements="flexipage:availableForRecordHome,force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="photoUrl" type="String"/>
     <aura:attribute name="height" type="String"/>
     <aura:attribute name="width" type="String"/>
@@ -9,8 +10,8 @@
 
     <aura:html tag="style">
         :root {
-            --width: {! v.width };
-            --height: {! v.height };
+        --width: {! v.width };
+        --height: {! v.height };
         }
     </aura:html>
 

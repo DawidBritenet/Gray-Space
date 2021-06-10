@@ -4,7 +4,6 @@
     },
 
     search: function (component, event, helper) {
-        // component.set('v.pageSize', component.find('pageSizePickList').get('v.value'));
         component.set('v.page', 1);
         helper.searchProducts(component, event);
     },
@@ -33,4 +32,4 @@
         component.set('v.page', component.get('v.pageCount'));
         helper.changePage(component, event);
     },
-})
+});

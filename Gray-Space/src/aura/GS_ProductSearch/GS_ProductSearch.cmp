@@ -1,5 +1,6 @@
 <aura:component description="GS_ProductSearch" controller="GS_ProductController"
-                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+                implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global">
     <aura:attribute name="products" type="Product2[]"/>
     <aura:attribute name="productsCount" type="Integer"/>
     <aura:attribute name="page" type="Integer" default="1"/>
@@ -21,30 +22,42 @@
 
             <div class="resultsFooter slds-p-horizontal_medium">
                 <aura:if isTrue="{! v.pageCount > 0 }">
-                    <div class="paginationFooter">
-                        <div class="paginationInfo">
-                            <lightning:select label="PageSize" aura:id="pageSizePickList" onchange="{! c.setPageSize }"
-                                              class="label-hidden">
-                                <option value="10">10</option>
-                                <option value="20" selected="true">20</option>
-                                <option value="30">30</option>
-                            </lightning:select>
-                            <p class="paginationInfoText">
-                                    {! $Label.c.GS_Showing+ ' ' +v.recordsStart + '-' + v.recordsEnd + ' ' + $Label.c.GS_out_of + ' ' + v.productsCount }
-                            </p>
-                        </div>
+                    <lightning:layout class="slds-p-around_small">
+                        <lightning:layoutItem size="4">
+                            <div class="paginationInfo">
+                                <lightning:select label="PageSize" aura:id="pageSizePickList"
+                                                  onchange="{! c.setPageSize }"
+                                                  class="label-hidden">
+                                    <option value="10">10</option>
+                                    <option value="20" selected="true">20</option>
+                                    <option value="30">30</option>
+                                </lightning:select>
+                                <p class="paginationInfoText">
+                                        {! $Label.c.GS_Showing+ ' ' +v.recordsStart + '-' + v.recordsEnd + ' ' + $Label.c.GS_out_of + ' ' + v.productsCount }
+                                </p>
+                            </div>
+                        </lightning:layoutItem>
 
-                        <lightning:buttonGroup>
-                            <lightning:buttonIcon iconName="utility:jump_to_left" variant="border" alternativeText="First"
-                                                  iconClass="dark" disabled="{! v.page == 1 }" onclick="{! c.firstPage }"/>
-                            <lightning:buttonIcon iconName="utility:left" variant="border" alternativeText="Left" iconClass="dark"
-                                                  disabled="{! v.page == 1 }" onclick="{! c.previousPage }"/>
-                            <lightning:buttonIcon iconName="utility:right" variant="border" alternativeText="Right" iconClass="dark"
-                                                  disabled="{! v.page == v.pageCount }" onclick="{! c.nextPage }"/>
-                            <lightning:buttonIcon iconName="utility:jump_to_right" variant="border" alternativeText="Last"
-                                                  iconClass="dark" disabled="{! v.page == v.pageCount }" onclick="{! c.lastPage }"/>
-                        </lightning:buttonGroup>
-                    </div>
+                        <lightning:layoutItem size="4">
+                            <lightning:buttonGroup class="slds-align_absolute-center">
+                                <lightning:buttonIcon iconName="utility:jump_to_left" variant="brand"
+                                                      alternativeText="First"
+                                                      iconClass="dark" disabled="{! v.page == 1 }"
+                                                      onclick="{! c.firstPage }"/>
+                                <lightning:buttonIcon iconName="utility:left" variant="brand"
+                                                      iconClass="dark"
+                                                      disabled="{! v.page == 1 }" onclick="{! c.previousPage }"/>
+                                <lightning:button variant="neutral" label="{! v.page + '/' + v.pageCount }"/>
+                                <lightning:buttonIcon iconName="utility:right" variant="brand"
+                                                      iconClass="dark"
+                                                      disabled="{! v.page == v.pageCount }" onclick="{! c.nextPage }"/>
+                                <lightning:buttonIcon iconName="utility:jump_to_right" variant="brand"
+                                                      iconClass="dark" disabled="{! v.page == v.pageCount }"
+                                                      onclick="{! c.lastPage }"/>
+                            </lightning:buttonGroup>
+                        </lightning:layoutItem>
+
+                    </lightning:layout>
                 </aura:if>
             </div>
         </lightning:card>

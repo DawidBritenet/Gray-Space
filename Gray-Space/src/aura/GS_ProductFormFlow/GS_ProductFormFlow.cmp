@@ -13,14 +13,14 @@
 
     <aura:html tag="style">
         .cuf-content {
-        padding: 0 0rem !important;
+            padding: 0 0rem !important;
         }
         .slds-p-around--medium {
-        padding: 0rem !important;
+            padding: 0rem !important;
         }
         .slds-modal__content {
-        height: unset !important;
-        max-height: unset !important;
+            height: unset !important;
+            max-height: unset !important;
         }
     </aura:html>
 
@@ -45,17 +45,35 @@
                 <div class="slds-p-around_medium">
                     <lightning:layout class="detailsLayout" multipleRows="true">
                         <lightning:layoutItem size="6">
-                            <lightning:inputField fieldName="Name"/>
-                            <lightning:inputField fieldName="ProductCode"/>
-                            <lightning:inputField fieldName="StockKeepingUnit"/>
-                            <lightning:inputField fieldName="GS_Height__c"/>
-                            <lightning:inputField fieldName="GS_Width__c"/>
-                            <lightning:inputField fieldName="GS_Depth__c"/>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="Name"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="ProductCode"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="StockKeepingUnit"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Height__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Width__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Depth__c"/>
+                            </div>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6">
-                            <lightning:inputField fieldName="GS_Colour__c"/>
-                            <lightning:inputField fieldName="GS_Type__c"/>
-                            <lightning:inputField fieldName="GS_Space_Type__c"/>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Colour__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Type__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Space_Type__c"/>
+                            </div>
                         </lightning:layoutItem>
                         <lightning:inputField fieldName="GS_Description__c"/>
                     </lightning:layout>
@@ -87,9 +105,8 @@
         </div>
         <footer class="slds-modal__footer">
             <lightning:button label="{! $Label.c.GS_Back }" variant="neutral" type="button" onclick="{! c.prevStep }"/>
-            <lightning:button label="{! $Label.c.GS_Skip }" variant="brand" onclick="{! c.successClose }"/>
+            <lightning:button label="{! $Label.c.GS_Close }" variant="brand" onclick="{! c.successClose }"/>
         </footer>
     </aura:if>
-
 
 </aura:component>

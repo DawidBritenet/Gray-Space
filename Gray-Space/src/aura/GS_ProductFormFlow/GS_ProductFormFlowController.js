@@ -2,12 +2,12 @@
     saveProduct: function (component, event, helper) {
         let payload = event.getParams().response;
         component.set('v.recordId', payload.id);
-        helper.nextStep(component, event);
+        helper.changeStep(component, component.get('v.step') + 1);
         helper.fireReInit();
     },
 
     addedPhoto: function (component, event, helper) {
-        helper.nextStep(component, event);
+        helper.changeStep(component, component.get('v.step') + 1);
         helper.fireReInit();
     },
 
@@ -21,17 +21,15 @@
     },
 
     nextStep: function (component, event, helper) {
-        helper.nextStep(component, event);
+        helper.changeStep(component, component.get('v.step') + 1);
     },
 
     prevStep: function (component, event, helper) {
-        helper.prevStep(component, event);
+        helper.changeStep(component, component.get('v.step') - 1);
     },
 
     closeModal: function (component, event, helper) {
-        component.find("newProductForm").notifyClose();
-        let dismissActionPanel = $A.get("e.force:closeQuickAction");
-        dismissActionPanel.fire();
+        helper.closeModal(component, event);
         helper.fireReInit();
     }
-})
+});

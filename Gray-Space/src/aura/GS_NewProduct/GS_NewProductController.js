@@ -1,6 +1,6 @@
 ({
-    doInit : function(component, event, helper) {
+    doInit: function (component, event, helper) {
         helper.createNewProductForm(component, event);
     },
 
-})
+});

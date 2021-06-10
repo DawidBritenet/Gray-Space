@@ -1,6 +1,6 @@
 <aura:component description="GS_ProductTile" controller="GS_ProductController">
     <aura:attribute name="product" type="Product2"/>
-    <aura:attribute name="photo" type="String" />
+    <aura:attribute name="photo" type="String"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
@@ -9,7 +9,7 @@
             <div class="tilePhoto" style="{! 'background-image: url(\'' + v.photo + '\');' }">
             </div>
             <p class="name">
-                {! v.product.Name }
+                    {! v.product.Name }
             </p>
         </div>
     </lightning:button>

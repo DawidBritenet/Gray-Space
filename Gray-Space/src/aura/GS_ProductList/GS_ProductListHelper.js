@@ -14,12 +14,8 @@
                 component.set('v.products', response.getReturnValue());
                 this.resetSelection(component);
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                this.sendMessage('Error', $A.get('$Label.c.GS_Check_Console'), 'error');
-                console.log(response.getError()[0]);
+                this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
@@ -39,11 +35,8 @@
                 }
                 component.set('v.pageCount', pageCount);
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                console.log(response.getError());
+                this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
@@ -54,16 +47,12 @@
         action.setParam('productId', productId);
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                console.log('success')
                 this.fireReInit();
                 this.resetSelection(component);
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_product'), 'success');
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                console.log(response.getError());
+                this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
@@ -72,21 +61,14 @@
     deleteProducts: function (component, productsId) {
         let action = component.get('c.deleteProducts');
         action.setParam('productsId', productsId.join(','));
-        console.log(productsId.join(','));
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                console.log('success1');
                 this.fireReInit();
-                console.log('success2');
                 this.resetSelection(component);
-                console.log('success3');
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Deleted_Products'), 'success');
             }
-            if (response.getState() === "INCOMPLETE") {
-                console.log('incomplete');
-            }
             if (response.getState() === "ERROR") {
-                console.log(response.getError());
+                this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
@@ -117,6 +99,16 @@
         component.set('v.maxRowSelection', component.get('v.pageSize'));
     },
 
+    sendErrorMessage: function (response) {
+        let message;
+        try {
+            message = response.getError()[0].message;
+        } catch (e) {
+            message = $A.get('$Label.c.GS_Unknown_Error');
+        }
+        this.sendMessage('Error', message, 'error');
+    },
+
     sendMessage: function (title, message, type) {
         let toastParams = {
             title: title,
@@ -127,4 +119,4 @@
         toastEvent.setParams(toastParams);
         toastEvent.fire();
     }
-})
+});

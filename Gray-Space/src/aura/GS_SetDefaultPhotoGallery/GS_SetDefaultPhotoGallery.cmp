@@ -1,4 +1,5 @@
-<aura:component description="GS_SetDefaultPhotoGallery" controller="GS_ProductController" implements="force:lightningQuickAction,force:hasRecordId">
+<aura:component description="GS_SetDefaultPhotoGallery" controller="GS_ProductController"
+                implements="force:lightningQuickAction,force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="photosIds" type="String[]"/>
     <aura:attribute name="defaultPhotoId" type="String"/>
@@ -12,7 +13,8 @@
     <lightning:card title="{! $Label.c.GS_Choose_Default_Photo }">
         <div class="productPhotoGallery">
             <aura:iteration items="{! v.photosIds }" var="photoId">
-                <c:GS_PhotoSetDefault aura:id="photo" recordId="{! v.recordId }" photoId="{! photoId }" idDefault="{! photoId == v.defaultPhotoId }"/>
+                <c:GS_PhotoSetDefault aura:id="photo" recordId="{! v.recordId }" photoId="{! photoId }"
+                                      idDefault="{! photoId == v.defaultPhotoId }"/>
             </aura:iteration>
         </div>
     </lightning:card>

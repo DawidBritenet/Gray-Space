@@ -5,14 +5,19 @@ public with sharing class GS_ProductController {
         List<Product2> products = [SELECT Id, defaultPhotoId__c FROM Product2 WHERE id = :productId];
         if (products.size() > 0) {
             return products[0];
+        } else {
+            throw new AuraHandledException(System.Label.GS_Product_Not_Found);
         }
-        return null;
     }
 
     @AuraEnabled
     public static void setDefaultPhoto(String productId, String photoId) {
         Product2 product = new Product2(Id = productId, defaultPhotoId__c = photoId);
-        update product;
+        try {
+            update product;
+        } catch (Exception exec) {
+            throw new AuraHandledException(System.Label.GS_Update_Default_Photo_Error);
+        }
     }
 
     @AuraEnabled
@@ -47,7 +52,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<Product2> getPromotedProducts() {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 WHERE GS_Promoted__c = True ];
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 WHERE GS_Promoted__c = True];
     }
 
     @AuraEnabled
@@ -99,7 +104,7 @@ public with sharing class GS_ProductController {
 
         List<ContentVersion> versions = new List<ContentVersion>();
 
-        List<ContentVersion> defaultPhotos = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :defaultPhoto AND IsLatest = True AND FileType IN ('PNG', 'JPG', 'JPEG') ];
+        List<ContentVersion> defaultPhotos = [SELECT Id FROM ContentVersion WHERE ContentDocumentId = :defaultPhoto AND IsLatest = True AND FileType IN ('PNG', 'JPG', 'JPEG')];
         if (defaultPhotos.size() > 0) {
             versions.add(defaultPhotos[0]);
         }
@@ -129,13 +134,21 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static void deleteProduct(Id productId) {
-        Database.delete(productId);
+        try {
+            Database.delete(productId);
+        } catch (Exception exec) {
+            throw new AuraHandledException(System.Label.GS_Deleting_Product_Error);
+        }
     }
 
     @AuraEnabled
     public static void deleteProducts(String productsId) {
         List<String> toDelete = productsId.split(',');
-        Database.delete(toDelete);
+        try {
+            Database.delete(toDelete);
+        } catch (Exception exec) {
+            throw new AuraHandledException(System.Label.GS_Deleting_Product_Error);
+        }
     }
 
     @AuraEnabled
@@ -165,15 +178,14 @@ public with sharing class GS_ProductController {
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        List<Product2> products = Database.query('SELECT Id, Name, defaultPhotoId__c FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
-        return products;
+        return Database.query('SELECT Id, Name, defaultPhotoId__c FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
     }
 
     @AuraEnabled
     public static Integer getSearchCount(String name, String spaceType, String type) {
         String arguments = prepareArguments(name, spaceType, type);
-
         return Database.countQuery('SELECT COUNT() FROM Product2' + arguments);
+
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {

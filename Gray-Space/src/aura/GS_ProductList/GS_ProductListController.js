@@ -76,13 +76,13 @@
         component.set('v.selectedRows', event.getParam('selectedRows'));
     },
 
-    deleteButton : function (component, event, helper) {
+    deleteSelectedProducts: function (component, event, helper) {
         let productsIds = [];
         component.get('v.selectedRows').forEach(row => productsIds.push(row.Id));
         helper.deleteProducts(component, productsIds);
     },
 
-    closeEditForm : function (component, event, helper) {
+    closeEditForm: function (component, event, helper) {
         component.get('v.modalPromise').then(
             function (modal) {
                 modal.close();
@@ -91,4 +91,4 @@
         helper.fireReInit();
     },
 
-})
+});
