@@ -1,6 +1,8 @@
 <aura:component description="GS_NewComment" controller="GS_ProductController">
     <aura:attribute name="rate" type="Integer"/>
 
+    <aura:registerEvent name="NewComment" type="c:GS_NewCommentEvent"/>
+
     <lightning:card title="New Comment">
         <div class="stars">
             <div data-value="1" onclick="{! c.rate }">
@@ -19,7 +21,7 @@
                 <lightning:buttonIconStateful iconName="utility:favorite" size="small" selected="{! v.rate >= 5 }"/>
             </div>
         </div>
-        <lightning:textarea label="Message" maxlength="255"/>
+        <lightning:textarea aura:id="message" label="Message" maxlength="255"/>
         <lightning:button label="Comment" onclick="{! c.sendComment }"/>
     </lightning:card>
 </aura:component>
