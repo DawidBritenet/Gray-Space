@@ -1,0 +1,6 @@
+<aura:component description="GS_CommunityProductDetails" controller="GS_ProductController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+
+    {! v.recordId }
+
+</aura:component>

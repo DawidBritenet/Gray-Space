@@ -175,6 +175,16 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
+    public static void addComment(String productId, String message, Integer rate) {
+        GS_Comment__c comment = new GS_Comment__c(GS_ProductId__c = productId, GS_Rate__c = rate, GS_Content__c = message);
+        try {
+            insert comment;
+        } catch (Exception exec) {
+            throw new AuraHandledException(exec.getMessage());
+        }
+    }
+
+    @AuraEnabled
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
