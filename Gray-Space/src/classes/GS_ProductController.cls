@@ -2,12 +2,18 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static Product2 getProduct(String productId) {
-        List<Product2> products = [SELECT Id, defaultPhotoId__c FROM Product2 WHERE id = :productId];
+        List<Product2> products = [SELECT Id, defaultPhotoId__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE id = :productId];
         if (products.size() > 0) {
             return products[0];
         } else {
             throw new AuraHandledException(System.Label.GS_Product_Not_Found);
         }
+    }
+
+    @AuraEnabled
+    public static List<PricebookEntry> getProductPrice(String productId) {
+        List<PricebookEntry> prices = [SELECT UnitPrice FROM PricebookEntry WHERE Product2Id = :productId ORDER BY UnitPrice];
+        return prices;
     }
 
     @AuraEnabled
@@ -52,12 +58,12 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<Product2> getPromotedProducts() {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 WHERE GS_Promoted__c = True];
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE GS_Promoted__c = True];
     }
 
     @AuraEnabled
     public static List<Product2> getProducts(Integer offset, Integer recordLimit) {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c FROM Product2 LIMIT :recordLimit OFFSET :offset];
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 LIMIT :recordLimit OFFSET :offset];
     }
 
     @AuraEnabled
@@ -154,10 +160,18 @@ public with sharing class GS_ProductController {
     @AuraEnabled
     public static List<Map<String, String>> getPicklistValues(String objectName, String fieldApiName) {
         List<Map<String, String>> optionList = new List<Map<String, String>>();
-        Map<String, Schema.SObjectType> globalDescribe = Schema.getGlobalDescribe();
+        Map<String, Schema.SObjectType> globalDescribe;
+        Map<String, Schema.SObjectField> fieldMap;
+        List<Schema.PicklistEntry> picklistValues;
 
-        Map<String, Schema.SObjectField> fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
-        List<Schema.PicklistEntry> picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
+        try {
+            globalDescribe = Schema.getGlobalDescribe();
+
+            fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
+            picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
+        } catch (Exception exec) {
+            throw new AuraHandledException('Add LAbel');
+        }
 
         Map<String, String> option = new Map<String, String>();
         option.put('label', Label.GS_All);
@@ -194,7 +208,7 @@ public with sharing class GS_ProductController {
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        return Database.query('SELECT Id, Name, defaultPhotoId__c FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
+        return Database.query('SELECT Id, Name, defaultPhotoId__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
     }
 
     @AuraEnabled

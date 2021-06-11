@@ -28,3 +28,7 @@
 .THIS .name {
     line-height: 1;
 }
+
+.THIS .price {
+    color: red;
+}

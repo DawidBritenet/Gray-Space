@@ -15,6 +15,25 @@
         $A.enqueueAction(action);
     },
 
+    getPrice: function (component, event) {
+        let action = component.get('c.getProductPrice');
+        action.setParams({
+            'productId': component.get('v.product.Id')
+        });
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                try {
+                    component.set('v.price', response.getReturnValue()[0].UnitPrice);
+                } catch (e) {
+                }
+            }
+            if (response.getState() === "ERROR") {
+                this.sendErrorMessage(response);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     goToDetails: function (component, event) {
         let redirect = $A.get("e.force:navigateToSObject");
         redirect.setParams({

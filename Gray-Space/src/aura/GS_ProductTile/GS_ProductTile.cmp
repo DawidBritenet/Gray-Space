@@ -1,6 +1,7 @@
 <aura:component description="GS_ProductTile" controller="GS_ProductController">
     <aura:attribute name="product" type="Product2"/>
     <aura:attribute name="photo" type="String"/>
+    <aura:attribute name="price" type="Currency"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
@@ -11,6 +12,7 @@
             <p class="name">
                     {! v.product.Name }
             </p>
+            <span class="price"><ui:outputCurrency value="{! v.price }"/></span>
         </div>
     </lightning:button>
 
