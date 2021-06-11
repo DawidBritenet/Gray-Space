@@ -16,7 +16,7 @@
         <c:GS_ProductSearchForm/>
     </lightning:card>
 
-    <aura:if isTrue="{! if(v.products.length > 0, true, false) }">
+    <aura:if isTrue="{! v.products.length > 0 }">
         <lightning:card title="{! $Label.c.GS_Results }">
             <c:GS_ProductListWithTile products="{! v.products }"/>
 
