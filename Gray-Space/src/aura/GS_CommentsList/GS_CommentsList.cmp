@@ -1,4 +1,4 @@
-<aura:component description="GS_CommentsList" controller="GS_ProductController">
+<aura:component description="GS_CommentsList" controller="GS_ProductController" implements="force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="comments" type="GS_Comment__c"/>
 
@@ -7,16 +7,16 @@
 
     <div class="slds-p-around_medium">
         <aura:if isTrue="{! v.comments.length == 0 }">
-            No Comments
+            {! $Label.c.GS_No_Comments }
         </aura:if>
 
         <aura:if isTrue="{! v.comments.length > 0 }">
             <aura:iteration items="{! v.comments }" var="comment">
-                    {! comment.GS_Content__c + ' ' + comment.GS_Rate__c }
+                <c:GS_Comment comment="{! comment }"/>
             </aura:iteration>
         </aura:if>
-
-        <c:GS_NewComment/>
+        <hr class="slds-m-around_xxx-small" />
+        <c:GS_NewComment recordId="{! v.recordId }"/>
     </div>
 
 </aura:component>

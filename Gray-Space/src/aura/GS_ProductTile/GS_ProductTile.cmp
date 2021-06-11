@@ -2,12 +2,22 @@
     <aura:attribute name="product" type="Product2"/>
     <aura:attribute name="photo" type="String"/>
     <aura:attribute name="price" type="Currency"/>
+    <aura:attribute name="rate" type="Double"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
     <lightning:button class="tileButton slds-m-around_large" onclick="{! c.goToDetails }">
         <div class="tile">
             <div class="tilePhoto" style="{! 'background-image: url(\'' + v.photo + '\');' }">
+                <div class="rating">
+                    <lightning:progressRing value="{! v.rate*20 }" variant="active-step"
+                                            size="large"/>
+                </div>
+                <div class="rating">
+                    <div class="ratingInside">
+                            {! v.rate }
+                    </div>
+                </div>
             </div>
             <p class="name">
                     {! v.product.Name }

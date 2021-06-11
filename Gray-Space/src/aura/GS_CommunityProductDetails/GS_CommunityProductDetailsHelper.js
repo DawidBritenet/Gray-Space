@@ -1,27 +1,21 @@
 ({
-    addComment: function (component, event) {
-        let action = component.get('c.addComment');
-        let message = component.find('message').get('v.value');
+    getPrice: function (component, event) {
+        let action = component.get('c.getProductPrice');
         action.setParams({
-            'productId': component.get('v.recordId'),
-            'rate': component.get('v.rate'),
-            'message': message
+            'productId': component.get('v.recordId')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Success'), 'Added Comment', 'success');
+                try {
+                    component.set('v.price', response.getReturnValue()[0].UnitPrice);
+                } catch (e) {
+                }
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
-    },
-
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
     },
 
     sendErrorMessage: function (response) {

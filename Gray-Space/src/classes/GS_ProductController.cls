@@ -170,7 +170,7 @@ public with sharing class GS_ProductController {
             fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
             picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
         } catch (Exception exec) {
-            throw new AuraHandledException('Add LAbel');
+            throw new AuraHandledException('Add Label');
         }
 
         Map<String, String> option = new Map<String, String>();
@@ -190,25 +190,47 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static void addComment(String productId, String message, Integer rate) {
-        GS_Comment__c comment = new GS_Comment__c(GS_ProductId__c = productId, GS_Rate__c = rate, GS_Content__c = message);
+        GS_Comment__c comment = new GS_Comment__c(GS_ProductId__c = productId, GS_Rate__c = rate, GS_Content__c = message, GS_User__c = UserInfo.getUserId());
         try {
             insert comment;
         } catch (Exception exec) {
-            throw new AuraHandledException(exec.getMessage());
+            if (exec.getMessage().contains('DUPLICATES_DETECTED')) {
+                throw new AuraHandledException(System.Label.GS_Duplicate_Comment);
+            } else if (exec.getMessage().contains('REQUIRED_FIELD_MISSING')) {
+                throw new AuraHandledException(System.Label.GS_Comment_Required_fields);
+            } else {
+                throw new AuraHandledException(exec.getMessage());
+            }
         }
     }
 
     @AuraEnabled
     public static List<GS_Comment__c> getComments(String productId) {
-        List<GS_Comment__c> comments = [ SELECT GS_Content__c, GS_Rate__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
+        List<GS_Comment__c> comments = [ SELECT GS_Content__c, GS_Rate__c, GS_User__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
         return comments;
+    }
+
+    @AuraEnabled
+    public static Double getRating(String productId) {
+        List<GS_Comment__c> comments = [ SELECT GS_Rate__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
+        Double rating = 0;
+
+        for (GS_Comment__c comment : comments) {
+            rating += comment.GS_Rate__c;
+        }
+
+        if (comments.size() > 0) {
+            rating /= comments.size();
+        }
+
+        return rating;
     }
 
     @AuraEnabled
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        return Database.query('SELECT Id, Name, defaultPhotoId__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
+        return Database.query('SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
     }
 
     @AuraEnabled
@@ -216,6 +238,12 @@ public with sharing class GS_ProductController {
         String arguments = prepareArguments(name, spaceType, type);
         return Database.countQuery('SELECT COUNT() FROM Product2' + arguments);
 
+    }
+
+    @AuraEnabled
+    public static String getUserName(String userId) {
+        User user = [SELECT Alias FROM User WHERE Id = :userId];
+        return user.Alias;
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {

@@ -15,6 +15,22 @@
         $A.enqueueAction(action);
     },
 
+    getRating: function (component, event) {
+        let action = component.get('c.getRating');
+        action.setParams({
+            'productId': component.get('v.product.Id')
+        });
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                component.set('v.rate', response.getReturnValue());
+            }
+            if (response.getState() === "ERROR") {
+                this.sendErrorMessage(response);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     getPrice: function (component, event) {
         let action = component.get('c.getProductPrice');
         action.setParams({

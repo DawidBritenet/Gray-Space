@@ -29,6 +29,20 @@
     line-height: 1;
 }
 
+.THIS .rating {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.THIS .ratingInside {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .THIS .price {
     color: red;
 }

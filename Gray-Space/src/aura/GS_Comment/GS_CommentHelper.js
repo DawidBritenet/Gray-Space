@@ -1,27 +1,18 @@
 ({
-    addComment: function (component, event) {
-        let action = component.get('c.addComment');
-        let message = component.find('message').get('v.value');
+    getUsername: function (component, event) {
+        let action = component.get('c.getUserName');
         action.setParams({
-            'productId': component.get('v.recordId'),
-            'rate': component.get('v.rate'),
-            'message': message
+            'userId': component.get('v.comment.GS_User__c')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Success'), 'Added Comment', 'success');
+                component.set('v.userName', response.getReturnValue());
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
-    },
-
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
     },
 
     sendErrorMessage: function (response) {
