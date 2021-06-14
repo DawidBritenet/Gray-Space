@@ -205,6 +205,17 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
+    public static void deleteComment(String commentId) {
+        GS_Comment__c comment = new GS_Comment__c(Id=commentId);
+
+        try {
+            delete comment;
+        } catch (Exception exec) {
+            throw new AuraHandledException(exec.getMessage());
+        }
+    }
+
+    @AuraEnabled
     public static List<GS_Comment__c> getComments(String productId) {
         List<GS_Comment__c> comments = [ SELECT GS_Content__c, GS_Rate__c, GS_User__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
         return comments;
