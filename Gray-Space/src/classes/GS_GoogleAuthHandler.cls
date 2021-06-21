@@ -9,7 +9,6 @@ global class GS_GoogleAuthHandler implements Auth.RegistrationHandler {
                 && data.email != null
                 && data.lastName != null
                 && data.firstName != null);
-
         return retVal;
     }
 
@@ -21,18 +20,13 @@ global class GS_GoogleAuthHandler implements Auth.RegistrationHandler {
         if(data.attributeMap.containsKey('sfdc_networkid')) {
             Id contactId;
             contactId = createContact(data);
-
             Profile p = [SELECT Id FROM profile WHERE name=:EXTERNAL_USER_PROFILE];
-
             User u = createUser(data,p);
-
             u.contactId = contactId;
             return u;
         } else {
             Profile p = [SELECT Id FROM profile WHERE name=:INTERNAL_USER_PROFILE];
-
             User u = createUser(data,p);
-
             return u;
         }
     }
@@ -71,6 +65,7 @@ global class GS_GoogleAuthHandler implements Auth.RegistrationHandler {
         u.email = data.email;
         u.lastName = data.lastName;
         u.firstName = data.firstName;
+        u.CommunityNickname = data.firstName + ' ' + data.lastName;
         String alias = data.firstName + data.lastName;
 
         if(alias.length() > 8) {

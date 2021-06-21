@@ -1,16 +1,12 @@
 ({
-    addComment: function (component, event) {
-        let action = component.get('c.addComment');
-        let message = component.find('message').get('v.value');
+    getDetails: function (component, event) {
+        let action = component.get('c.getProduct');
         action.setParams({
-            'productId': component.get('v.recordId'),
-            'rate': component.get('v.rate'),
-            'message': message
+            'productId': component.get('v.recordId')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Added_Comment'), 'success');
+                component.set('v.product', response.getReturnValue());
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
@@ -19,9 +15,16 @@
         $A.enqueueAction(action);
     },
 
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
+    openAddToCartModal: function(component, event) {
+        $A.createComponent('c:GS_AddToCartModal', {recordId: component.get('v.recordId')}, function (content, status) {
+            if (status === "SUCCESS") {
+                component.find('addToCartModal').showCustomModal({
+                    header: $A.get('$Label.c.GS_Add_To_Cart'),
+                    body: content,
+                    showCloseButton: true
+                })
+            }
+        });
     },
 
     sendErrorMessage: function (response) {

@@ -1,12 +1,38 @@
 ({
-    getUsername: function (component, event) {
-        let action = component.get('c.getUserName');
+    getCart: function (component, event) {
+        let action = component.get('c.getCart');
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                let result = [];
+                let resp = response.getReturnValue();
+                Object.keys(resp).forEach(key => {
+                    result.push({
+                        'key': key,
+                        'value': response.getReturnValue()[key]
+                    })
+                });
+                component.set('v.cart', result);
+            }
+            if (response.getState() === "ERROR") {
+                this.sendErrorMessage(response);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
+    updateCart: function (component, event) {
+        let cart = {};
+        component.get('v.cart').forEach(cartItem => {
+            cart[cartItem.key] = cartItem.value;
+        });
+
+        let action = component.get('c.updateCart');
         action.setParams({
-            'userId': component.get('v.comment.GS_User__c')
+            'cart': cart
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                component.set('v.userName', response.getReturnValue());
+                this.navigateToNext(component, event);
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
@@ -15,40 +41,25 @@
         $A.enqueueAction(action);
     },
 
-    deleteComment: function (component, event) {
-        let id = event.currentTarget.dataset.value;
-        let action = component.get('c.deleteComment');
+    navigateToNext: function(component, event) {
+        let navigate = component.get("v.navigateFlow");
+        navigate("NEXT");
+    },
+
+    updateTotalPrice: function(component, event) {
+        let action = component.get('c.getTotalPrice');
         action.setParams({
-            'commentId': id
+            'cart': component.get('v.cart')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Deleted'), $A.get('$Label.c.GS_Deleted_comment'), 'success')
+                component.set('v.totalPrice', response.getReturnValue());
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
-    },
-
-    getUserId: function(component, event) {
-        let action = component.get('c.getUserId');
-        action.setCallback(this, function (response) {
-            if (response.getState() === "SUCCESS") {
-                component.set('v.loggedUserId', response.getReturnValue());
-            }
-            if (response.getState() === "ERROR") {
-                this.sendErrorMessage(response);
-            }
-        });
-        $A.enqueueAction(action);
-    },
-
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
     },
 
     sendErrorMessage: function (response) {

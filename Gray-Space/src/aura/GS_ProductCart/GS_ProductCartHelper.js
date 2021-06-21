@@ -1,12 +1,12 @@
 ({
-    getUsername: function (component, event) {
-        let action = component.get('c.getUserName');
+    getPhoto: function (component, event) {
+        let action = component.get('c.getDefaultPhoto');
         action.setParams({
-            'userId': component.get('v.comment.GS_User__c')
+            'productId': component.get('v.recordId')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                component.set('v.userName', response.getReturnValue());
+                component.set('v.photoUrl', response.getReturnValue());
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
@@ -15,40 +15,23 @@
         $A.enqueueAction(action);
     },
 
-    deleteComment: function (component, event) {
-        let id = event.currentTarget.dataset.value;
-        let action = component.get('c.deleteComment');
+    getPrice: function (component, event) {
+        let action = component.get('c.getProductPrice');
         action.setParams({
-            'commentId': id
+            'productId': component.get('v.recordId')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Deleted'), $A.get('$Label.c.GS_Deleted_comment'), 'success')
+                try {
+                    component.set('v.price', response.getReturnValue()[0].UnitPrice);
+                } catch (e) {
+                }
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
         });
         $A.enqueueAction(action);
-    },
-
-    getUserId: function(component, event) {
-        let action = component.get('c.getUserId');
-        action.setCallback(this, function (response) {
-            if (response.getState() === "SUCCESS") {
-                component.set('v.loggedUserId', response.getReturnValue());
-            }
-            if (response.getState() === "ERROR") {
-                this.sendErrorMessage(response);
-            }
-        });
-        $A.enqueueAction(action);
-    },
-
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
     },
 
     sendErrorMessage: function (response) {

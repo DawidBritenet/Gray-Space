@@ -1,12 +1,34 @@
 ({
-    getUsername: function (component, event) {
-        let action = component.get('c.getUserName');
+    getCart: function (component, event) {
+        let action = component.get('c.getCart');
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                let cart = response.getReturnValue();
+                if (cart) {
+                    let quantity = cart[component.get('v.recordId')];
+                    if (quantity) {
+                        component.set('v.quantity', quantity);
+                    }
+                }
+            }
+            if (response.getState() === "ERROR") {
+                this.sendErrorMessage(response);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
+    addToCart: function (component, event) {
+        let action = component.get('c.changeCartQuantity');
         action.setParams({
-            'userId': component.get('v.comment.GS_User__c')
+            'productId': component.get('v.recordId'),
+            'quantity': component.get('v.quantity')
         });
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
-                component.set('v.userName', response.getReturnValue());
+                this.closeModal(component, event);
+                this.sendMessage($A.get('$Label.c.GS_Add_to_cart'), $A.get('$Label.c.GS_Product_added_to_chart'), 'success');
+                this.fireProductUpdated();
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
@@ -15,40 +37,12 @@
         $A.enqueueAction(action);
     },
 
-    deleteComment: function (component, event) {
-        let id = event.currentTarget.dataset.value;
-        let action = component.get('c.deleteComment');
-        action.setParams({
-            'commentId': id
-        });
-        action.setCallback(this, function (response) {
-            if (response.getState() === "SUCCESS") {
-                this.fireAddedNewComment(component, event);
-                this.sendMessage($A.get('$Label.c.GS_Deleted'), $A.get('$Label.c.GS_Deleted_comment'), 'success')
-            }
-            if (response.getState() === "ERROR") {
-                this.sendErrorMessage(response);
-            }
-        });
-        $A.enqueueAction(action);
+    fireProductUpdated: function() {
+        $A.get("e.c:GS_CartUpdated").fire();
     },
 
-    getUserId: function(component, event) {
-        let action = component.get('c.getUserId');
-        action.setCallback(this, function (response) {
-            if (response.getState() === "SUCCESS") {
-                component.set('v.loggedUserId', response.getReturnValue());
-            }
-            if (response.getState() === "ERROR") {
-                this.sendErrorMessage(response);
-            }
-        });
-        $A.enqueueAction(action);
-    },
-
-    fireAddedNewComment: function (component, event) {
-        let cmpEvent = component.getEvent('NewComment');
-        cmpEvent.fire();
+    closeModal: function (component, event) {
+        component.find("addToCartModal").notifyClose();
     },
 
     sendErrorMessage: function (response) {

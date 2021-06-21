@@ -1,0 +1,36 @@
+<aura:component description="GS_AddToCartModal" controller="GS_ProductController" implements="force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="quantity" type="Integer" default="1"/>
+    <aura:attribute name="photoUrl" type="String"/>
+
+    <aura:registerEvent name="cartUpdated" type="c:GS_CartUpdated"/>
+    <aura:handler name="init" value="{! this }" action="{! c.onInit }"/>
+    <lightning:overlayLibrary aura:id="addToCartModal"/>
+
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content {
+        height: unset !important;
+        max-height: unset !important;
+        }
+    </aura:html>
+
+    <ui:scrollerWrapper>
+        <div class="slds-align_absolute-center slds-p-vertical_large">
+            <div class="slds-size_8-of-12 slds-p-vertical_large">
+                <c:GS_ProductCart recordId="{! v.recordId }" quantity="{! v.quantity }"/>
+            </div>
+        </div>
+    </ui:scrollerWrapper>
+
+    <footer class="slds-modal__footer">
+        <lightning:button label="{! $Label.c.GS_Cancel }" variant="neutral" type="button"
+                          onclick="{! c.closeModal }"/>
+        <lightning:button label="{! $Label.c.GS_Add_to_cart }" variant="brand" onclick="{! c.submit }"/>
+    </footer>
+</aura:component>

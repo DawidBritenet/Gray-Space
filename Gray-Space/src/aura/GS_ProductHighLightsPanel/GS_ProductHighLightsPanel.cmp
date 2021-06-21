@@ -1,0 +1,54 @@
+<aura:component description="GS_ProductHighLightsPanel" controller="GS_ProductController"
+                implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="product" type="Product2"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <aura:html tag="Style">
+        .slds-card {
+        border: none;
+        }
+    </aura:html>
+
+    <lightning:overlayLibrary aura:id="addToCartModal"/>
+
+    <lightning:card variant="narrow" class="card">
+        <aura:set attribute="title">
+            <div class="slds-grid slds-col slds-has-flexi-truncate">
+                <div class="slds-media slds-no-space">
+                    <lightning:icon iconName="standard:asset_object" size="large"/>
+                </div>
+                <div class="slds-p-left_medium title">
+                        {! v.product.Name }
+                </div>
+            </div>
+        </aura:set>
+        <aura:set attribute="actions">
+            <div class="slds-button slds-button_neutral add-to-cart" onclick="{! c.addToCart }">
+                <lightning:icon iconName="utility:checkout" size="small" class="slds-p-around_xxx-small"/>
+                {! $Label.c.GS_Add_To_Cart }
+            </div>
+        </aura:set>
+
+        <lightning:recordViewForm recordId="{! v.recordId }" objectApiName="Product2">
+
+            <lightning:layout class="detailsLayout" multipleRows="true">
+                <lightning:layoutItem size="2">
+                    <div class="slds-form-element slds-form-element_stacked">
+                        <label class="slds-form-element__label" for="code"
+                               id="inline-text-label">{! $Label.c.GS_Product_Code }</label><br/>
+                        <lightning:outputField aura:id="code" fieldName="GS_Product_Code__c" variant="label-hidden"/>
+                    </div>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="2">
+                    <div class="slds-form-element slds-form-element_stacked">
+                        <label class="slds-form-element__label" for="sku"
+                               id="inline-text-label">{! $Label.c.GS_Product_SKU }</label><br/>
+                        <lightning:outputField aura:id="sku" fieldName="GS_Product_SKU__c" variant="label-hidden"/>
+                    </div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:recordViewForm>
+    </lightning:card>
+</aura:component>

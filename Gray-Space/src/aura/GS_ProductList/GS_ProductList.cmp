@@ -32,7 +32,7 @@
         <lightning:layout class="slds-p-around_small">
             <lightning:layoutItem size="4">
                 <div class="paginationInfo">
-                    <lightning:select label="PageSize" aura:id="pageSizePickList" onchange="{! c.setPageSize }"
+                    <lightning:select label="{! $Label.c.GS_Page_Size }" aura:id="pageSizePickList" onchange="{! c.setPageSize }"
                                       class="label-hidden">
                         <option value="10">10</option>
                         <option value="20" selected="true">20</option>

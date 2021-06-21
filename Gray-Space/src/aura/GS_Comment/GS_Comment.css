@@ -1,3 +1,9 @@
 .THIS .stars {
     display: flex;
 }
+
+.THIS .username {
+    word-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+}
