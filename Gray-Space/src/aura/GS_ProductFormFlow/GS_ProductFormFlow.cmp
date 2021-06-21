@@ -63,6 +63,9 @@
                             <div class="slds-p-around_xx-small">
                                 <lightning:inputField fieldName="GS_Depth__c"/>
                             </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Promoted__c"/>
+                            </div>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6">
                             <div class="slds-p-around_xx-small">

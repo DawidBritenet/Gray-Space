@@ -58,7 +58,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<Product2> getPromotedProducts() {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE GS_Promoted__c = True];
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE GS_Promoted__c = True AND IsActive = True];
     }
 
     @AuraEnabled
@@ -68,7 +68,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static Integer getProductsCount() {
-        return Database.countQuery('SELECT COUNT() FROM Product2');
+        return Database.countQuery('SELECT COUNT() FROM Product2 WHERE IsActive = True');
     }
 
     @AuraEnabled
@@ -356,7 +356,7 @@ public with sharing class GS_ProductController {
         }
 
         if (arguments.size() > 0) {
-            argumentsString = ' WHERE ' + String.join(arguments, ' AND ');
+            argumentsString = ' WHERE IsActive = True AND ' + String.join(arguments, ' AND ');
         }
 
         return argumentsString;
