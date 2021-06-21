@@ -2,7 +2,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static Product2 getProduct(String productId) {
-        List<Product2> products = [SELECT Id, defaultPhotoId__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE id = :productId];
+        List<Product2> products = [SELECT Id, Name, GS_Product_Code__c, GS_Product_SKU__c, defaultPhotoId__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE id = :productId];
         if (products.size() > 0) {
             return products[0];
         } else {
@@ -170,7 +170,7 @@ public with sharing class GS_ProductController {
             fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
             picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
         } catch (Exception exec) {
-            throw new AuraHandledException('Add Label');
+            throw new AuraHandledException(exec.getMessage());
         }
 
         Map<String, String> option = new Map<String, String>();
@@ -206,7 +206,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static void deleteComment(String commentId) {
-        GS_Comment__c comment = new GS_Comment__c(Id=commentId);
+        GS_Comment__c comment = new GS_Comment__c(Id = commentId);
 
         try {
             delete comment;
@@ -217,13 +217,18 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<GS_Comment__c> getComments(String productId) {
-        List<GS_Comment__c> comments = [ SELECT GS_Content__c, GS_Rate__c, GS_User__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
+        List<GS_Comment__c> comments = [SELECT GS_Content__c, GS_Rate__c, GS_User__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId];
         return comments;
     }
 
     @AuraEnabled
+    public static String getUserId() {
+        return UserInfo.getUserId();
+    }
+
+    @AuraEnabled
     public static Double getRating(String productId) {
-        List<GS_Comment__c> comments = [ SELECT GS_Rate__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId ];
+        List<GS_Comment__c> comments = [SELECT GS_Rate__c FROM GS_Comment__c WHERE GS_ProductId__c = :productId];
         Double rating = 0;
 
         for (GS_Comment__c comment : comments) {
@@ -253,8 +258,82 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static String getUserName(String userId) {
-        User user = [SELECT Alias FROM User WHERE Id = :userId];
-        return user.Alias;
+        User user = [SELECT CommunityNickname FROM User WHERE Id = :userId];
+        return user.CommunityNickname;
+    }
+
+    @AuraEnabled
+    public static void changeCartQuantity(String productId, Integer quantity) {
+        if (!Cache.Session.contains('cart')) {
+            Cache.Session.put('cart', new Map<String, Integer>());
+        }
+
+        Map<String, Integer> cart = (Map<String, Integer>) Cache.Session.get('cart');
+
+        if (quantity > 0) {
+            cart.put(productId, quantity);
+        } else {
+            cart.remove(productId);
+        }
+
+        Cache.Session.put('cart', cart);
+    }
+
+    @AuraEnabled
+    public static void updateCart(Map<String, Integer> cart) {
+        Map<String, Integer> newCart = new Map<String, Integer>();
+        for (String key : cart.keySet()) {
+            if (cart.get(key) > 0) {
+                newCart.put(key, cart.get(key));
+            }
+        }
+        Cache.Session.put('cart', newCart);
+    }
+
+    @AuraEnabled
+    public static Map<String, Integer> getCart() {
+        return (Map<String, Integer>) Cache.Session.get('cart');
+    }
+
+    @AuraEnabled
+    public static Double getTotalPrice() {
+        Map<String, Integer> cart = getCart();
+        List<PricebookEntry> prices = [SELECT UnitPrice, Product2Id FROM PricebookEntry WHERE Product2Id IN :cart.keySet()];
+        Double total = 0;
+
+        for (String productId: cart.keySet()) {
+            Double unitPrice;
+            for (PricebookEntry price : prices) {
+                if (price.Product2Id == productId) {
+                    unitPrice = price.UnitPrice;
+                }
+            }
+            total += unitPrice * cart.get(productId);
+        }
+
+        return total;
+    }
+
+    @AuraEnabled
+    public static Map<String, Integer> getCartFromOpportunity() {
+        Map<String, Integer> cart = new Map<String, Integer>();
+        List<Opportunity> opportunities = [SELECT Id FROM Opportunity WHERE OwnerId = :UserInfo.getUserId() AND (NOT StageName LIKE 'Closed%') LIMIT 1];
+        Opportunity opportunity = null;
+
+        if (opportunities.size() > 0) {
+            opportunity = opportunities[0];
+        }
+
+        if (opportunity != null) {
+            List<OpportunityLineItem> products = [SELECT Product2Id, Quantity FROM OpportunityLineItem WHERE OpportunityId = :opportunity.Id];
+            for (OpportunityLineItem product : products) {
+                cart.put(product.Product2Id, Integer.valueOf(product.Quantity));
+            }
+        }
+
+        Cache.Session.put('cart', cart);
+
+        return cart;
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {

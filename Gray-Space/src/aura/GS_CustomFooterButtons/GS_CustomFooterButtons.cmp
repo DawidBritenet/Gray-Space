@@ -1,0 +1,9 @@
+<aura:component description="GS_CustomFooterButtons" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="nextName" type="String" default="Next"/>
+    <aura:attribute name="prevName" type="String" default="Back"/>
+
+    <footer class="slds-p-top_medium slds-text-align_right">
+        <lightning:button label="{! v.prevName }" variant="neutral" onclick="{! c.prevPage }"/>
+        <lightning:button label="{! v.nextName }" variant="brand" onclick="{! c.nextPage }"/>
+    </footer>
+</aura:component>

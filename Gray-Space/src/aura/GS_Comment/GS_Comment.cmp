@@ -1,42 +1,48 @@
 <aura:component description="GS_Comment" controller="GS_ProductController">
     <aura:attribute name="comment" type="GS_Comment__c"/>
     <aura:attribute name="userName" type="String"/>
+    <aura:attribute name="loggedUserId" type="String"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
     <aura:registerEvent name="NewComment" type="c:GS_NewCommentEvent"/>
 
-    <div>
+    <div class="slds-p-vertical_small">
         <lightning:layout>
             <lightning:layoutItem size="1">
                 <div class="slds-align_absolute-center">
                     <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg" initials="BW"
                                       fallbackIconName="standard:person_account" alternativeText="{! v.userName }"/>
                 </div>
-                <div class="slds-align_absolute-center">
+                <div class="slds-align_absolute-center username">
                         {! v.userName }
                 </div>
             </lightning:layoutItem>
             <lightning:layoutItem size="11">
                 <div class="stars">
-                    <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small"
-                                                  selected="{! v.comment.GS_Rate__c >= 1 }"/>
-                    <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small"
-                                                  selected="{! v.comment.GS_Rate__c >= 2 }"/>
-                    <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small"
-                                                  selected="{! v.comment.GS_Rate__c >= 3 }"/>
-                    <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small"
-                                                  selected="{! v.comment.GS_Rate__c >= 4 }"/>
-                    <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small"
-                                                  selected="{! v.comment.GS_Rate__c >= 5 }"/>
+                    <div class="slds-p-around_xxx-small">
+                        <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small" selected="{! v.comment.GS_Rate__c >= 1 }" />
+                    </div>
+                    <div class="slds-p-around_xxx-small">
+                        <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small" selected="{! v.comment.GS_Rate__c >= 2 }" />
+                    </div>
+                    <div class="slds-p-around_xxx-small">
+                        <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small" selected="{! v.comment.GS_Rate__c >= 3 }" />
+                    </div>
+                    <div class="slds-p-around_xxx-small">
+                        <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small" selected="{! v.comment.GS_Rate__c >= 4 }" />
+                    </div>
+                    <div class="slds-p-around_xxx-small">
+                        <lightning:buttonIconStateful iconName="utility:favorite" size="xx-small" selected="{! v.comment.GS_Rate__c >= 5 }"/>
+                    </div>
+                    <div class="removeButtonContainer slds-p-left_medium">
+                        <aura:if isTrue="{! v.comment.GS_User__c == v.loggedUserId }">
+                            <div data-value="{! v.comment.Id }" onclick="{! c.delete }">
+                                <lightning:buttonIcon iconName="utility:delete" alternativeText="deleteComment" variant="bare"/>
+                            </div>
+                        </aura:if>
+                    </div>
                 </div>
                     {! v.comment.GS_Content__c }
-                <div class="removeButtonContainer">
-                    <aura:if isTrue="{! v.comment.GS_User__c }">
-                        <div data-value="{! v.comment.Id }" onclick="{! c.delete }">
-                            <lightning:buttonIcon iconName="utility:delete" alternativeText="deleteComment" variant="bare"/>
-                        </div>
-                    </aura:if>
-                </div>
             </lightning:layoutItem>
 
         </lightning:layout>

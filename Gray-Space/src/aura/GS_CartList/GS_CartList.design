@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="showFooter" label="Show Footer"/>
+    <design:attribute name="lock" label="Lock Input"/>
+    <design:attribute name="maxHeight" label="Max Panel Height"/>
+</design:component>

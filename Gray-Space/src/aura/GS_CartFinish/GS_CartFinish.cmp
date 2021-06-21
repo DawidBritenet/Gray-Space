@@ -1,0 +1,10 @@
+<aura:component description="GS_CartFinish" implements="lightning:availableForFlowScreens">
+    <div class="slds-align_absolute-center slds-p-vertical_large">
+        <div class="slds-p-vertical_large">
+            <div class="slds-text-align_center slds-text-heading_medium">{! $Label.c.GS_Thank_you_order }</div>
+            <lightning:button label="{! $Label.c.GS_Go_to_Home_Page }" onclick="{! c.finish }"/>
+        </div>
+    </div>
+
+    <lightning:navigation aura:id="navigation"/>
+</aura:component>

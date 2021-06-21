@@ -4,20 +4,20 @@
         helper.getPagesCount(component, event);
 
         let actions = [
-            {label: 'Edit', name: 'edit'},
-            {label: 'Delete', name: 'delete'}
+            {label: $A.get('$Label.c.GS_Edit'), name: 'edit'},
+            {label: $A.get('$Label.c.GS_Delete'), name: 'delete'}
         ];
 
         component.set('v.columns', [
             {
-                label: 'Name',
+                label: $A.get('$Label.c.GS_Name'),
                 fieldName: 'GS_Name_Link__c',
                 type: 'url',
                 typeAttributes: {label: {fieldName: 'Name'}, target: '_blank'}
             },
-            {label: 'Product Code', fieldName: 'ProductCode', type: 'text'},
-            {label: 'Product SKU', fieldName: 'StockKeepingUnit', type: 'text'},
-            {label: 'Type', fieldName: 'GS_Type__c', type: 'text'},
+            {label: $A.get('$Label.c.GS_Product_Code'), fieldName: 'GS_Product_Code__c', type: 'text'},
+            {label: $A.get('$Label.c.GS_Product_SKU'), fieldName: 'GS_Product_SKU__c', type: 'text'},
+            {label: $A.get('$Label.c.GS_Product_Type'), fieldName: 'GS_Type__c', type: 'text'},
             {type: 'action', typeAttributes: {rowActions: actions}},
         ]);
     },
