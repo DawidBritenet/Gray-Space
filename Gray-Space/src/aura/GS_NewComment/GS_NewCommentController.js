@@ -4,7 +4,6 @@
     },
 
     sendComment: function (component, event, helper) {
-        console.log('send comment');
         helper.addComment(component, event);
     },
 });

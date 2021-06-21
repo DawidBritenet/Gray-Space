@@ -49,10 +49,10 @@
                                 <lightning:inputField fieldName="Name"/>
                             </div>
                             <div class="slds-p-around_xx-small">
-                                <lightning:inputField fieldName="ProductCode"/>
+                                <lightning:inputField fieldName="GS_Product_Code__c"/>
                             </div>
                             <div class="slds-p-around_xx-small">
-                                <lightning:inputField fieldName="StockKeepingUnit"/>
+                                <lightning:inputField fieldName="GS_Product_SKU__c"/>
                             </div>
                             <div class="slds-p-around_xx-small">
                                 <lightning:inputField fieldName="GS_Height__c"/>
