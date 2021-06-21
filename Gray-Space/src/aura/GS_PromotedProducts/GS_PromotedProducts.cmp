@@ -1,0 +1,9 @@
+<aura:component controller="GS_ProductController" description="GS_PromotedProducts" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="products" type="Product2[]"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <lightning:card title="Our customer's favorites">
+        <c:GS_ProductListWithTile products="{! v.products }"/>
+    </lightning:card>
+</aura:component>

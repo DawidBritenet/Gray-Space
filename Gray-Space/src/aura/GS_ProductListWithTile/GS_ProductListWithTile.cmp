@@ -1,4 +1,4 @@
-<aura:component description="GS_ProductListWithTile">
+<aura:component description="GS_ProductListWithTile" implements="forceCommunity:availableForAllPageTypes">
 
     <aura:attribute name="products" type="Product2[]"/>
 
