@@ -13,7 +13,6 @@
                         <div class="cart-size">{! v.cartSize }</div>
                 </div>
             </div>
-
             <lightning:navigation aura:id="navigateToCart"/>
         </aura:if>
     </aura:if>
