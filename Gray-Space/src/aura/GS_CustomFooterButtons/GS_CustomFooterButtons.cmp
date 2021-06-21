@@ -1,9 +1,15 @@
 <aura:component description="GS_CustomFooterButtons" implements="lightning:availableForFlowScreens">
     <aura:attribute name="nextName" type="String" default="Next"/>
     <aura:attribute name="prevName" type="String" default="Back"/>
+    <aura:attribute name="showNextButton" type="Boolean" default="True"/>
+    <aura:attribute name="showPrevButton" type="Boolean" default="True"/>
 
     <footer class="slds-p-top_medium slds-text-align_right">
-        <lightning:button label="{! v.prevName }" variant="neutral" onclick="{! c.prevPage }"/>
-        <lightning:button label="{! v.nextName }" variant="brand" onclick="{! c.nextPage }"/>
+        <aura:if isTrue="{! v.showPrevButton }">
+            <lightning:button label="{! v.prevName }" variant="neutral" onclick="{! c.prevPage }"/>
+        </aura:if>
+        <aura:if isTrue="{! v.showNextButton }">
+            <lightning:button label="{! v.nextName }" variant="brand" onclick="{! c.nextPage }"/>
+        </aura:if>
     </footer>
 </aura:component>

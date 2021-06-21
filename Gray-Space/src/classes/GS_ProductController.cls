@@ -12,7 +12,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<PricebookEntry> getProductPrice(String productId) {
-        List<PricebookEntry> prices = [SELECT UnitPrice FROM PricebookEntry WHERE Product2Id = :productId ORDER BY UnitPrice];
+        List<PricebookEntry> prices = [SELECT UnitPrice FROM PricebookEntry WHERE Product2Id = :productId AND IsActive = TRUE ORDER BY UnitPrice];
         return prices;
     }
 
@@ -165,9 +165,7 @@ public with sharing class GS_ProductController {
         List<Schema.PicklistEntry> picklistValues;
 
         try {
-            globalDescribe = Schema.getGlobalDescribe();
-
-            fieldMap = globalDescribe.get(objectName.toLowerCase()).getDescribe().fields.getMap();
+            fieldMap = Schema.describeSObjects(new List<String> {objectName.toLowerCase()})[0].fields.getMap();
             picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
         } catch (Exception exec) {
             throw new AuraHandledException(exec.getMessage());
