@@ -58,7 +58,7 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<Product2> getPromotedProducts() {
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE GS_Promoted__c = True AND IsActive = True];
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE GS_Promoted__c = True AND IsActive = True LIMIT 5];
     }
 
     @AuraEnabled
@@ -170,7 +170,9 @@ public with sharing class GS_ProductController {
         List<Schema.PicklistEntry> picklistValues;
 
         try {
-            fieldMap = Schema.describeSObjects(new List<String> {objectName.toLowerCase()})[0].fields.getMap();
+            fieldMap = Schema.describeSObjects(new List<String>{
+                    objectName.toLowerCase()
+            })[0].fields.getMap();
             picklistValues = fieldMap.get(fieldApiName).getDescribe().getPicklistValues();
         } catch (Exception exec) {
             throw new AuraHandledException(exec.getMessage());
@@ -304,7 +306,7 @@ public with sharing class GS_ProductController {
         List<PricebookEntry> prices = [SELECT UnitPrice, Product2Id FROM PricebookEntry WHERE Product2Id IN :cart.keySet() AND IsActive = True];
         Double total = 0;
 
-        for (String productId: cart.keySet()) {
+        for (String productId : cart.keySet()) {
             Double unitPrice;
             for (PricebookEntry price : prices) {
                 if (price.Product2Id == productId) {
@@ -341,6 +343,33 @@ public with sharing class GS_ProductController {
         Cache.Session.put('cart', cart);
 
         return cart;
+    }
+
+    @AuraEnabled
+    public static List<Product2> getUserLastVisitedProducts() {
+        List<GS_UserVisitedProduct__c> lastVisitedProducts = [SELECT GS_ProductId__c FROM GS_UserVisitedProduct__c WHERE GS_UserId__c = :UserInfo.getUserId() ORDER BY GS_Last_Visited_Date_Time__c LIMIT 5];
+        List<String> productsIds = new List<String>();
+
+        for (GS_UserVisitedProduct__c product : lastVisitedProducts) {
+            productsIds.add(product.GS_ProductId__c);
+        }
+
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE IsActive = True AND Id IN :productsIds];
+    }
+
+    @AuraEnabled
+    public static void addToLastVisited(String productId) {
+        List<GS_UserVisitedProduct__c> products = [SELECT GS_ProductId__c FROM GS_UserVisitedProduct__c WHERE GS_UserId__c = :UserInfo.getUserId() AND GS_ProductId__c = :productId];
+        GS_UserVisitedProduct__c product;
+
+        if (products.size() > 0) {
+            product = products[0];
+            product.GS_Last_Visited_Date_Time__c = Datetime.now();
+        } else {
+            product = new GS_UserVisitedProduct__c(GS_ProductId__c = productId, GS_UserId__c = UserInfo.getUserId(), GS_Last_Visited_Date_Time__c = Datetime.now());
+        }
+
+        upsert product;
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {

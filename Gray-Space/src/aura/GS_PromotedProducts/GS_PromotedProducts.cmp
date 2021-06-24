@@ -3,7 +3,7 @@
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
-    <lightning:card title="Our customer's favorites">
+    <lightning:card title="{! $Label.c.GS_Our_customer_s_favorites }">
         <c:GS_ProductListWithTile products="{! v.products }"/>
     </lightning:card>
 </aura:component>
