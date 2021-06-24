@@ -1,0 +1,16 @@
+<aura:component description="GS_DiscountProductList">
+    <aura:attribute name="products" type="Product2[]"/>
+    <aura:attribute name="selectedProducts" type="Map"/>
+    <aura:attribute name="percent" type="Integer"/>
+
+
+    <lightning:layout multipleRows="true">
+        <aura:iteration items="{! v.products }" var="product">
+            <lightning:layoutItem class="slds-size_1-of-5">
+                <div class="slds-align_absolute-center">
+                    <c:Gs_DiscountProductTile product="{! product }" selectedProducts="{! v.selectedProducts }" percent="{! v.percent }"/>
+                </div>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+</aura:component>

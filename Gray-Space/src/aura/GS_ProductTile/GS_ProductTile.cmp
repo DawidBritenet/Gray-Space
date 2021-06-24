@@ -3,6 +3,8 @@
     <aura:attribute name="photo" type="String"/>
     <aura:attribute name="price" type="Currency"/>
     <aura:attribute name="rate" type="Double"/>
+    <aura:attribute name="discountPrice" type="Currency" default="-1"/>
+    <aura:attribute name="discount" type="Boolean" default="False"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
@@ -18,11 +20,27 @@
                             {! v.rate }
                     </div>
                 </div>
+                <div class="saleIcon">
+                    <aura:if isTrue="{! v.discount }">
+                        <img src="{! $Resource.GS_Sale_Icon }" alt="Sale"/>
+                    </aura:if>
+                </div>
             </div>
             <p class="name">
                     {! v.product.Name }
             </p>
-            <span class="price"><ui:outputCurrency value="{! v.price }"/></span>
+            <aura:if isTrue="{! v.discount }">
+                <div style="height: 18px">
+                    <span class="discountPrice">
+                        <ui:outputCurrency value="{! v.discountPrice }"/>
+                    </span>
+                </div>
+            </aura:if>
+            <div style="height: 18px">
+                <span class="price">
+                    <ui:outputCurrency value="{! v.price }"/>
+                </span>
+            </div>
         </div>
     </lightning:button>
 

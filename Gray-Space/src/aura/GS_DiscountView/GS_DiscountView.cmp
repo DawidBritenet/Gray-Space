@@ -1,0 +1,36 @@
+<aura:component description="GS_DiscountView" controller="GS_PriceBookController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="priceBook" type="Pricebook2" />
+    <aura:attribute name="priceBookEntries" type="PricebookEntry[]"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <ltng:require styles="{!$Resource.bigModal}"/>
+
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content {
+        height: unset !important;
+        max-height: unset !important;
+        }
+    </aura:html>
+
+    <div class="slds-scrollable_y" style="max-height: 602px;">
+        <lightning:layout multipleRows="true">
+            <aura:iteration items="{! v.priceBookEntries }" var="priceBookEntry">
+                <lightning:layoutItem size="3">
+                    <c:GS_DiscountProductTile product="{! priceBookEntry.Product2 }" lock="True" selected="True" percentThis="{! priceBookEntry.GS_Percent__c }"/>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </div>
+
+    <footer class="slds-modal__footer">
+        <lightning:button label="{! $Label.c.GS_Close }" variant="brand" onclick="{! c.closeModal }"/>
+    </footer>
+
+    <lightning:overlayLibrary aura:id="discountView"/>
+</aura:component>
