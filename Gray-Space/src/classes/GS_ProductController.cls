@@ -67,6 +67,11 @@ public with sharing class GS_ProductController {
     }
 
     @AuraEnabled
+    public static List<Product2> getActiveProducts() {
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE IsActive = True];
+    }
+
+    @AuraEnabled
     public static Integer getProductsCount() {
         return Database.countQuery('SELECT COUNT() FROM Product2 WHERE IsActive = True');
     }
@@ -244,7 +249,7 @@ public with sharing class GS_ProductController {
     public static List<Product2> searchProduct(String name, String spaceType, String type, Integer offset, Integer resultLimit) {
         String arguments = prepareArguments(name, spaceType, type);
 
-        return Database.query('SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
+        return Database.query('SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries  ORDER BY UnitPrice LIMIT 1) FROM Product2' + arguments + ' LIMIT ' + resultLimit + ' OFFSET ' + offset);
     }
 
     @AuraEnabled
@@ -296,14 +301,18 @@ public with sharing class GS_ProductController {
     @AuraEnabled
     public static Double getTotalPrice() {
         Map<String, Integer> cart = getCart();
-        List<PricebookEntry> prices = [SELECT UnitPrice, Product2Id FROM PricebookEntry WHERE Product2Id IN :cart.keySet()];
+        List<PricebookEntry> prices = [SELECT UnitPrice, Product2Id FROM PricebookEntry WHERE Product2Id IN :cart.keySet() AND IsActive = True];
         Double total = 0;
 
         for (String productId: cart.keySet()) {
             Double unitPrice;
             for (PricebookEntry price : prices) {
                 if (price.Product2Id == productId) {
-                    unitPrice = price.UnitPrice;
+                    if (unitPrice == null) {
+                        unitPrice = price.UnitPrice;
+                    } else if (unitPrice > price.UnitPrice) {
+                        unitPrice = price.UnitPrice;
+                    }
                 }
             }
             total += unitPrice * cart.get(productId);
@@ -335,6 +344,7 @@ public with sharing class GS_ProductController {
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {
+        GS_General__c generalSettings = GS_General__c.getOrgDefaults();
         List<String> arguments = new List<String>();
         String argumentsString = '';
 
