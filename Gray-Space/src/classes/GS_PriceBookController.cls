@@ -31,30 +31,37 @@ public with sharing class GS_PriceBookController {
     private static void setPriceBookActive(String priceBookId, Boolean value) {
         Pricebook2 pricebook = [SELECT Id, IsActive FROM Pricebook2 WHERE Id = :priceBookId];
         List<PricebookEntry> prices = [SELECT Id, IsActive FROM PricebookEntry WHERE Pricebook2Id = :priceBookId];
+        List<SObject> all = new List<SObject>();
 
         pricebook.IsActive = value;
         for (PricebookEntry price : prices) {
             price.IsActive = value;
         }
 
-        update pricebook;
-        update prices;
+        all.addAll(prices);
+        all.add(pricebook);
+
+        update all;
     }
 
     private static Boolean validate(String name, Map<String, Integer> products) {
-        if (products.size() > 0) {
-            if (String.isNotBlank(name)) {
-//                if (discountValue > 0 && discountValue < 100) {
-                    return true;
-//                } else {
-//                    throw new AuraHandledException(System.Label.GS_Discount_Value_Error);
-//                }
-            } else {
-                throw new AuraHandledException(System.Label.GS_Provide_discount_name);
-            }
-        } else {
+        System.debug(products);
+        if (products.size() == 0) {
             throw new AuraHandledException(System.Label.GS_Select_at_least_one_product);
         }
+
+        if (String.isBlank(name)) {
+            throw new AuraHandledException(System.Label.GS_Provide_discount_name);
+        }
+
+        for (String key : products.keySet()) {
+            System.debug(products.get(key));
+            if (products.get(key) <= 0 || products.get(key) > 100) {
+                throw new AuraHandledException(System.Label.GS_Discount_Value_Error);
+            }
+        }
+
+        return true;
     }
 
     private static Pricebook2 createPricebook(String name) {

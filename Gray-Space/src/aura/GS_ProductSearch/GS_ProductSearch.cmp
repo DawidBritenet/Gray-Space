@@ -8,6 +8,7 @@
     <aura:attribute name="pageSize" type="Integer" default="20"/>
     <aura:attribute name="recordsStart" type="Integer"/>
     <aura:attribute name="recordsEnd" type="Integer"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
 
     <aura:handler name="searchEvent" event="c:GS_ProductSearchEvent" action="{! c.search }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
@@ -61,5 +62,9 @@
                 </aura:if>
             </div>
         </lightning:card>
+    </aura:if>
+
+    <aura:if isTrue="{! v.showSpinner }">
+        <lightning:spinner size="large" variant="brand" />
     </aura:if>
 </aura:component>

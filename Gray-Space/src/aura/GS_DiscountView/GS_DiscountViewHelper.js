@@ -1,6 +1,7 @@
 ({
     getPriceBooksEntries: function (component, event) {
         let action = component.get('c.getPricebookEntries');
+        component.set('v.showSpinner', true);
         action.setParams({
             'priceBookId': component.get('v.priceBook.Id')
         });
@@ -11,6 +12,7 @@
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
+            component.set('v.showSpinner', false);
         });
         $A.enqueueAction(action);
     },

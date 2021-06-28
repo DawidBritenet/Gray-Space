@@ -11,6 +11,7 @@
     <aura:attribute name="recordsEnd" type="Integer"/>
     <aura:attribute name="modalPromise" type="Aura.Action"/>
     <aura:attribute name="maxRowSelection" type="Integer" default="20"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
 
     <aura:handler event="c:GS_ReInit" action="{! c.doInit }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
@@ -63,6 +64,10 @@
 
         </lightning:layout>
     </lightning:card>
+
+    <aura:if isTrue="{! v.showSpinner }">
+        <lightning:spinner size="large" variant="brand" />
+    </aura:if>
 
     <lightning:overlayLibrary aura:id="editProductModal"/>
 </aura:component>

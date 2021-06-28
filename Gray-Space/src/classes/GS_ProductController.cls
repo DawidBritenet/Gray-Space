@@ -347,29 +347,16 @@ public with sharing class GS_ProductController {
 
     @AuraEnabled
     public static List<Product2> getUserLastVisitedProducts() {
-        List<GS_UserVisitedProduct__c> lastVisitedProducts = [SELECT GS_ProductId__c FROM GS_UserVisitedProduct__c WHERE GS_UserId__c = :UserInfo.getUserId() ORDER BY GS_Last_Visited_Date_Time__c LIMIT 5];
+        List<RecentlyViewed> lastVisitedProducts = [SELECT Id, Name FROM RecentlyViewed WHERE Type = 'Product2' ORDER BY LastViewedDate DESC LIMIT 5];
         List<String> productsIds = new List<String>();
+        List<Product2> products;
+        List<Product2> productsSorted;
 
-        for (GS_UserVisitedProduct__c product : lastVisitedProducts) {
-            productsIds.add(product.GS_ProductId__c);
+        for (RecentlyViewed product : lastVisitedProducts) {
+            productsIds.add(product.Id);
         }
 
-        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE IsActive = True AND Id IN :productsIds];
-    }
-
-    @AuraEnabled
-    public static void addToLastVisited(String productId) {
-        List<GS_UserVisitedProduct__c> products = [SELECT GS_ProductId__c FROM GS_UserVisitedProduct__c WHERE GS_UserId__c = :UserInfo.getUserId() AND GS_ProductId__c = :productId];
-        GS_UserVisitedProduct__c product;
-
-        if (products.size() > 0) {
-            product = products[0];
-            product.GS_Last_Visited_Date_Time__c = Datetime.now();
-        } else {
-            product = new GS_UserVisitedProduct__c(GS_ProductId__c = productId, GS_UserId__c = UserInfo.getUserId(), GS_Last_Visited_Date_Time__c = Datetime.now());
-        }
-
-        upsert product;
+        return [SELECT Id, Name, GS_Name_Link__c, ProductCode, StockKeepingUnit, GS_Type__c, (SELECT UnitPrice FROM PricebookEntries ORDER BY UnitPrice LIMIT 1) FROM Product2 WHERE IsActive = True AND Id IN :productsIds LIMIT 5];
     }
 
     public static String prepareArguments(String name, String spaceType, String type) {

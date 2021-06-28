@@ -7,6 +7,7 @@
         let page = component.get('v.page');
         let offset = (page - 1) * pageSize;
         let action = component.get('c.searchProduct');
+        component.set('v.showSpinner', true);
         action.setParams({
             'name': name,
             'spaceType': spaceType,
@@ -24,6 +25,7 @@
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
+            component.set('v.showSpinner', false);
         });
         $A.enqueueAction(action);
     },
@@ -36,6 +38,7 @@
         let pageSize = component.get('v.pageSize');
         let offset = (page - 1) * pageSize;
         let action = component.get('c.searchProduct');
+        component.set('v.showSpinner', true);
         action.setParams({
             'name': name,
             'spaceType': spaceType,
@@ -52,12 +55,14 @@
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
+            component.set('v.showSpinner', false);
         });
         $A.enqueueAction(action);
     },
 
     getPromotedProducts: function (component, event) {
         let action = component.get('c.getPromotedProducts');
+        component.set('v.showSpinner', true);
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 component.set('v.products', response.getReturnValue());
@@ -65,6 +70,7 @@
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
+            component.set('v.showSpinner', false);
         });
         $A.enqueueAction(action);
     },

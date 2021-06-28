@@ -3,6 +3,7 @@
         let action = component.get('c.getProducts');
         let offset = component.get('v.page') - 1;
         offset *= component.get('v.pageSize');
+        component.set('v.showSpinner', true);
         action.setParams({
             offset: offset,
             recordLimit: component.get('v.pageSize')
@@ -17,6 +18,7 @@
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);
             }
+            component.set('v.showSpinner', false);
         });
         $A.enqueueAction(action);
     },

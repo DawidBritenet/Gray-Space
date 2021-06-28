@@ -18,19 +18,6 @@
         $A.enqueueAction(action);
     },
 
-    addToLastVisited: function (component, event) {
-        let action = component.get('c.addToLastVisited');
-        action.setParams({
-            'productId': component.get('v.recordId')
-        });
-        action.setCallback(this, function (response) {
-            if (response.getState() === "ERROR") {
-                this.sendErrorMessage(response);
-            }
-        });
-        $A.enqueueAction(action);
-    },
-
     sendErrorMessage: function (response) {
         let message;
         try {

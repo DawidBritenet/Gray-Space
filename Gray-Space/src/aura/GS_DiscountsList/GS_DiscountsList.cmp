@@ -1,5 +1,6 @@
 <aura:component description="GS_DiscountsList" controller="GS_PriceBookController" implements="flexipage:availableForAllPageTypes">
     <aura:attribute name="priceBooks" type="Pricebook2[]"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
     <aura:handler event="c:GS_ReInit" action="{! c.doInit }"/>
@@ -12,5 +13,9 @@
                 </lightning:layoutItem>
             </aura:iteration>
         </lightning:layout>
+
+        <aura:if isTrue="{! v.showSpinner }">
+            <lightning:spinner size="large" variant="brand" />
+        </aura:if>
     </lightning:card>
 </aura:component>

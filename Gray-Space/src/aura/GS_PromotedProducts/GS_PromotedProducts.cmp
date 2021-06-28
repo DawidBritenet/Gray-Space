@@ -1,9 +1,14 @@
 <aura:component controller="GS_ProductController" description="GS_PromotedProducts" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="products" type="Product2[]"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
     <lightning:card title="{! $Label.c.GS_Our_customer_s_favorites }">
         <c:GS_ProductListWithTile products="{! v.products }"/>
+
+        <aura:if isTrue="{! v.showSpinner }">
+            <lightning:spinner size="large" variant="brand" />
+        </aura:if>
     </lightning:card>
 </aura:component>
