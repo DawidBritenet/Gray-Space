@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CH_Actions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Actions</shortDescription>
+        <value>Actions</value>
+    </labels>
+    <labels>
+        <fullName>CH_Add_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Photo</shortDescription>
+        <value>Add Photo</value>
+    </labels>
+    <labels>
+        <fullName>CH_Address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Address</shortDescription>
+        <value>Adress</value>
+    </labels>
+    <labels>
+        <fullName>CH_Body</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Body</shortDescription>
+        <value>Body</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Change_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Change Photo</shortDescription>
+        <value>Change Photo</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Clear</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Clone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Clone</shortDescription>
+        <value>Clone</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close Button</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Create</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Create</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Go</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Go</shortDescription>
+        <value>Go</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Import</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Import</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_None</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Process</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Process</shortDescription>
+        <value>Process</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Restore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>button Restore</shortDescription>
+        <value>Restore</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Reverse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Reverse</shortDescription>
+        <value>Reverse</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_SaveAndNew</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_SaveAndNew</shortDescription>
+        <value>Save &amp; New</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Send</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Send</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_Sharing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Button_Sharing</shortDescription>
+        <value>Sharing</value>
+    </labels>
+    <labels>
+        <fullName>CH_Button_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>CH_CSV_less_than_2_rows</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CSV less than 2 rows</shortDescription>
+        <value>Your CSV file has less than 2 rows.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Choose</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Choose</shortDescription>
+        <value>Choose</value>
+    </labels>
+    <labels>
+        <fullName>CH_Choose_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Choose Doctor</shortDescription>
+        <value>Choose Doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Contact_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Contact Details</shortDescription>
+        <value>Contact Details</value>
+    </labels>
+    <labels>
+        <fullName>CH_Contract_Created</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract Created</shortDescription>
+        <value>Contract successfully created.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Contract_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contract Details</shortDescription>
+        <value>Contract Details</value>
+    </labels>
+    <labels>
+        <fullName>CH_Count</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Count</shortDescription>
+        <value>Count</value>
+    </labels>
+    <labels>
+        <fullName>CH_Create_Contract</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Contract</shortDescription>
+        <value>Create Contract</value>
+    </labels>
+    <labels>
+        <fullName>CH_Create_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Doctor</shortDescription>
+        <value>Create Doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Create_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Hospital</shortDescription>
+        <value>Create Hospital</value>
+    </labels>
+    <labels>
+        <fullName>CH_Delete_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Hospital</shortDescription>
+        <value>Delete Hospital</value>
+    </labels>
+    <labels>
+        <fullName>CH_Delete_Hospital_Warning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Hospital Warning</shortDescription>
+        <value>Are you sure you want to delete the hospital.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Deleted_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleted Doctor</shortDescription>
+        <value>Successfully deleted the doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Detail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Detail</shortDescription>
+        <value>Detail</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctor_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor Delete</shortDescription>
+        <value>Doctor Delete</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctor_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor Form</shortDescription>
+        <value>Doctor Form</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctor_Hierarchy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor Hierarchy</shortDescription>
+        <value>Doctor Hierarchy</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctor_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctor View</shortDescription>
+        <value>Doctor View</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Doctors</shortDescription>
+        <value>Doctors</value>
+    </labels>
+    <labels>
+        <fullName>CH_Doctors_Search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Doctors_Search</shortDescription>
+        <value>Doctors Search</value>
+    </labels>
+    <labels>
+        <fullName>CH_Duplicate_Hospitals_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Duplicate Hospitals Error</shortDescription>
+        <value>There cannot be two hospitals with the same name and postal code.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Edit_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Doctor</shortDescription>
+        <value>Edit Doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Edit_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Hospital</shortDescription>
+        <value>Edit Hospital</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_Body_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Body Required</shortDescription>
+        <value>Body is required</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_Columns_Mapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Columns Mapping</shortDescription>
+        <value>Problem with columns mapping, check custom settings.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_Colums_Mapping</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Colums Mapping</shortDescription>
+        <value>Problem with columns mapping, check custom settings.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_Sender_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Sender Required</shortDescription>
+        <value>Sender is required.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_Subject_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Subject Required</shortDescription>
+        <value>Subject is required.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_max_csv_lines</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error max csv lines</shortDescription>
+        <value>You can import max 1000 records.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Error_one_field</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error one field</shortDescription>
+        <value>at least one field should be filed</value>
+    </labels>
+    <labels>
+        <fullName>CH_External_Server_Exception</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>External Server Exception</shortDescription>
+        <value>External Server Exception</value>
+    </labels>
+    <labels>
+        <fullName>CH_Fax</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fax</shortDescription>
+        <value>Fax</value>
+    </labels>
+    <labels>
+        <fullName>CH_General</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_General</shortDescription>
+        <value>General</value>
+    </labels>
+    <labels>
+        <fullName>CH_Helicopter_Access</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Helicopter Access</shortDescription>
+        <value>Helicopter Access</value>
+    </labels>
+    <labels>
+        <fullName>CH_Hire_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hire Doctor</shortDescription>
+        <value>Hire Doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Hospital_Deleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital Deleted</shortDescription>
+        <value>Hospital Deleted</value>
+    </labels>
+    <labels>
+        <fullName>CH_Hospital_Saved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital Saved</shortDescription>
+        <value>Hospital Saved</value>
+    </labels>
+    <labels>
+        <fullName>CH_Hospital_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hospital View</shortDescription>
+        <value>Hospital View</value>
+    </labels>
+    <labels>
+        <fullName>CH_Image_Too_Big</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Image Too Big</shortDescription>
+        <value>Image size can&apos;t be larger than 1MB</value>
+    </labels>
+    <labels>
+        <fullName>CH_Impor_result_errors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Impor result errors</shortDescription>
+        <value>, Errors:</value>
+    </labels>
+    <labels>
+        <fullName>CH_Import_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import Doctors</shortDescription>
+        <value>Import Doctors</value>
+    </labels>
+    <labels>
+        <fullName>CH_Import_result</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import result</shortDescription>
+        <value>Import result: (Saved:</value>
+    </labels>
+    <labels>
+        <fullName>CH_Import_result_Ignore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import result Ignore</shortDescription>
+        <value>, Ignore:</value>
+    </labels>
+    <labels>
+        <fullName>CH_Import_result_end</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Import result end</shortDescription>
+        <value>).</value>
+    </labels>
+    <labels>
+        <fullName>CH_Invalid_file_type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid file type</shortDescription>
+        <value>Invalid file type. Please select an image file.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_City</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label City</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Date_of_Birth</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Date of Birth</shortDescription>
+        <value>Date of Birth</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_First_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label First Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Last Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Licence</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Licence</shortDescription>
+        <value>Licence Number</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Nationality</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Nationality</shortDescription>
+        <value>Nationality</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Postal_Code</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Postal Code</shortDescription>
+        <value>Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Start_Of_Career</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Start Of Career</shortDescription>
+        <value>Start of Career</value>
+    </labels>
+    <labels>
+        <fullName>CH_Label_Street</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label Street</shortDescription>
+        <value>Street</value>
+    </labels>
+    <labels>
+        <fullName>CH_Last_Login_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Login Date</shortDescription>
+        <value>Last Login Date</value>
+    </labels>
+    <labels>
+        <fullName>CH_Last_Login_Device</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Login Device</shortDescription>
+        <value>Last Login Device</value>
+    </labels>
+    <labels>
+        <fullName>CH_Licence</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Licence</shortDescription>
+        <value>Licence</value>
+    </labels>
+    <labels>
+        <fullName>CH_Limit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Limit</shortDescription>
+        <value>Limit</value>
+    </labels>
+    <labels>
+        <fullName>CH_Limits</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Limits</shortDescription>
+        <value>Limits</value>
+    </labels>
+    <labels>
+        <fullName>CH_Map</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Map</shortDescription>
+        <value>Map</value>
+    </labels>
+    <labels>
+        <fullName>CH_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_No_Ambulances</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Ambulances</shortDescription>
+        <value>No. Ambulances</value>
+    </labels>
+    <labels>
+        <fullName>CH_No_File_Selected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No File Selected</shortDescription>
+        <value>No file(s) selected.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Notes_for_you_about_meeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Notes for you about meeting</shortDescription>
+        <value>Notes for you about meeting</value>
+    </labels>
+    <labels>
+        <fullName>CH_Now</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Now</shortDescription>
+        <value>Now</value>
+    </labels>
+    <labels>
+        <fullName>CH_Org_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Org Information</shortDescription>
+        <value>ORG INFORMATION</value>
+    </labels>
+    <labels>
+        <fullName>CH_Photo_Added</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Photo Added</shortDescription>
+        <value>Photo added successfully</value>
+    </labels>
+    <labels>
+        <fullName>CH_Profile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profile</shortDescription>
+        <value>Profile</value>
+    </labels>
+    <labels>
+        <fullName>CH_Random_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Random Doctors</shortDescription>
+        <value>Random Doctors</value>
+    </labels>
+    <labels>
+        <fullName>CH_Receiver</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Receiver</shortDescription>
+        <value>Receiver</value>
+    </labels>
+    <labels>
+        <fullName>CH_Records</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Records</shortDescription>
+        <value>Records</value>
+    </labels>
+    <labels>
+        <fullName>CH_Saved_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Saved Doctor</shortDescription>
+        <value>Successfully saved the doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Doctor</shortDescription>
+        <value>Search Doctor</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_External_Doctors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search External Doctors</shortDescription>
+        <value>Search External Doctors</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_External_Hospital</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search External Hospital</shortDescription>
+        <value>Search External Hospital</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_First_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_First_Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_Last_Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_No_Records</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_No_Records</shortDescription>
+        <value>No records</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Phrase_can_not_be_empty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Phrase can not be empty</shortDescription>
+        <value>Search Phrase can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_Results</shortDescription>
+        <value>Search Results</value>
+    </labels>
+    <labels>
+        <fullName>CH_Search_Speciality</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Search_Speciality</shortDescription>
+        <value>Spec</value>
+    </labels>
+    <labels>
+        <fullName>CH_Searching</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_Searching</shortDescription>
+        <value>Searching... please wait...</value>
+    </labels>
+    <labels>
+        <fullName>CH_Send_Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send Email</shortDescription>
+        <value>Send Email</value>
+    </labels>
+    <labels>
+        <fullName>CH_Sender</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sender</shortDescription>
+        <value>Sender</value>
+    </labels>
+    <labels>
+        <fullName>CH_Session_Id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Session Id</shortDescription>
+        <value>Session Id</value>
+    </labels>
+    <labels>
+        <fullName>CH_Show_Session_ID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Show Session ID</shortDescription>
+        <value>Show Session ID</value>
+    </labels>
+    <labels>
+        <fullName>CH_Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>CH_Subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>CH_Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>CH_Successfully_sent_e_mail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successfully sent e-mail</shortDescription>
+        <value>Successfully sent e-mail</value>
+    </labels>
+    <labels>
+        <fullName>CH_Time_Zone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Time Zone</shortDescription>
+        <value>Time Zone</value>
+    </labels>
+    <labels>
+        <fullName>CH_Used</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Used</shortDescription>
+        <value>Used</value>
+    </labels>
+    <labels>
+        <fullName>CH_Used_Salesforce_Licences</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Used Salesforce Licences</shortDescription>
+        <value>Used Salesforce Licences</value>
+    </labels>
+    <labels>
+        <fullName>CH_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>CH_Warning_Delete_Doctor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Doctor Warning</shortDescription>
+        <value>Are you sure you want to delete the doctor.</value>
+    </labels>
+    <labels>
+        <fullName>CH_Wrong_date_format</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Wrong date format</shortDescription>
+        <value>Wrong date format.</value>
+    </labels>
+    <labels>
+        <fullName>CH_button_Export_to_CSV</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Export to CSV Button</shortDescription>
+        <value>Export CSV</value>
+    </labels>
+    <labels>
+        <fullName>CH_button_Export_to_XLS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Export to XLS Button</shortDescription>
+        <value>Export XLS</value>
+    </labels>
+    <labels>
+        <fullName>CH_column_Country</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_column_Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>CH_column_License</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_column_License</shortDescription>
+        <value>License</value>
+    </labels>
+    <labels>
+        <fullName>CH_column_birthdate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_column_birthdate</shortDescription>
+        <value>Birthdate</value>
+    </labels>
+    <labels>
+        <fullName>CH_column_name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_column_name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>CH_column_specialization</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_column_specialization</shortDescription>
+        <value>Specialization</value>
+    </labels>
+    <labels>
+        <fullName>CH_error_country_is_required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_error_country_is_required</shortDescription>
+        <value>Country is required.</value>
+    </labels>
+    <labels>
+        <fullName>CH_error_date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_error_contract_dates_overlapping</shortDescription>
+        <value>Contract dates overlapping in the same hospital.</value>
+    </labels>
+    <labels>
+        <fullName>CH_error_pagination_page_size_limit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CH_error_pagination_page_size_limit</shortDescription>
+        <value>Page size can be between 1 and 2000.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Add_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Photo</shortDescription>
+        <value>Add Photo</value>
+    </labels>
+    <labels>
+        <fullName>GS_Add_Photos</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Photos</shortDescription>
+        <value>Add Photos</value>
+    </labels>
+    <labels>
+        <fullName>GS_Added_Photos</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Added Photos</shortDescription>
+        <value>Successfully added photos</value>
+    </labels>
+    <labels>
+        <fullName>GS_Additional_information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Additional information</shortDescription>
+        <value>Additional information</value>
+    </labels>
+    <labels>
+        <fullName>GS_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>GS_Blank_to_Organization_address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Blank to Organization address</shortDescription>
+        <value>Leave blank for organization address</value>
+    </labels>
+    <labels>
+        <fullName>GS_Can_not_go_Backward</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Can not go Backward</shortDescription>
+        <value>Error Status can not go backward</value>
+    </labels>
+    <labels>
+        <fullName>GS_Check_Console</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Check Console</shortDescription>
+        <value>Check Console</value>
+    </labels>
+    <labels>
+        <fullName>GS_Choose_Default_Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Choose Default Photo</shortDescription>
+        <value>Choose Default Photo</value>
+    </labels>
+    <labels>
+        <fullName>GS_City</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>GS_City_of_meeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>City of meeting</shortDescription>
+        <value>City of meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_Company</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>GS_ContactUs</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ContactUs</shortDescription>
+        <value>Contact us.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Description</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>GS_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>GS_Email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>GS_End_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date:</value>
+    </labels>
+    <labels>
+        <fullName>GS_End_of_the_meeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End of the meeting</shortDescription>
+        <value>End of the meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_Enter_meeting_start_date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter meeting start date</shortDescription>
+        <value>Enter start date and time of the meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_First_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_From_Company</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>From Company</shortDescription>
+        <value>From Company:</value>
+    </labels>
+    <labels>
+        <fullName>GS_Gallery</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Gallery</shortDescription>
+        <value>Gallery</value>
+    </labels>
+    <labels>
+        <fullName>GS_Gray_Space</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Gray Space</shortDescription>
+        <value>Gray Space</value>
+    </labels>
+    <labels>
+        <fullName>GS_Last_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Localization</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Localization</shortDescription>
+        <value>Localization:</value>
+    </labels>
+    <labels>
+        <fullName>GS_Meeting_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Meeting Date</shortDescription>
+        <value>Meeting Date</value>
+    </labels>
+    <labels>
+        <fullName>GS_Meeting_Date_in_past</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Meeting Date in past</shortDescription>
+        <value>Can not add Meeting in the past</value>
+    </labels>
+    <labels>
+        <fullName>GS_Meeting_end_date_before_start_date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Meeting end date before start date</shortDescription>
+        <value>Start of the meeting has to be before meeting end and maximum duration of meeting is 14 days.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Meeting_scheduled</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Meeting scheduled</shortDescription>
+        <value>Meeting scheduled</value>
+    </labels>
+    <labels>
+        <fullName>GS_Meeting_with</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Meeting with</shortDescription>
+        <value>Meeting with:</value>
+    </labels>
+    <labels>
+        <fullName>GS_New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>GS_New_Product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Product</shortDescription>
+        <value>New Product</value>
+    </labels>
+    <labels>
+        <fullName>GS_Page</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Page</shortDescription>
+        <value>Page</value>
+    </labels>
+    <labels>
+        <fullName>GS_Phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>GS_Place</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Place</shortDescription>
+        <value>Place</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Details</shortDescription>
+        <value>Product Details</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Name</shortDescription>
+        <value>Product Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_saved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product saved</shortDescription>
+        <value>Product saved</value>
+    </labels>
+    <labels>
+        <fullName>GS_Products</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Products</shortDescription>
+        <value>Products</value>
+    </labels>
+    <labels>
+        <fullName>GS_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>GS_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>GS_Search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>GS_Search_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Error</shortDescription>
+        <value>Search error. Check console&apos;</value>
+    </labels>
+    <labels>
+        <fullName>GS_Search_Success_1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Success 1</shortDescription>
+        <value>Yey! We found</value>
+    </labels>
+    <labels>
+        <fullName>GS_Search_Success_2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Success 2</shortDescription>
+        <value>products.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Search_Without_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Without Results</shortDescription>
+        <value>But we couldn&apos;t find any products.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Select_Default</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Default</shortDescription>
+        <value>Select Default</value>
+    </labels>
+    <labels>
+        <fullName>GS_Send_info_to_client</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send info to client</shortDescription>
+        <value>Send info to client</value>
+    </labels>
+    <labels>
+        <fullName>GS_Send_info_to_client_help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send info to client help</shortDescription>
+        <value>Select this if you want to send info about meeting to client</value>
+    </labels>
+    <labels>
+        <fullName>GS_Space_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Space Type</shortDescription>
+        <value>Space Type</value>
+    </labels>
+    <labels>
+        <fullName>GS_Space_Type_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Space Type Required</shortDescription>
+        <value>Space Type is required</value>
+    </labels>
+    <labels>
+        <fullName>GS_Start_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>GS_Start_of_the_meeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start of the meeting</shortDescription>
+        <value>Start of the meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_Street</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Street</value>
+    </labels>
+    <labels>
+        <fullName>GS_Street_of_meeting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Street of meeting</shortDescription>
+        <value>Street of meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_Submit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>GS_Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>GS_Success_contact_form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success contact form</shortDescription>
+        <value>The contact form has been successfully sent</value>
+    </labels>
+    <labels>
+        <fullName>GS_Summary</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Summary</shortDescription>
+        <value>Summary</value>
+    </labels>
+    <labels>
+        <fullName>GS_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>GS_multiple_photos_info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>multiple photos info</shortDescription>
+        <value>You can select multiple photos</value>
+    </labels>
+    <labels>
+        <fullName>GS_updated_default_photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>updated default photo</shortDescription>
+        <value>Successfully updated default photo.</value>
+    </labels>
+</CustomLabels>

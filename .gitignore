@@ -1,9 +1,3 @@
-src/objects
-*.object
-*.resource
-*.labels
-*.xml
-
 ### Salesforce ###
 # GitIgnore for Salesforce Projects
 # Project Settings and MetaData

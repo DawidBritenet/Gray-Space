@@ -1,33 +1,18 @@
 public with sharing class GS_CaseTriggerHandler extends GS_TriggerHandler {
+    Entitlement entitlement;
+    String queueId;
+
     public GS_CaseTriggerHandler() {
         super();
+        GS_General__c settings = GS_General__c.getOrgDefaults();
+        queueId = settings.GS_Case_queueID__c;
+        entitlement = [SELECT Id FROM Entitlement WHERE Name = :settings.GS_Case_Entitlement__c];
     }
 
-    public void bulkAfter() {
-        Entitlement entitlement = [SELECT Id FROM Entitlement WHERE Name = 'Case Payment Entitlement'];
-
-        if (Trigger.isInsert) {
-
-
-            for ()
-
-        }
-    }
 
     public void beforeInsert(SObject so) {
         Case newCase = (Case) so;
-        assignEntitlement(newCase);
-        assignQueue(newCase);
-    }
-
-    private void assignEntitlement(Case newCase) {
-        if (newCase.Type == 'Payment') {
-            Entitlement entitlement = [SELECT Id FROM Entitlement WHERE Name = 'Case Payment Entitlement'];
-            newCase.EntitlementId = entitlement.Id;
-        }
-    }
-
-    private void assignQueue(Case newCase) {
-        newCase.OwnerId = '00G09000001KZbBEAW';
+        newCase.EntitlementId = entitlement.Id;
+        newCase.OwnerId = queueId;
     }
 }
