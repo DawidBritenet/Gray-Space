@@ -36,6 +36,10 @@ local.properties
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea
+Gray-Space/lib
+Gray-Space/cache.properties
+Gray-Space/package
 
 *.iml
 # AWS User-specific
