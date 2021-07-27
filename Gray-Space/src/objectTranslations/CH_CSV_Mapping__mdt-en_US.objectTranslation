@@ -8,5 +8,9 @@
         <plural>true</plural>
         <value>CSV Mappings</value>
     </caseValues>
+    <fields>
+        <label><!-- Column Mapping --></label>
+        <name>CH_Column_Mapping__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

@@ -4,9 +4,6 @@ import {
 } from 'lightning/messageService';
 import WAREHOUSE_LIST_UPDATE_MESSAGE from '@salesforce/messageChannel/GS_WarehouseListUpdate__c';
 import {
-    NavigationMixin
-} from 'lightning/navigation';
-import {
     LightningElement,
     wire
 } from 'lwc';
@@ -49,17 +46,5 @@ export default class GS_WarehouseSearch extends LightningElement {
 
     get hasResults() {
         return (this.warehouses.data.length > 0);
-    }
-
-    handleWarehouseView(event) {
-        const warehouseId = event.detail;
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId: warehouseId,
-                objectApiName: 'GS_Warehouse__c',
-                actionName: 'view',
-            },
-        });
-    }  
+    } 
 }

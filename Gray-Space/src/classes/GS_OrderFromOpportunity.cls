@@ -39,29 +39,29 @@ public with sharing class GS_OrderFromOpportunity {
     }
 
     private static List<OrderItem> createProducts(String opportunityId, String orderId) {
-        List<OpportunityLineItem> opportunityProducts = [SELECT Id, Product2Id, Quantity, TotalPrice FROM OpportunityLineItem WHERE OpportunityId = :opportunityId];
-        List<String> productsIds = new List<String>();
-        List<PricebookEntry> pricebookEntries = null;
+        List<OpportunityLineItem> opportunityProducts = [SELECT Id, Product2Id, Quantity, TotalPrice, UnitPrice, pricebookEntryId FROM OpportunityLineItem WHERE OpportunityId = :opportunityId];
         List<OrderItem> products = new List<OrderItem>();
+        Decimal totalPrice = 0;
+        Decimal multiplyPrice = 1;
 
-        for (OpportunityLineItem product : opportunityProducts) {
-            productsIds.add(product.Product2Id);
+        for (OpportunityLineItem opportunityProduct : opportunityProducts) {
+            totalPrice += opportunityProduct.UnitPrice*opportunityProduct.Quantity;
         }
 
-        pricebookEntries = [SELECT Id, Product2Id, UnitPrice FROM PricebookEntry WHERE Product2Id IN :productsIds];
+        if (totalPrice > 25000) {
+            multiplyPrice = 0.9;
+        } else if (totalPrice > 10000) {
+            multiplyPrice = 0.95;
+        }
 
         for (OpportunityLineItem opportunityProduct : opportunityProducts) {
             OrderItem product = new OrderItem();
             product.Product2Id = opportunityProduct.Product2Id;
             product.OrderId = orderId;
             product.Quantity = opportunityProduct.Quantity;
+            product.UnitPrice = opportunityProduct.UnitPrice * multiplyPrice;
+            product.PricebookEntryId = opportunityProduct.pricebookEntryId;
 
-            for (PricebookEntry pricebookEntry : pricebookEntries) {
-                if (pricebookEntry.Product2Id == product.Product2Id) {
-                    product.PricebookEntryId = pricebookEntry.Id;
-                    product.UnitPrice = pricebookEntry.UnitPrice;
-                }
-            }
             products.add(product);
         }
 

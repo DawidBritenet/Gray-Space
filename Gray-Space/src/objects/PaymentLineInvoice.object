@@ -122,6 +122,9 @@
         <fullName>Date</fullName>
     </fields>
     <fields>
+        <fullName>EffectiveDate</fullName>
+    </fields>
+    <fields>
         <fullName>EffectiveImpactAmount</fullName>
     </fields>
     <fields>

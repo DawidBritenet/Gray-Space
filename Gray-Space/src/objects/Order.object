@@ -267,6 +267,30 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>GS_Payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>GS_Payment</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>GS_Shipment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Shipment Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>GS_Shipment_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>IsReductionOrder</fullName>
     </fields>
     <fields>
@@ -301,6 +325,11 @@
     </fields>
     <fields>
         <fullName>Pricebook2Id</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QuoteId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>

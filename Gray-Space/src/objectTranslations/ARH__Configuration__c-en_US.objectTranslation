@@ -1,3 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Detail Field 1 --></label>
+        <name>ARH__Detail_Field_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Field 2 --></label>
+        <name>ARH__Detail_Field_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Field 3 --></label>
+        <name>ARH__Detail_Field_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Field 4 --></label>
+        <name>ARH__Detail_Field_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Field 5 --></label>
+        <name>ARH__Detail_Field_5__c</name>
+    </fields>
+    <fields>
+        <help><!-- Object Name --></help>
+        <label><!-- Object --></label>
+        <name>ARH__Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Field --></label>
+        <name>ARH__Relationship_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Search Field --></label>
+        <name>ARH__Search_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visual Field --></label>
+        <name>ARH__Visual_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visual Type --></label>
+        <name>ARH__Visual_Type__c</name>
+        <picklistValues>
+            <masterLabel>Abbreviation</masterLabel>
+            <translation><!-- Abbreviation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Image</masterLabel>
+            <translation><!-- Image --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

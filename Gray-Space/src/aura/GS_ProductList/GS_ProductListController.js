@@ -16,7 +16,6 @@
                 typeAttributes: {label: {fieldName: 'Name'}, target: '_blank'}
             },
             {label: $A.get('$Label.c.GS_Product_Code'), fieldName: 'GS_Product_Code__c', type: 'text'},
-            {label: $A.get('$Label.c.GS_Product_SKU'), fieldName: 'GS_Product_SKU__c', type: 'text'},
             {label: $A.get('$Label.c.GS_Product_Type'), fieldName: 'GS_Type__c', type: 'text'},
             {type: 'action', typeAttributes: {rowActions: actions}},
         ]);

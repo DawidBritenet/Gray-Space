@@ -8,5 +8,25 @@
         <plural>true</plural>
         <value>General</value>
     </caseValues>
+    <fields>
+        <label><!-- Base Photo URL --></label>
+        <name>GS_Base_Photo_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Entitlement --></label>
+        <name>GS_Case_Entitlement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case queueID --></label>
+        <name>GS_Case_queueID__c</name>
+    </fields>
+    <fields>
+        <label><!-- GrayFamily Id --></label>
+        <name>GS_GrayFamily_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Standard Pricebook Id --></label>
+        <name>GS_Standard_Pricebook_Id__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

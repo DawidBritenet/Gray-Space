@@ -8,5 +8,93 @@
         <plural>true</plural>
         <value>Movies</value>
     </caseValues>
+    <fields>
+        <label><!-- Adult --></label>
+        <name>MV_Adult__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved --></label>
+        <name>MV_Aproved__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Backdrop Path --></label>
+        <name>MV_Backdrop_Path__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget --></label>
+        <name>MV_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Character --></label>
+        <name>MV_Character__c</name>
+    </fields>
+    <fields>
+        <label><!-- Homepage --></label>
+        <name>MV_Homepage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Language --></label>
+        <name>MV_Original_Language__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Title --></label>
+        <name>MV_Original_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overview --></label>
+        <name>MV_Overview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Popularity --></label>
+        <name>MV_Popularity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Poster Path --></label>
+        <name>MV_Poster_Path__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release Date --></label>
+        <name>MV_Release_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Runtime --></label>
+        <name>MV_Runtime__c</name>
+    </fields>
+    <fields>
+        <label><!-- The Movie DB ID --></label>
+        <name>MV_The_Movie_DB_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Video --></label>
+        <name>MV_Video__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vote Average --></label>
+        <name>MV_Vote_Average__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vote Count --></label>
+        <name>MV_Vote_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- imdb_id --></label>
+        <name>MV_imdb_id__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

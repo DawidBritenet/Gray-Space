@@ -10,11 +10,20 @@
     </caseValues>
     <fields>
         <label><!-- ProductId --></label>
-        <name>ProductId__c</name>
+        <name>GS_ProductId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>GS_Quantity__c</name>
     </fields>
     <fields>
         <label><!-- Warehouse --></label>
-        <name>Warehouse__c</name>
+        <name>GS_Warehouse__c</name>
+        <relationshipLabel><!-- WarehouseLineItems --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
         <relationshipLabel><!-- WarehouseLineItems --></relationshipLabel>
     </fields>
     <startsWith>Consonant</startsWith>

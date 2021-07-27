@@ -61,6 +61,7 @@
         <profile>Analytics Cloud Security User</profile>
     </profileActionOverrides>
     <tabs>standard-Lead</tabs>
+    <tabs>Storage_Manager</tabs>
     <tabs>Discount_Manager</tabs>
     <tabs>Explore_products</tabs>
     <tabs>Products</tabs>
@@ -70,6 +71,8 @@
     <tabs>GS_Invoice__c</tabs>
     <tabs>standard-Entitlement</tabs>
     <tabs>GS_Warehouse__c</tabs>
+    <tabs>Warehouses</tabs>
+    <tabs>GS_Club__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Gray_Space_Inc_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -80,6 +83,9 @@
             <tab>Explore_products</tab>
         </mappings>
         <mappings>
+            <tab>GS_Club__c</tab>
+        </mappings>
+        <mappings>
             <tab>GS_Invoice__c</tab>
         </mappings>
         <mappings>
@@ -87,6 +93,12 @@
         </mappings>
         <mappings>
             <tab>Products</tab>
+        </mappings>
+        <mappings>
+            <tab>Storage_Manager</tab>
+        </mappings>
+        <mappings>
+            <tab>Warehouses</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>

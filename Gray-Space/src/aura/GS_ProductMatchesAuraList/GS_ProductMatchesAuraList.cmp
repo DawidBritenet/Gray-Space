@@ -1,0 +1,5 @@
+<aura:component description="GS_ProductMatchesAuraList" implements="force:hasRecordId,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="recordId" type="String"/>
+
+    <c:gS_ProductsMatchesList recordId="{! v.recordId }"/>
+</aura:component>

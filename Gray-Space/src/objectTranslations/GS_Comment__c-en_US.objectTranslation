@@ -8,5 +8,25 @@
         <plural>true</plural>
         <value>Comments</value>
     </caseValues>
+    <fields>
+        <label><!-- Content --></label>
+        <name>GS_Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- ProductId --></label>
+        <name>GS_ProductId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate --></label>
+        <name>GS_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>GS_User__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Rate has to be between 0 and 10 --></errorMessage>
+        <name>Rate_Max_values</name>
+    </validationRules>
 </CustomObjectTranslation>

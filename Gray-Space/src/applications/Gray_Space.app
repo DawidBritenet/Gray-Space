@@ -1424,6 +1424,7 @@
     <tabs>Explore_products</tabs>
     <tabs>GS_Invoice__c</tabs>
     <tabs>GS_Warehouse__c</tabs>
+    <tabs>GS_Club__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Sleep_And_Play_UtilityBar</utilityBar>
 </CustomApplication>

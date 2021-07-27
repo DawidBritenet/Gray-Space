@@ -6,6 +6,9 @@
 .metadata
 build.properties
 config
+cache.properties
+package/
+out
 
 # Apex Log as optional
 apex-scripts/log

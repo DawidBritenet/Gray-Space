@@ -2,6 +2,7 @@
                 implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="product" type="Product2"/>
+    <aura:attribute name="inStock" type="Integer"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
@@ -25,10 +26,16 @@
             </div>
         </aura:set>
         <aura:set attribute="actions">
-            <div class="slds-button slds-button_neutral add-to-cart" onclick="{! c.addToCart }">
-                <lightning:icon iconName="utility:checkout" size="small" class="slds-p-around_xxx-small"/>
-                {! $Label.c.GS_Add_To_Cart }
-            </div>
+            <aura:if isTrue="{! v.inStock > 0 }">
+                <c:gS_WarehousesWithProduct recordId="{! v.recordId }"/>
+                <div class="slds-button slds-button_neutral add-to-cart" onclick="{! c.addToCart }">
+                    <lightning:icon iconName="utility:checkout" size="small" class="slds-p-around_xxx-small"/>
+                        {! $Label.c.GS_Add_to_cart }
+                </div>
+                <aura:set attribute="else">
+                    <lightning:button label="{! $Label.c.GS_Not_in_stock }" disabled="true" />
+                </aura:set>
+            </aura:if>
         </aura:set>
 
         <lightning:recordViewForm recordId="{! v.recordId }" objectApiName="Product2">
@@ -46,6 +53,13 @@
                         <label class="slds-form-element__label" for="sku"
                                id="inline-text-label">{! $Label.c.GS_Product_SKU }</label><br/>
                         <lightning:outputField aura:id="sku" fieldName="GS_Product_SKU__c" variant="label-hidden"/>
+                    </div>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="2">
+                    <div class="slds-form-element slds-form-element_stacked">
+                        <label class="slds-form-element__label" for="inStock"
+                               id="inline-text-label">{! $Label.c.GS_InStock }</label><br/>
+                       {! v.inStock }
                     </div>
                 </lightning:layoutItem>
             </lightning:layout>

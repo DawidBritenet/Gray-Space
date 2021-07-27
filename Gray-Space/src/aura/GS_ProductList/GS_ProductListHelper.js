@@ -24,7 +24,7 @@
     },
 
     getPagesCount: function (component, event) {
-        let action = component.get('c.getProductsCount');
+        let action = component.get('c.getProductsCountAll');
         action.setCallback(this, function (response) {
             if (response.getState() === "SUCCESS") {
                 let results = response.getReturnValue();
@@ -79,7 +79,7 @@
     createEditProductModal: function (component, event, recordId) {
         $A.createComponent('c:GS_ProductFormFlow', {'recordId': recordId}, function (content, status) {
             if (status === "SUCCESS") {
-                var modalPromise = component.find('editProductModal').showCustomModal({
+                let modalPromise = component.find('editProductModal').showCustomModal({
                     header: $A.get('$Label.c.GS_Edit_Product'),
                     body: content,
                     showCloseButton: true,

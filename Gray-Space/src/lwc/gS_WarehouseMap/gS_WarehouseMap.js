@@ -1,4 +1,5 @@
 import {
+    api,
     LightningElement,
     wire
 } from 'lwc';
@@ -13,6 +14,7 @@ import SOBJECT_SELECT_MESSAGE from '@salesforce/messageChannel/GS_SObjectSelect_
 import LABEL_WAREHOUSES from '@salesforce/label/c.GS_Warehouses';
 
 export default class GS_WarehouseMap extends LightningElement {
+    @api
     mapMarkers = [];
     subscription = null;
     @wire(MessageContext)
@@ -20,6 +22,15 @@ export default class GS_WarehouseMap extends LightningElement {
     selectedValue = '';
     label = {
         LABEL_WAREHOUSES
+    }
+
+    @api 
+    get maps() {
+        return this.mapMarkers
+    }
+
+    set maps(val) {
+        this.mapMarkers = val;
     }
 
     connectedCallback() {
@@ -53,7 +64,7 @@ export default class GS_WarehouseMap extends LightningElement {
                 },
                 title: warehouse.Name,
                 value: warehouse.Id,
-                description: `${warehouse.GS_Phone__c}`,
+                description: `Phone: ${warehouse.GS_Phone__c}`,
                 icon: 'utility:agent_home'
             };
         });

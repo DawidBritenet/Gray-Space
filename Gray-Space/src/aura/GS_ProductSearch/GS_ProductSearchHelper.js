@@ -96,11 +96,6 @@
                     pageCount = 1;
                 }
                 component.set('v.pageCount', pageCount);
-                let pages = [];
-                for (let i = 1; i <= pageCount; i++) {
-                    pages.push(i);
-                }
-                component.set('v.pagesList', pages);
                 if (results > 0) {
                     this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Search_Success_1') + ' ' + results + ' ' + $A.get('$Label.c.GS_Search_Success_2'), 'success');
                 } else {

@@ -8,5 +8,61 @@
         <plural>true</plural>
         <value>Actors</value>
     </caseValues>
+    <fields>
+        <label><!-- Adult --></label>
+        <name>MV_Adult__c</name>
+    </fields>
+    <fields>
+        <label><!-- Biography --></label>
+        <name>MV_Biography__c</name>
+    </fields>
+    <fields>
+        <label><!-- Birthday --></label>
+        <name>MV_Birthday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cast Id --></label>
+        <name>MV_Cast_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Character --></label>
+        <name>MV_Character__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Id --></label>
+        <name>MV_Credit_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deathday --></label>
+        <name>MV_Deathday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>MV_Gender__c</name>
+    </fields>
+    <fields>
+        <label><!-- Known For Department --></label>
+        <name>MV_Known_For_Department__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>MV_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Orginal Name --></label>
+        <name>MV_Original_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Popularity --></label>
+        <name>MV_Popularity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Path --></label>
+        <name>MV_Profile_Path__c</name>
+    </fields>
+    <fields>
+        <label><!-- The Movie DB ID --></label>
+        <name>MV_The_Movie_DB_ID__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

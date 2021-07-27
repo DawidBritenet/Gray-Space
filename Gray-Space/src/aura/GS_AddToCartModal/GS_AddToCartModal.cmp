@@ -22,7 +22,7 @@
 
     <ui:scrollerWrapper>
         <div class="slds-align_absolute-center slds-p-vertical_large">
-            <div class="slds-size_8-of-12 slds-p-vertical_large">
+            <div class="slds-size_10-of-12 slds-p-vertical_large">
                 <c:GS_ProductCart recordId="{! v.recordId }" quantity="{! v.quantity }"/>
             </div>
         </div>

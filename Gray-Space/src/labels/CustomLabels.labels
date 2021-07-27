@@ -953,6 +953,27 @@
         <value>Page size can be between 1 and 2000.</value>
     </labels>
     <labels>
+        <fullName>GS_Accept_terms</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Accept terms</shortDescription>
+        <value>Accept terms</value>
+    </labels>
+    <labels>
+        <fullName>GS_Activate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Activate</shortDescription>
+        <value>Activate</value>
+    </labels>
+    <labels>
+        <fullName>GS_Add_Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Comment</shortDescription>
+        <value>Add Comment</value>
+    </labels>
+    <labels>
         <fullName>GS_Add_Photo</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -965,6 +986,27 @@
         <protected>true</protected>
         <shortDescription>Add Photos</shortDescription>
         <value>Add Photos</value>
+    </labels>
+    <labels>
+        <fullName>GS_Add_to_cart</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add to cart</shortDescription>
+        <value>Add to cart</value>
+    </labels>
+    <labels>
+        <fullName>GS_Added</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Added</shortDescription>
+        <value>Added</value>
+    </labels>
+    <labels>
+        <fullName>GS_Added_Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Added Comment</shortDescription>
+        <value>Added Comment</value>
     </labels>
     <labels>
         <fullName>GS_Added_Photos</fullName>
@@ -981,11 +1023,32 @@
         <value>Additional information</value>
     </labels>
     <labels>
+        <fullName>GS_Address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
         <fullName>GS_All</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>All</shortDescription>
         <value>All</value>
+    </labels>
+    <labels>
+        <fullName>GS_Available</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Available</shortDescription>
+        <value>Available</value>
+    </labels>
+    <labels>
+        <fullName>GS_Back</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
     </labels>
     <labels>
         <fullName>GS_Blank_to_Organization_address</fullName>
@@ -995,11 +1058,32 @@
         <value>Leave blank for organization address</value>
     </labels>
     <labels>
+        <fullName>GS_CONTACT_CUSTOMER_SUPPORT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTACT CUSTOMER SUPPORT</shortDescription>
+        <value>CONTACT CUSTOMER SUPPORT</value>
+    </labels>
+    <labels>
         <fullName>GS_Can_not_go_Backward</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Can not go Backward</shortDescription>
         <value>Error Status can not go backward</value>
+    </labels>
+    <labels>
+        <fullName>GS_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>GS_Capacity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Capacity</shortDescription>
+        <value>Capacity</value>
     </labels>
     <labels>
         <fullName>GS_Check_Console</fullName>
@@ -1030,6 +1114,34 @@
         <value>City of meeting</value>
     </labels>
     <labels>
+        <fullName>GS_Close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>GS_Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comment</shortDescription>
+        <value>Comment</value>
+    </labels>
+    <labels>
+        <fullName>GS_Comment_Required_fields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comment Required fields</shortDescription>
+        <value>Rating and message are required</value>
+    </labels>
+    <labels>
+        <fullName>GS_Comments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
         <fullName>GS_Company</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1037,11 +1149,81 @@
         <value>Company</value>
     </labels>
     <labels>
+        <fullName>GS_Company_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Company Name</shortDescription>
+        <value>Company Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Confirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirm</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
         <fullName>GS_ContactUs</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>ContactUs</shortDescription>
         <value>Contact us.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Create_Order</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Order</shortDescription>
+        <value>Create Order</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deactivate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deactivate</shortDescription>
+        <value>Deactivate</value>
+    </labels>
+    <labels>
+        <fullName>GS_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleted</shortDescription>
+        <value>Deleted</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deleted_Products</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleted Products</shortDescription>
+        <value>Deleted Products</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deleted_comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleted comment</shortDescription>
+        <value>Deleted comment</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deleted_product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleted product</shortDescription>
+        <value>Deleted Product</value>
+    </labels>
+    <labels>
+        <fullName>GS_Deleting_Product_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Deleting Product Error</shortDescription>
+        <value>Can not delete product</value>
     </labels>
     <labels>
         <fullName>GS_Description</fullName>
@@ -1056,6 +1238,69 @@
         <protected>true</protected>
         <shortDescription>Details</shortDescription>
         <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Form</shortDescription>
+        <value>Discount Form</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_Management</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Management</shortDescription>
+        <value>Discount Management</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_Percent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Percent</shortDescription>
+        <value>Discount %</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_Value_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount Value Error</shortDescription>
+        <value>Discount value has to be between 1 and 99</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount View</shortDescription>
+        <value>Discount View</value>
+    </labels>
+    <labels>
+        <fullName>GS_Discount_for_purchases_above</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Discount for purchases above</shortDescription>
+        <value>Discount for purchases above :</value>
+    </labels>
+    <labels>
+        <fullName>GS_Duplicate_Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Duplicate Comment</shortDescription>
+        <value>You already added comment to this product</value>
+    </labels>
+    <labels>
+        <fullName>GS_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>GS_Edit_Product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Product</shortDescription>
+        <value>Edit Product</value>
     </labels>
     <labels>
         <fullName>GS_Email</fullName>
@@ -1093,6 +1338,13 @@
         <value>First Name</value>
     </labels>
     <labels>
+        <fullName>GS_Follow_Us</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Follow Us</shortDescription>
+        <value>Follow Us!</value>
+    </labels>
+    <labels>
         <fullName>GS_From_Company</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1107,6 +1359,20 @@
         <value>Gallery</value>
     </labels>
     <labels>
+        <fullName>GS_Go_To_Bank</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go To Bank</shortDescription>
+        <value>Go To Bank</value>
+    </labels>
+    <labels>
+        <fullName>GS_Go_to_Home_Page</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to Home Page</shortDescription>
+        <value>Go to Home Page</value>
+    </labels>
+    <labels>
         <fullName>GS_Gray_Space</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1114,11 +1380,39 @@
         <value>Gray Space</value>
     </labels>
     <labels>
+        <fullName>GS_InStock</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InStock</shortDescription>
+        <value>InStock</value>
+    </labels>
+    <labels>
+        <fullName>GS_Invoice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invoice</shortDescription>
+        <value>Invoice</value>
+    </labels>
+    <labels>
+        <fullName>GS_Join_GrayFamily</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Join GrayFamily</shortDescription>
+        <value>Join GrayFamily!</value>
+    </labels>
+    <labels>
         <fullName>GS_Last_Name</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Last Name</shortDescription>
         <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Last_Visited</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Visited</shortDescription>
+        <value>Last Visited</value>
     </labels>
     <labels>
         <fullName>GS_Localization</fullName>
@@ -1163,6 +1457,20 @@
         <value>Meeting with:</value>
     </labels>
     <labels>
+        <fullName>GS_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message</shortDescription>
+        <value>Message</value>
+    </labels>
+    <labels>
+        <fullName>GS_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
         <fullName>GS_New</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1177,11 +1485,46 @@
         <value>New Product</value>
     </labels>
     <labels>
+        <fullName>GS_No_Comments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Comments</shortDescription>
+        <value>No Comments</value>
+    </labels>
+    <labels>
+        <fullName>GS_Not_in_stock</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not in stock</shortDescription>
+        <value>Not in stock</value>
+    </labels>
+    <labels>
+        <fullName>GS_Our_customer_s_favorites</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Our customer&apos;s favorites</shortDescription>
+        <value>Our customer&apos;s favorites</value>
+    </labels>
+    <labels>
         <fullName>GS_Page</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Page</shortDescription>
         <value>Page</value>
+    </labels>
+    <labels>
+        <fullName>GS_Page_Size</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Page Size</shortDescription>
+        <value>Page Size</value>
+    </labels>
+    <labels>
+        <fullName>GS_Payment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Payment</shortDescription>
+        <value>Payment</value>
     </labels>
     <labels>
         <fullName>GS_Phone</fullName>
@@ -1198,6 +1541,20 @@
         <value>Place</value>
     </labels>
     <labels>
+        <fullName>GS_Price</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Price</shortDescription>
+        <value>Price</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_Code</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Code</shortDescription>
+        <value>Product Code</value>
+    </labels>
+    <labels>
         <fullName>GS_Product_Details</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1210,6 +1567,34 @@
         <protected>true</protected>
         <shortDescription>Product Name</shortDescription>
         <value>Product Name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Not Found</shortDescription>
+        <value>Product not found</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_SKU</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product SKU</shortDescription>
+        <value>Product SKU</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product Type</shortDescription>
+        <value>Product Type</value>
+    </labels>
+    <labels>
+        <fullName>GS_Product_added_to_chart</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Product added to chart</shortDescription>
+        <value>Product added to chart</value>
     </labels>
     <labels>
         <fullName>GS_Product_saved</fullName>
@@ -1226,11 +1611,53 @@
         <value>Products</value>
     </labels>
     <labels>
+        <fullName>GS_Products_to_combine</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Products to combine</shortDescription>
+        <value>Products to combine</value>
+    </labels>
+    <labels>
+        <fullName>GS_Provide_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Provide Details</shortDescription>
+        <value>Provide Details</value>
+    </labels>
+    <labels>
+        <fullName>GS_Provide_discount_name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Provide discount name</shortDescription>
+        <value>Provide discount name</value>
+    </labels>
+    <labels>
+        <fullName>GS_Quantity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>GS_Rate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rate</shortDescription>
+        <value>Rate</value>
+    </labels>
+    <labels>
         <fullName>GS_Results</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Results</shortDescription>
         <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>GS_Review_your_bucket</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Review your bucket</shortDescription>
+        <value>Review your bucket</value>
     </labels>
     <labels>
         <fullName>GS_Save</fullName>
@@ -1275,11 +1702,32 @@
         <value>But we couldn&apos;t find any products.</value>
     </labels>
     <labels>
+        <fullName>GS_Search_for_warehouses</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search for warehouses</shortDescription>
+        <value>Search for warehouses</value>
+    </labels>
+    <labels>
         <fullName>GS_Select_Default</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Select Default</shortDescription>
         <value>Select Default</value>
+    </labels>
+    <labels>
+        <fullName>GS_Select_at_least_one_product</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select at least one product</shortDescription>
+        <value>Select at least one product</value>
+    </labels>
+    <labels>
+        <fullName>GS_Send</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Send</shortDescription>
+        <value>Send</value>
     </labels>
     <labels>
         <fullName>GS_Send_info_to_client</fullName>
@@ -1294,6 +1742,34 @@
         <protected>true</protected>
         <shortDescription>Send info to client help</shortDescription>
         <value>Select this if you want to send info about meeting to client</value>
+    </labels>
+    <labels>
+        <fullName>GS_Shipment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Shipment</shortDescription>
+        <value>Shipment</value>
+    </labels>
+    <labels>
+        <fullName>GS_Showing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Showing</shortDescription>
+        <value>Showing</value>
+    </labels>
+    <labels>
+        <fullName>GS_Sign_In</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sign In</shortDescription>
+        <value>Sign In</value>
+    </labels>
+    <labels>
+        <fullName>GS_Skip</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Skip</shortDescription>
+        <value>Skip</value>
     </labels>
     <labels>
         <fullName>GS_Space_Type</fullName>
@@ -1324,6 +1800,13 @@
         <value>Start of the meeting</value>
     </labels>
     <labels>
+        <fullName>GS_Storage_Manager</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Storage Manager</shortDescription>
+        <value>Storage Manager</value>
+    </labels>
+    <labels>
         <fullName>GS_Street</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1336,6 +1819,13 @@
         <protected>true</protected>
         <shortDescription>Street of meeting</shortDescription>
         <value>Street of meeting</value>
+    </labels>
+    <labels>
+        <fullName>GS_Subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Subject</shortDescription>
+        <value>Subject</value>
     </labels>
     <labels>
         <fullName>GS_Submit</fullName>
@@ -1352,6 +1842,13 @@
         <value>Success</value>
     </labels>
     <labels>
+        <fullName>GS_Success_Your_case_nr</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success! Your case nr.</shortDescription>
+        <value>Success! Thank you for your feedback.</value>
+    </labels>
+    <labels>
         <fullName>GS_Success_contact_form</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1366,6 +1863,27 @@
         <value>Summary</value>
     </labels>
     <labels>
+        <fullName>GS_TELL_US_HOW_WE_CAN_HELP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TELL US HOW WE CAN HELP.</shortDescription>
+        <value>TELL US HOW WE CAN HELP.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Thank_you_order</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Thank you order</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>GS_Total</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total</shortDescription>
+        <value>Total:</value>
+    </labels>
+    <labels>
         <fullName>GS_Type</fullName>
         <language>en_US</language>
         <protected>true</protected>
@@ -1373,11 +1891,109 @@
         <value>Type</value>
     </labels>
     <labels>
+        <fullName>GS_Unknown_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unknown Error</shortDescription>
+        <value>Unknown Error</value>
+    </labels>
+    <labels>
+        <fullName>GS_Update_Default_Photo_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Update Default Photo Error</shortDescription>
+        <value>Can not update default photo</value>
+    </labels>
+    <labels>
+        <fullName>GS_Used_Capacity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Used Capacity</shortDescription>
+        <value>Used Capacity</value>
+    </labels>
+    <labels>
+        <fullName>GS_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>GS_Warehouse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warehouse</shortDescription>
+        <value>Warehouse</value>
+    </labels>
+    <labels>
+        <fullName>GS_Warehouse_disturbing_no_results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warehouse disturbing no results</shortDescription>
+        <value>This is warehouse disturbing, we did not find results...</value>
+    </labels>
+    <labels>
+        <fullName>GS_Warehouses</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warehouses</shortDescription>
+        <value>Warehouses</value>
+    </labels>
+    <labels>
+        <fullName>GS_We_did_not_find_results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>We did not find results</shortDescription>
+        <value>We did not find results</value>
+    </labels>
+    <labels>
+        <fullName>GS_Where_available</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Where available</shortDescription>
+        <value>Where available</value>
+    </labels>
+    <labels>
+        <fullName>GS_You_already_member</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You already member</shortDescription>
+        <value>You already member!</value>
+    </labels>
+    <labels>
+        <fullName>GS_You_have_5_discount_on_products_you_interested_in</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have 5% discount on products you interested in</shortDescription>
+        <value>You have 5% discount on products you interested in.</value>
+    </labels>
+    <labels>
         <fullName>GS_multiple_photos_info</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>multiple photos info</shortDescription>
         <value>You can select multiple photos</value>
+    </labels>
+    <labels>
+        <fullName>GS_out_of</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>out of</shortDescription>
+        <value>out of</value>
+    </labels>
+    <labels>
+        <fullName>GS_reset</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>reset</shortDescription>
+        <value>Reset</value>
+    </labels>
+    <labels>
+        <fullName>GS_update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>update</shortDescription>
+        <value>Update</value>
     </labels>
     <labels>
         <fullName>GS_updated_default_photo</fullName>

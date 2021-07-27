@@ -8,5 +8,9 @@
         <plural>true</plural>
         <value>Keys</value>
     </caseValues>
+    <fields>
+        <label><!-- Google Map API Key --></label>
+        <name>CH_Google_Map_API_Key__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

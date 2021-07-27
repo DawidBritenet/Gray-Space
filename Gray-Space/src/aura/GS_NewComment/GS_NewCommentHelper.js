@@ -11,6 +11,9 @@
             if (response.getState() === "SUCCESS") {
                 this.fireAddedNewComment(component, event);
                 this.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Added_Comment'), 'success');
+                component.set('v.rate', 0);
+                component.find('message').set('v.value', '');
+                component.set('v.hide', true);
             }
             if (response.getState() === "ERROR") {
                 this.sendErrorMessage(response);

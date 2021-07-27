@@ -8,5 +8,13 @@
         <plural>true</plural>
         <value>csv</value>
     </caseValues>
+    <fields>
+        <label><!-- Column Separator --></label>
+        <name>CH_Column_Separator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Columns Map --></label>
+        <name>CH_Columns_Map__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

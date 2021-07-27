@@ -1,5 +1,5 @@
 <aura:component description="GS_ProductEditForm" controller="GS_ProductController"
-                implements="force:lightningQuickActionWithoutHeader, force:hasRecordId">
+                implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
 
     <ltng:require styles="{!$Resource.bigModal}"/>

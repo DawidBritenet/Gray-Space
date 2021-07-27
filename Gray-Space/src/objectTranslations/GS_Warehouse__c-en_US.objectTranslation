@@ -36,5 +36,9 @@
         <label><!-- Street --></label>
         <name>GS_Street__c</name>
     </fields>
+    <fields>
+        <label><!-- Used Capacity --></label>
+        <name>GS_Used_Capacity__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

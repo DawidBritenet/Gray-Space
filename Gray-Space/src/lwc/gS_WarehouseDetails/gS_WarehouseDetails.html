@@ -1,6 +1,7 @@
 <template>
     <template if:true={recordId}>
         <lightning-card title={label.LABEL_WAREHOUSE} icon-name="utility:agent_home">
+            <lightning-button variant="brand" label={label.LABEL_VIEW} onclick={getDetails} slot="actions"></lightning-button>
             <lightning-record-form record-id={recordId} object-api-name="GS_Warehouse__c" layout-type="Full"
                 mode="view" columns="2"></lightning-record-form>
         </lightning-card>

@@ -34,6 +34,22 @@
         $A.enqueueAction(action);
     },
 
+    getStock: function (component, event) {
+        let action = component.get('c.getAllStock');
+        action.setParams({
+            'productId': component.get('v.recordId')
+        });
+        action.setCallback(this, function (response) {
+            if (response.getState() === "SUCCESS") {
+                component.set('v.inStock', response.getReturnValue());
+            }
+            if (response.getState() === "ERROR") {
+                this.sendErrorMessage(response);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+
     sendErrorMessage: function (response) {
         let message;
         try {

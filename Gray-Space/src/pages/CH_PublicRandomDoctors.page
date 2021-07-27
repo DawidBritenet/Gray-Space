@@ -1,0 +1,179 @@
+<apex:page id="CH_PublicRandomDoctors" showHeader="false" applyHtmlTag="true" applyBodyTag="false"
+           controller="CH_DoctorsPublicSite" docType="html-5.0">
+    <apex:stylesheet value="{! URLFOR($Resource.JQueryUI, 'jquery-ui-1.12.1/jquery-ui.css') }"/>
+    <apex:includeScript value="{! $Resource.JQuery }"/>
+    <apex:includeScript value="{! URLFOR($Resource.JQueryUI, 'jquery-ui-1.12.1/jquery-ui.js') }"/>
+    <head>
+        <apex:slds />
+        <style>
+            html {
+                height: 100%;
+            }
+            .height {
+                height: 100%;
+            }
+            .contactUsContainer {
+                background-image: url("{! $Resource.Contact_us_background }");
+                height: 100%;
+                background-repeat: no-repeat;
+            }
+
+            .contactUs {
+                background-color: white;
+                width: 500px;
+                border-radius: 5px;
+            }
+
+            .flex-column {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .form {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .form-element {
+                margin: auto;
+                width: 90%;
+            }
+
+            .form-button {
+                margin: 10px auto;
+            }
+
+            .message {
+                opacity: .1;
+            }
+
+        </style>
+        <apex:form >
+            <apex:actionFunction name="sendSuccessMessage" action="{! sendSuccessMessage }" reRender="message"/>
+        </apex:form>
+    </head>
+    <body class="slds-scope height" xmlns="http://www.w3.org/2000/svg">
+
+    <div class="slds-align_absolute-center slds-m-top_large height">
+        <div class="slds-tabs_default height">
+            <ul class="slds-tabs_default__nav" role="tablist">
+                <li class="slds-tabs_default__item slds-is-active" title="{! $Label.GS_Gray_Space }" role="presentation">
+                    <a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true"
+                       aria-controls="tab-default-1" id="tab-default-1__item">{! $Label.GS_Gray_Space }</a>
+                </li>
+                <li class="slds-tabs_default__item" title="{! $Label.CH_Doctors }" role="presentation">
+                    <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false"
+                       aria-controls="tab-default-2" id="tab-default-2__item">{! $Label.CH_Doctors }</a>
+                </li>
+            </ul>
+
+            <div id="tab-default-1" class="slds-tabs_default__content slds-show contactUsContainer" role="tabpanel"
+                 aria-labelledby="tab-default-1__item">
+                <div class="flex-column contactUs slds-align_absolute-center" style="margin-top:10%;">
+                    <apex:outputPanel id="message">
+                        <c:sldsPageMessages />
+                    </apex:outputPanel>
+                    <div>
+                        <h1 style="font-size: 26px;">{! $Label.GS_ContactUs }</h1>
+                    </div>
+
+                    <form class="form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                            <input type="hidden" name="oid" value="00D09000007VTg0"/>
+                            <input type="hidden" name="retURL"
+                                   value="https://britenet-random-doctor-developer-edition.eu40.force.com/?success=true"/>
+                            <div class="form-element slds-form-element">
+                                <abbr class="slds-required" title="required">* </abbr>
+                                <label class="slds-form-element__label" for="first_name">{! $Label.GS_First_Name }</label>
+                                <div class="slds-form-element__control">
+                                    <input class="slds-input" id="first_name" maxlength="40" name="first_name" size="20" type="text" required="true"/>
+                                </div>
+                            </div>
+                            <div class="form-element slds-form-element">
+                                <abbr class="slds-required" title="required">* </abbr>
+                                <label class="slds-form-element__label" for="last_name">{! $Label.GS_Last_Name }</label>
+                                <div class="slds-form-element__control">
+                                    <input class="slds-input" id="last_name" maxlength="80" name="last_name" size="20" type="text" required="true"/>
+                                </div>
+                            </div>
+                            <div class="form-element slds-form-element">
+                                <abbr class="slds-required" title="required">* </abbr>
+                                <label class="slds-form-element__label" for="email">{! $Label.GS_Email }</label>
+                                <div class="slds-form-element__control">
+                                    <input class="slds-input" id="email" maxlength="80" name="email" size="20" type="email" required="true"/>
+                                </div>
+                            </div>
+                            <div class="form-element slds-form-element">
+                                <label class="slds-form-element__label" for="phone">{! $Label.GS_Phone }</label>
+                                <div class="slds-form-element__control">
+                                    <input class="slds-input" id="phone" maxlength="40" name="phone" size="20" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-element slds-form-element">
+                                <label class="slds-form-element__label" for="company">{! $Label.GS_Company }</label>
+                                <div class="slds-form-element__control">
+                                    <input class="slds-input" id="company" maxlength="40" name="company" size="20" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-element slds-form-element">
+                                <label class="slds-form-element__label" for="description">{! $Label.GS_Description }</label>
+                                <div class="slds-form-element__control">
+                                    <textarea id="description" class="slds-textarea" name="description"></textarea>
+                                </div>
+                            </div>
+                        <input class="form-button slds-button slds-button_brand" style="margin: 10px auto;" type="submit" value="{! $Label.GS_Submit }" />
+                    </form>
+                </div>
+
+            </div>
+
+
+            <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel"
+                 aria-labelledby="tab-default-2__item">
+                <div class="slds-align_absolute-center">
+                    <apex:image value="{! $Resource.CH_logo }"/>
+                </div>
+                <div style="margin: auto; width:1000px;">
+                    <apex:pageBlock title="{! $Label.CH_Random_Doctors }">
+                        <apex:pageBlockTable value="{! doctors }" var="doctor"
+                                             styleClass="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                            <apex:column styleClass="slds-truncate" value="{! doctor.CH_Name__c }"/>
+                            <apex:column value="{! doctor.CH_Speciality__c }"/>
+                            <apex:column value="{! doctor.CH_Phone__c }"/>
+                            <apex:column value="{! doctor.CH_Email__c }"/>
+                            <apex:column value="{! doctor.CH_City__c }"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.slds-tabs_default__link,.slds-tabs_scoped__link').click(function(){
+          $(this).parent().parent().find('.slds-tabs_default__link,.slds-tabs_scoped__link').attr('aria-selected','false');
+          $(this).attr('aria-selected','true');
+          $(this).parent().parent().find('.slds-tabs_default__link,.slds-tabs_scoped__link').attr('tabindex','-1');
+          $(this).attr('tabindex','0');
+          $(this).parent().addClass('slds-active').siblings().removeClass('slds-active');
+          $(this).parent().parent().parent().find('.'+$(this).parent().parent().parent().find('.slds-tabs_default__content,.slds-tabs_scoped__content')[0].classList[0]).removeClass('slds-show').addClass('slds-hide');
+          $(this).parent().parent().parent().find('#'+$(this).attr('aria-controls')).removeClass('slds-hide').addClass('slds-show');
+        });
+
+        function success() {
+            $('#first_name')[0].value = '';
+            $('#last_name')[0].value = '';
+            $('#email')[0].value = '';
+            $('#phone')[0].value = '';
+            $('#company')[0].value = '';
+            $('#description')[0].value = '';
+            sendSuccessMessage();
+
+        }
+
+        if ({!$CurrentPage.parameters.success != null}) {
+            sendSuccessMessage();
+        }
+    </script>
+    </body>
+</apex:page>
