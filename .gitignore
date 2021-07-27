@@ -37,7 +37,6 @@ local.properties
 .idea/**/dictionaries
 .idea/**/shelf
 .idea
-Gray-Space/lib
 Gray-Space/cache.properties
 Gray-Space/package
 
