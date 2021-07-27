@@ -1,0 +1,25 @@
+<aura:component description="GS_DiscountProductForm" controller="GS_PriceBookController">
+    <aura:attribute name="selectedProducts" type="Map"/>
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="percent" type="Integer"/>
+
+    <aura:registerEvent name="GS_ReInit" type="c:GS_ReInit"/>
+    <aura:handler event="c:GS_ReInit" action="{! c.reInit }"/>
+
+    <div style="width:40%" class="slds-align_absolute-center">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="8" class="slds-p-around_small">
+                <ui:inputText label="{! $Label.c.GS_Name }" value="{! v.name }" updateOn="keyup"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" class="slds-p-around_small">
+                <ui:inputNumber label="{! $Label.c.GS_Discount_Percent }" value="{! v.percent }" updateOn="keyup" maxLength="3"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="slds-p-horizontal_large">
+                <div class="slds-align_absolute-center">
+                    <lightning:button label="{! $Label.c.GS_Submit }" variant="brand" onclick="{! c.submit }"/>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>

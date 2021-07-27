@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>B2C</name>
+    <queueMembers>
+        <users>
+            <user>btoc@britenet.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>B2C</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Warehouse</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Warehouses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Capacity --></label>
+        <name>GS_Capacity__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>GS_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>GS_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>GS_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- PostalCode --></label>
+        <name>GS_PostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>GS_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>GS_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Used Capacity --></label>
+        <name>GS_Used_Capacity__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

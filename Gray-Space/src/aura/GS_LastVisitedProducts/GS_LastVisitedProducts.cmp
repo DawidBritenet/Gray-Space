@@ -1,0 +1,18 @@
+<aura:component description="GS_LastVisitedProducts" controller="GS_ProductController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="products" type="Product2[]"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <aura:if isTrue="{! v.products.length > 0 }">
+        <div class="cCenterPanel">
+            <lightning:card title="{! $Label.c.GS_Last_Visited }">
+                <c:GS_ProductListWithTile products="{! v.products }"/>
+            </lightning:card>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{! v.showSpinner }">
+        <lightning:spinner size="large" variant="brand" />
+    </aura:if>
+</aura:component>

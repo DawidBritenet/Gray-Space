@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Doctor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Doctors</value>
+    </caseValues>
+    <fields>
+        <label><!-- City --></label>
+        <name>CH_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>CH_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Birth --></label>
+        <name>CH_Date_of_Birth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>CH_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- ExternalId --></label>
+        <name>CH_ExternalId__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>CH_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>CH_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- License number --></label>
+        <name>CH_License_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doctor Name --></label>
+        <name>CH_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>CH_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nationality --></label>
+        <name>CH_Nationality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Birthday --></label>
+        <name>CH_Next_Birthday__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>CH_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postal Code --></label>
+        <name>CH_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reset Birthday Email System --></label>
+        <name>CH_Reset_Birthday_Email_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Speciality --></label>
+        <name>CH_Speciality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start of career --></label>
+        <name>CH_Start_of_career__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>CH_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tomorrow_birthday --></label>
+        <name>CH_Tomorrow_birthday__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

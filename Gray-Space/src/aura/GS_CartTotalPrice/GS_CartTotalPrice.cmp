@@ -1,0 +1,20 @@
+<aura:component description="GS_CartTotalPrice" controller="GS_ProductController" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="totalPrice" type="Currency" default="0"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <div class="slds-text-align_right">
+        <div class="slds-text-body_small">
+            <aura:if isTrue="{! v.totalPrice > 9999 }">
+            {! $Label.c.GS_Discount_for_purchases_above }
+                <aura:if isTrue="{! 25000 > v.totalPrice }">
+                    <ui:outputCurrency value="10000"/>
+                    <aura:set attribute="else">
+                        <ui:outputCurrency value="25000"/>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+        </div>
+        <strong>{! $Label.c.GS_Total } </strong><ui:outputCurrency value="{! v.totalPrice }"/>
+    </div>
+</aura:component>

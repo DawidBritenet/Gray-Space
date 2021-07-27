@@ -1,48 +1,9 @@
 <aura:component description="GS_ProductEditForm" controller="GS_ProductController"
-                implements="force:lightningQuickAction,force:hasRecordId">
+                implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
-    <aura:attribute name="photosIds" type="String[]"/>
 
     <ltng:require styles="{!$Resource.bigModal}"/>
-    <aura:handler name="refreshEvent" event="c:GS_RefreshEditForm" action="{!c.refreshComponent}"/>
 
-    <lightning:messages/>
-    <lightning:card title="{! $Label.c.GS_Product_Details }">
-        <lightning:recordEditForm objectApiName="Product2" recordId="{! v.recordId }">
-            <lightning:layout class="detailsLayout" multipleRows="true">
-                <lightning:layoutItem size="6">
-                    <lightning:inputField fieldName="Name"/>
-                    <lightning:inputField fieldName="ProductCode"/>
-                    <lightning:inputField fieldName="StockKeepingUnit"/>
-                    <lightning:inputField fieldName="GS_Height__c"/>
-                    <lightning:inputField fieldName="GS_Width__c"/>
-                    <lightning:inputField fieldName="GS_Depth__c"/>
-                </lightning:layoutItem>
-                <lightning:layoutItem size="6">
-                    <lightning:inputField fieldName="GS_Colour__c"/>
-                    <lightning:inputField fieldName="GS_Type__c"/>
-                    <lightning:inputField fieldName="GS_Space_Type__c"/>
-                </lightning:layoutItem>
-                <lightning:inputField fieldName="GS_Description__c"/>
-            </lightning:layout>
-            <div align="right">
-                <lightning:button label="{! $Label.c.GS_Save }" variant="brand" type="submit" name="submit"/>
-            </div>
-        </lightning:recordEditForm>
-    </lightning:card>
-
-    <hr class="horizontalLine"/>
-
-    <lightning:card>
-        <div class="slds-align_absolute-center" style="width:250px;">
-            <c:GS_AddPhoto recordId="{! v.recordId }"/>
-        </div>
-    </lightning:card>
-
-    <hr class="horizontalLine"/>
-
-    <lightning:card>
-        <c:GS_SetDefaultPhotoGallery aura:id="photoGallery" recordId="{! v.recordId }"/>
-    </lightning:card>
+    <c:GS_ProductFormFlow recordId="{! v.recordId }" header="{! $Label.c.GS_Edit_Product }"/>
 
 </aura:component>

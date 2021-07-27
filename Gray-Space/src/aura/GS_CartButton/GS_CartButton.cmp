@@ -1,0 +1,19 @@
+<aura:component description="GS_CartButton" controller="GS_ProductController"
+                implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="cartSize" type="Integer"/>
+
+    <aura:handler event="c:GS_CartUpdated" action="{! c.doInit }"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <aura:if isTrue="{! v.cartSize }">
+        <aura:if isTrue="{! v.cartSize > 0 }">
+            <div class="cart-button">
+                <div class="slds-button slds-button_brand add-to-cart slds-p-vertical_medium" onclick="{! c.startCartFlow }">
+                    <lightning:icon iconName="utility:cart" variant="bare" size="large" class="slds-p-around_xxx-small"/>
+                        <div class="cart-size">{! v.cartSize }</div>
+                </div>
+            </div>
+            <lightning:navigation aura:id="navigateToCart"/>
+        </aura:if>
+    </aura:if>
+</aura:component>

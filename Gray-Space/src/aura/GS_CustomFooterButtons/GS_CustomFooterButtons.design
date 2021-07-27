@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="nextName" label="Next Page Button Label"/>
+    <design:attribute name="prevName" label="Previous Page Button Label"/>
+
+    <design:attribute name="showNextButton"/>
+    <design:attribute name="showPrevButton"/>
+</design:component>

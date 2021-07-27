@@ -1,18 +1,73 @@
-<aura:component description="GS_ProductList" controller="GS_ProductController" implements="flexipage:availableForAllPageTypes">
+<aura:component description="GS_ProductList" controller="GS_ProductController"
+                implements="flexipage:availableForAllPageTypes">
     <aura:attribute name="products" type="Product2"/>
+    <aura:attribute name="selectedRows" type="List"/>
     <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="page" type="Integer" default="1"/>
+    <aura:attribute name="pageCount" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="20"/>
+    <aura:attribute name="productsCount" type="Integer"/>
+    <aura:attribute name="recordsStart" type="Integer"/>
+    <aura:attribute name="recordsEnd" type="Integer"/>
+    <aura:attribute name="modalPromise" type="Aura.Action"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="20"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
 
+    <aura:handler event="c:GS_ReInit" action="{! c.doInit }"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
 
     <lightning:card title="{! $Label.c.GS_Products }">
         <aura:set attribute="actions">
-            <lightning:button label="{! $Label.c.GS_New }" onclick="{! c.newProduct }"/>
+            <lightning:buttonGroup>
+                <lightning:button label="{! $Label.c.GS_New }" onclick="{! c.newProduct }"/>
+                <lightning:button disabled="{! v.selectedRows.length == 0 }" label="{! $Label.c.GS_Delete }" onclick="{! c.deleteSelectedProducts }"/>
+            </lightning:buttonGroup>
         </aura:set>
         <div class="slds-align_absolute-center">
-            <div style="width: 80%;">
-                <lightning:datatable keyField="id" data="{! v.products }" columns="{! v.columns }" hideCheckboxColumn="true"/>
-            </div>
+            <lightning:datatable class="table" keyField="id" data="{! v.products }" columns="{! v.columns }"
+                                 onrowaction="{! c.handleRowAction }"
+                                 onrowselection="{! c.updateRowSelection }"
+                                 maxRowSelection="{! v.maxRowSelection }"
+                                 showRowNumberColumn="true"/>
         </div>
+        <lightning:layout class="slds-p-around_small">
+            <lightning:layoutItem size="4">
+                <div class="paginationInfo">
+                    <lightning:select label="{! $Label.c.GS_Page_Size }" aura:id="pageSizePickList" onchange="{! c.setPageSize }"
+                                      class="label-hidden">
+                        <option value="10">10</option>
+                        <option value="20" selected="true">20</option>
+                        <option value="30">30</option>
+                    </lightning:select>
+                    <p class="paginationInfoText">
+                        {! $Label.c.GS_Showing+ ' ' +v.recordsStart + '-' + v.recordsEnd + ' ' + $Label.c.GS_out_of + ' ' + v.productsCount }
+                </p>
+                </div>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem size="4">
+                <lightning:buttonGroup class="slds-align_absolute-center">
+                    <lightning:buttonIcon iconName="utility:jump_to_left" variant="brand" alternativeText="First"
+                                          iconClass="dark" disabled="{! v.page == 1 }" onclick="{! c.firstPage }"/>
+                    <lightning:buttonIcon iconName="utility:left" variant="brand"
+                                          iconClass="dark"
+                                          disabled="{! v.page == 1 }" onclick="{! c.previousPage }"/>
+                    <lightning:button variant="neutral" label="{! v.page + '/' + v.pageCount }"/>
+                    <lightning:buttonIcon iconName="utility:right" variant="brand"
+                                          iconClass="dark"
+                                          disabled="{! v.page == v.pageCount }" onclick="{! c.nextPage }"/>
+                    <lightning:buttonIcon iconName="utility:jump_to_right" variant="brand"
+                                          iconClass="dark" disabled="{! v.page == v.pageCount }"
+                                          onclick="{! c.lastPage }"/>
+                </lightning:buttonGroup>
+            </lightning:layoutItem>
+
+        </lightning:layout>
     </lightning:card>
 
+    <aura:if isTrue="{! v.showSpinner }">
+        <lightning:spinner size="large" variant="brand" />
+    </aura:if>
+
+    <lightning:overlayLibrary aura:id="editProductModal"/>
 </aura:component>

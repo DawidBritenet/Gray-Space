@@ -1,5 +1,6 @@
 .THIS .photosContainer {
     height: 400px;
+    position: relative;
 }
 
 .THIS .SlideNone {
@@ -15,6 +16,37 @@
     height: 100%;
     width: auto;
     margin: auto;
+}
+
+.THIS .photosSmall {
+    max-height: 120px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.THIS .smallPhotoContainer {
+    height: 100px;
+}
+
+.THIS .smallPhoto {
+    opacity: 0.6;
+    object-fit: contain;
+    height: 100%;
+    min-width: 150px;
+}
+
+.THIS .smallPhoto:hover {
+    opacity: 1;
+}
+
+.THIS .selectedImage {
+    opacity: 1;
+}
+
+.THIS .largeImage {
+    height: 100%;
 }
 
 .THIS .prev, .THIS .next {
@@ -38,7 +70,7 @@
 }
 
 .THIS .prev:hover, .THIS .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .THIS .imagesSmall:after {
@@ -59,4 +91,21 @@
 
 .THIS .active, .THIS .imagesSmall:hover {
     opacity: 1;
+}
+
+.THIS ::-webkit-scrollbar {
+    height: 12px;
+}
+
+.THIS ::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.THIS ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 25px;
+}
+
+.THIS ::-webkit-scrollbar-thumb:hover {
+    background: #b7b7b7;
 }

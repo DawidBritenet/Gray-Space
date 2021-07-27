@@ -1,0 +1,30 @@
+<aura:component description="GS_DiscountPriceBook" controller="GS_PriceBookController">
+    <aura:attribute name="priceBook" type="Pricebook2"/>
+
+    <div class="slds-p-vertical_small">
+        <lightning:layout>
+            <lightning:layoutItem size="6">
+                <div class="slds-p-horizontal_large slds-p-vertical_x-small">
+                        {! v.priceBook.Name }
+                </div>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem size="3">
+                <lightning:button label="{! $Label.c.GS_View }"
+                                  onclick="{! c.showDiscount }"
+                                  variant="neutral"
+                                  class="toggleButton"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3">
+                <lightning:buttonStateful labelWhenOn="{! $Label.c.GS_Deactivate }"
+                                          labelWhenOff="{! $Label.c.GS_Activate }" state="{! v.priceBook.IsActive }"
+                                          onclick="{! c.toggleActive }"
+                                          variant="{! v.priceBook.IsActive ? 'brand' : 'neutral' }"
+                                          class="toggleButton"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+
+        <lightning:overlayLibrary aura:id="discountView"/>
+
+    </div>
+</aura:component>

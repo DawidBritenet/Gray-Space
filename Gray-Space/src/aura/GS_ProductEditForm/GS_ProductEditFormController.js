@@ -1,10 +1,9 @@
 ({
-    refreshComponent : function(component, event, helper) {
-        var photoGallery = component.find('photoGallery');
-        photoGallery.reload();
+    updatePhotoGallery: function (component, event, helper) {
+        helper.updatePhotoGallery(component);
     },
 
-    afterSave : function(component, event, helper) {
+    afterSave: function (component, event, helper) {
         helper.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Product_saved'), 'success');
     }
-})
+});

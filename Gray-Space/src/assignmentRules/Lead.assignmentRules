@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>B2B B2C Leads</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>B2C</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <criteriaItems>
+                <field>Lead.Company</field>
+                <operation>equals</operation>
+                <value>Personal</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.Company</field>
+                <operation>equals</operation>
+                <value>[Not Provided]</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>B2B</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Lead.Company</field>
+                <operation>notEqual</operation>
+                <value>Personal</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.Company</field>
+                <operation>notEqual</operation>
+                <value>[Not Provided]</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Standard</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>dawid.surma@britenet.com.pl</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>equals</operation>
+                <value>US,USA,United States,United States of America</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>dawid.surma@britenet.com.pl</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.Country</field>
+                <operation>notEqual</operation>
+                <value>US,USA,United States,United States of America</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

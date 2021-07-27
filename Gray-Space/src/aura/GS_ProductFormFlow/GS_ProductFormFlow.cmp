@@ -1,0 +1,112 @@
+<aura:component description="GS_ProductFormFlow">
+    <aura:attribute name="step" type="Integer" default="1"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="header" type="String"/>
+
+    <ltng:require styles="{!$Resource.bigModal}"/>
+    <aura:handler name="photoAdded" event="c:GS_PhotoAdded" action="{! c.addedPhoto }"/>
+    <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.successClose }"/>
+
+    <aura:registerEvent name="GS_ReInit" type="c:GS_ReInit"/>
+    <aura:registerEvent name="closeModal" type="c:GS_CloseOverlay"/>
+    <lightning:overlayLibrary aura:id="newProductForm"/>
+
+    <aura:html tag="style">
+        .cuf-content {
+            padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }
+        .slds-modal__content {
+            height: unset !important;
+            max-height: unset !important;
+        }
+    </aura:html>
+
+    <aura:if isTrue="{! v.header }">
+        <header class="slds-col modal-header slds-modal__header">
+            <h2 class="title slds-text-heading--medium">{! v.header }</h2>
+        </header>
+    </aura:if>
+
+    <div class="slds-p-horizontal_medium slds-p-top_medium">
+        <lightning:progressIndicator currentStep="{! v.step + '' }" type="path" variant="base">
+            <lightning:progressStep label="{! $Label.c.GS_Details }" value="1"/>
+            <lightning:progressStep label="{! $Label.c.GS_Add_Photos }" value="2"/>
+            <lightning:progressStep label="{! $Label.c.GS_Select_Default }" value="3"/>
+        </lightning:progressIndicator>
+    </div>
+
+    <aura:if isTrue="{! v.step == 1 }">
+        <lightning:recordEditForm objectApiName="Product2" onsuccess="{! c.saveProduct }"
+                                  recordId="{! if(v.recordId, v.recordId, '') }">
+            <ui:scrollerWrapper>
+                <div class="slds-p-around_medium">
+                    <lightning:layout class="detailsLayout" multipleRows="true">
+                        <lightning:layoutItem size="6">
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="Name"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Product_Code__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Height__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Width__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Depth__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Promoted__c"/>
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Colour__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Type__c"/>
+                            </div>
+                            <div class="slds-p-around_xx-small">
+                                <lightning:inputField fieldName="GS_Space_Type__c"/>
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:inputField fieldName="GS_Description__c"/>
+                    </lightning:layout>
+                </div>
+            </ui:scrollerWrapper>
+
+            <footer class="slds-modal__footer">
+                <lightning:button label="{! $Label.c.GS_Cancel }" variant="neutral" type="button"
+                                  onclick="{! c.closeModal }"/>
+                <lightning:button label="{! $Label.c.GS_Save }" variant="brand" type="submit" name="submit"/>
+            </footer>
+        </lightning:recordEditForm>
+    </aura:if>
+
+    <aura:if isTrue="{! v.step == 2 }">
+        <div class="slds-p-around_medium">
+            <c:GS_AddPhoto recordId="{! v.recordId }"/>
+        </div>
+
+        <footer class="slds-modal__footer">
+            <lightning:button label="{! $Label.c.GS_Back }" variant="neutral" type="button" onclick="{! c.prevStep }"/>
+            <lightning:button label="{! $Label.c.GS_Skip }" variant="brand" onclick="{! c.nextStep }"/>
+        </footer>
+    </aura:if>
+
+    <aura:if isTrue="{! v.step == 3 }">
+        <div class="slds-p-around_medium">
+            <c:GS_SetDefaultPhotoGallery recordId="{! v.recordId }" checkSize="True"/>
+        </div>
+        <footer class="slds-modal__footer">
+            <lightning:button label="{! $Label.c.GS_Back }" variant="neutral" type="button" onclick="{! c.prevStep }"/>
+            <lightning:button label="{! $Label.c.GS_Close }" variant="brand" onclick="{! c.successClose }"/>
+        </footer>
+    </aura:if>
+
+</aura:component>

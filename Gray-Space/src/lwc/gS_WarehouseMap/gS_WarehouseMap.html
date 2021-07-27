@@ -1,0 +1,10 @@
+<template>
+    <article class="slds-card">
+		<lightning-map
+			map-markers={mapMarkers}
+			markers-title={label.LABEL_WAREHOUSES}
+			onmarkerselect={handleMarkerSelect}
+			selected-marker-value={selectedValue}>
+		</lightning-map>
+	</article>
+</template>

@@ -1,0 +1,7 @@
+<aura:component description="GS_ProductCommentSection" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+
+    <lightning:card title="{! $Label.c.GS_Comments }">
+        <c:GS_CommentsList recordId="{! v.recordId }"/>
+    </lightning:card>
+</aura:component>

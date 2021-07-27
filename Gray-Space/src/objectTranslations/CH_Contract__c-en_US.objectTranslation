@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contracts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Doctor --></label>
+        <name>CH_Doctor__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>CH_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hospital --></label>
+        <name>CH_Hospital__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Part Time --></label>
+        <name>CH_Part_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>CH_Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>CH_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supervisor --></label>
+        <name>CH_Supervisor__c</name>
+        <relationshipLabel><!-- Contracts (Supervisor) --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- End date can&apos;t be before start date --></errorMessage>
+        <name>End_date_cant_be_before_start_date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- supervisor has to be different than doctor --></errorMessage>
+        <name>supervisor_has_to_be_different_than_doct</name>
+    </validationRules>
+</CustomObjectTranslation>

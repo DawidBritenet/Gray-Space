@@ -2,7 +2,7 @@
     <aura:attribute name="stages" type="String[]"/>
     <aura:attribute name="currentStage" type="String"/>
 
-    <lightning:progressIndicator currentStep="{! v.currentStage }" type="path" variant="base">
+    <lightning:progressIndicator currentStep="{! v.currentStage }" class="slds-p-vertical_large" type="path" variant="base">
         <aura:iteration items="{! v.stages }" var="stage">
             <lightning:progressStep label="{! stage }" value="{! stage }"/>
         </aura:iteration>

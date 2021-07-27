@@ -1,0 +1,8 @@
+<aura:component description="GS_GoToPaymentSite" implements="lightning:availableForFlowScreens">
+    <div class="slds-align_absolute-center slds-p-vertical_large">
+        <div class="slds-p-vertical_large">
+            <lightning:button label="{! $Label.c.GS_Go_To_Bank }" onclick="{! c.goToBank }"/>
+        </div>
+    </div>
+    <lightning:navigation aura:id="navigation"/>
+</aura:component>

@@ -1,16 +1,20 @@
-<aura:component description="GS_SetDefaultPhotoGallery" controller="GS_ProductController" implements="force:lightningQuickAction,force:hasRecordId">
+<aura:component description="GS_SetDefaultPhotoGallery" controller="GS_ProductController"
+                implements="force:lightningQuickAction,force:hasRecordId">
     <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="photosIds" type="String[]"/>
     <aura:attribute name="defaultPhotoId" type="String"/>
+    <aura:attribute name="checkSize" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:GS_DefaultPhotoSelected" action="{! c.doInit }"/>
 
     <aura:method name="reload" action="{! c.doInit }"/>
 
     <lightning:card title="{! $Label.c.GS_Choose_Default_Photo }">
         <div class="productPhotoGallery">
             <aura:iteration items="{! v.photosIds }" var="photoId">
-                <c:GS_PhotoSetDefault aura:id="photo" recordId="{! v.recordId }" photoId="{! photoId }" idDefault="{! photoId == v.defaultPhotoId }"/>
+                <c:GS_PhotoSetDefault aura:id="photo" recordId="{! v.recordId }" photoId="{! photoId }"
+                                      idDefault="{! photoId == v.defaultPhotoId }"/>
             </aura:iteration>
         </div>
     </lightning:card>

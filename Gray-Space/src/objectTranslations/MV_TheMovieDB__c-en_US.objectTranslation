@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>The Movie DB</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>The Movie DB</value>
+    </caseValues>
+    <fields>
+        <label><!-- API Key --></label>
+        <name>MV_API_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Url --></label>
+        <name>MV_Base_Url__c</name>
+    </fields>
+    <fields>
+        <label><!-- Images Base Url --></label>
+        <name>MV_Images_Base_Url__c</name>
+    </fields>
+    <fields>
+        <label><!-- Search Movie URI --></label>
+        <name>MV_Search_Movie_URI__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,23 @@
+<aura:component description="GS_CartList" controller="GS_ProductController" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="cart" type="Map"/>
+    <aura:attribute name="showFooter" type="Boolean" default="false"/>
+    <aura:attribute name="lock" type="Boolean" default="false"/>
+    <aura:attribute name="maxHeight" type="Integer" default="375"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <div class="slds-scrollable_y" style="{! 'max-height: '+v.maxHeight+'px;' }">
+        <aura:iteration items="{! v.cart }" var="itemInCart" indexVar="key">
+            <c:GS_ProductCart recordId="{! itemInCart.key }" quantity="{! itemInCart.value }" lock="{! v.lock }"/>
+            <aura:if isTrue="{! key != v.cart.length-1 }">
+                <hr />
+            </aura:if>
+        </aura:iteration>
+    </div>
+
+    <aura:if isTrue="{! v.showFooter }">
+        <footer class="slds-p-top_medium slds-text-align_right">
+            <lightning:button label="{! $Label.c.GS_Create_Order }" variant="brand" onclick="{! c.nextPage }"/>
+        </footer>
+    </aura:if>
+</aura:component>

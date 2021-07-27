@@ -1,6 +1,5 @@
 ({
-    doInit : function (component, event, helper) {
-        var photos = component.find('photo');
+    doInit: function (component, event, helper) {
         helper.getDefaultPhoto(component, event);
     }
-})
+});

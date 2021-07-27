@@ -1,0 +1,23 @@
+<aura:component description="GS_DiscountManager" controller="GS_ProductController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="products" type="Product2[]"/>
+    <aura:attribute name="selectedProducts" type="Map"/>
+    <aura:attribute name="percent" type="Integer" default="5"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <lightning:card title="{! $Label.c.GS_Discount_Form }">
+        <c:GS_DiscountProductForm selectedProducts="{! v.selectedProducts }" percent="{! v.percent }"/>
+        <aura:if isTrue="{! v.showSpinner }">
+            <lightning:spinner size="large" variant="brand" />
+        </aura:if>
+    </lightning:card>
+
+    <lightning:card title="{! $Label.c.GS_Products }">
+        <c:GS_DiscountProductList products="{! v.products }" selectedProducts="{! v.selectedProducts }" percent="{! v.percent }"/>
+        <aura:if isTrue="{! v.showSpinner }">
+            <lightning:spinner size="large" variant="brand" />
+        </aura:if>
+    </lightning:card>
+
+</aura:component>

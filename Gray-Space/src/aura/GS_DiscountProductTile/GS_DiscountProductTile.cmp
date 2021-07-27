@@ -1,0 +1,34 @@
+<aura:component description="GS_DiscountProductTile" controller="GS_ProductController">
+    <aura:attribute name="product" type="Product2"/>
+    <aura:attribute name="selectedProducts" type="Map"/>
+    <aura:attribute name="percent" type="Integer"/>
+    <aura:attribute name="percentThis" type="Integer"/>
+    <aura:attribute name="photo" type="String"/>
+    <aura:attribute name="price" type="Currency"/>
+    <aura:attribute name="selected" type="Boolean" default="false"/>
+    <aura:attribute name="lock" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:GS_ReInit" action="{! c.reInit }"/>
+
+    <lightning:button class="tileButton slds-m-around_large" variant="{! v.selected ? 'brand' : 'neutral' }" onclick="{! c.tileClick }">
+        <div class="tile">
+            <div class="tilePhoto" style="{! 'background-image: url(\'' + v.photo + '\');' }">
+            </div>
+            <p class="name">
+                    {! v.product.Name }
+            </p>
+            <div style="height: 18px;">
+                <span class="price slds-p-horizontal_small" ><ui:outputCurrency value="{! v.price }"/></span>
+                <aura:if isTrue="{! v.percentThis }">
+                    <ui:outputCurrency class="slds-p-horizontal_small" value="{! v.price - (v.price * (v.percentThis/100)) }"/>
+                </aura:if>
+            </div>
+            <div style="height: 22px;">
+                <aura:if isTrue="{! v.percentThis }">
+                        <span class="slds-p-horizontal_small">{! v.percentThis }%</span>
+                </aura:if>
+            </div>
+        </div>
+    </lightning:button>
+</aura:component>

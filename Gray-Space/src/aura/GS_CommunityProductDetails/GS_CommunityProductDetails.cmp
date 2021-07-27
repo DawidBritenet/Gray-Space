@@ -1,0 +1,41 @@
+<aura:component description="GS_CommunityProductDetails" controller="GS_ProductController"
+                implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="price" type="Currency"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="6">
+            <div class="slds-p-around_medium">
+                <div class="slds-text-heading_small title">{! $Label.c.GS_Details }</div>
+                <lightning:recordViewForm objectApiName="Product2" recordId="{! v.recordId }">
+                    <lightning:layout multipleRows="true">
+                        <lightning:layoutItem size="6">
+                            <div class="slds-form-element slds-form-element_stacked">
+                                <label class="slds-form-element__label" for="currency"
+                                       id="inline-text-label">{! $Label.c.GS_Price }</label><br/>
+                                <ui:outputCurrency aura:id="currency" value="{! v.price }"/>
+                            </div>
+                            <lightning:outputField fieldName="GS_Colour__c"/>
+                            <lightning:outputField fieldName="GS_Space_Type__c"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:outputField fieldName="GS_Width__c"/>
+                            <lightning:outputField fieldName="GS_Height__c"/>
+                            <lightning:outputField fieldName="GS_Width__c"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12">
+                            <lightning:outputField fieldName="GS_Description__c"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:recordViewForm>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6">
+            <c:GS_ProductPhotos recordId="{! v.recordId }"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

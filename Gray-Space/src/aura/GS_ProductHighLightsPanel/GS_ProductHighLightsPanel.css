@@ -1,0 +1,12 @@
+.THIS .add-to-cart:hover {
+    cursor: pointer;
+}
+
+.THIS .title {
+    display: flex;
+    align-items: center;
+}
+
+.THIS .card {
+    border: none;
+}

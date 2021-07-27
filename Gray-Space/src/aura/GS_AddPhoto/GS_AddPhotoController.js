@@ -1,8 +1,8 @@
 ({
-    photoAdded : function(component, event, helper) {
-        var files = event.getParam('files');
+    photoAdded: function (component, event, helper) {
+        let files = event.getParam('files');
         helper.photoAdded(component, event, files[0].documentId);
-        helper.sendMessage("Success", 'Added your photos', 'success');
+        helper.sendMessage($A.get('$Label.c.GS_Success'), $A.get('$Label.c.GS_Add_Photos'), 'success');
     },
 
-})
+});

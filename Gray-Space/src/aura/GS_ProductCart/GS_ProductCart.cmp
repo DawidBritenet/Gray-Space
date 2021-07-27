@@ -1,0 +1,53 @@
+<aura:component description="GS_ProductCart" controller="GS_ProductController" implements="force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="quantity" type="Integer" default="1"/>
+    <aura:attribute name="price" type="Currency"/>
+    <aura:attribute name="photoUrl" type="String"/>
+    <aura:attribute name="lock" type="Boolean" default="false"/>
+    <aura:attribute name="inStock" type="Integer"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <lightning:recordViewForm recordId="{! v.recordId }" objectApiName="Product2">
+        <lightning:layout verticalAlign="center">
+            <lightning:layoutItem size="2">
+                <div>test23</div>
+                <div class="photoContainer">
+                    <img src="{! v.photoUrl }" alt="avatar" class="photo"/>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2">
+                <div class="slds-form-element slds-form-element_stacked">
+                    <label class="slds-form-element__label" for="code"
+                           id="inline-text-label">{! $Label.c.GS_Product_Name }</label><br/>
+                    <lightning:outputField aura:id="code" fieldName="Name" variant="label-hidden"/>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2">
+                <div class="slds-form-element slds-form-element_stacked">
+                    <label class="slds-form-element__label" for="code"
+                           id="inline-text-label">{! $Label.c.GS_Product_Type }</label><br/>
+                    <lightning:outputField aura:id="code" fieldName="GS_Type__c" variant="label-hidden"/>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2">
+                <lightning:input type="number" value="{! v.quantity }" label="{! $Label.c.GS_Quantity }" disabled="{! v.lock }" max="{! v.inStock }" onchange="{! c.handleChange }" step="1"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2">
+                <div class="slds-form-element slds-form-element_stacked">
+                    <label class="slds-form-element__label" for="code"
+                           id="inline-text-label">{! $Label.c.GS_Available }</label><br/>
+                    {! v.inStock }
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="2">
+                <div class="slds-form-element slds-form-element_stacked">
+                    <label class="slds-form-element__label" for="currency"
+                           id="inline-text-label">{! $Label.c.GS_Price }</label><br/>
+                    <ui:outputCurrency aura:id="currency" value="{! v.price*v.quantity }"/>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:recordViewForm>
+
+</aura:component>

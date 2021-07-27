@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>UserVisitedProduct</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>UserVisitedProducts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Last Visited Date Time --></label>
+        <name>GS_Last_Visited_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- ProductId --></label>
+        <name>GS_ProductId__c</name>
+    </fields>
+    <fields>
+        <label><!-- UserId --></label>
+        <name>GS_UserId__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

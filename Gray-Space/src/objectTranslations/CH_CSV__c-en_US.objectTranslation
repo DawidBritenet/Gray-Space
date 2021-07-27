@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>csv</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>csv</value>
+    </caseValues>
+    <fields>
+        <label><!-- Column Separator --></label>
+        <name>CH_Column_Separator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Columns Map --></label>
+        <name>CH_Columns_Map__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,9 +1,3 @@
-src/objects
-*.object
-*.resource
-*.labels
-*.xml
-
 ### Salesforce ###
 # GitIgnore for Salesforce Projects
 # Project Settings and MetaData
@@ -12,6 +6,9 @@ src/objects
 .metadata
 build.properties
 config
+cache.properties
+package/
+out
 
 # Apex Log as optional
 apex-scripts/log

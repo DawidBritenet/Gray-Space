@@ -1,0 +1,6 @@
+<aura:component description="GS_WarehouseStorageManagerPage" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:appHostable" access="global">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <c:gS_WarehouseStorageManager recordId="{! v.recordId }"/>
+</aura:component>

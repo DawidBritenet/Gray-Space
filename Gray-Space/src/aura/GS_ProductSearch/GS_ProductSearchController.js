@@ -1,26 +1,35 @@
 ({
-    search : function(component, event, helper) {
+    doInit: function (component, event, helper) {
+        helper.getPromotedProducts(component, event);
+    },
+
+    search: function (component, event, helper) {
+        component.set('v.page', 1);
         helper.searchProducts(component, event);
     },
 
-    nextPage : function(component, event, helper) {
-        var page = component.get('v.page');
-        page += 1;
-        component.set('v.page', page);
+    setPageSize: function (component, event, helper) {
+        component.set('v.pageSize', component.find('pageSizePickList').get('v.value'));
+        component.set('v.page', 1);
+        helper.searchProducts(component, event);
+    },
+
+    previousPage: function (component, event, helper) {
+        component.set('v.page', component.get('v.page') - 1);
         helper.changePage(component, event);
     },
 
-    previousPage : function(component, event, helper) {
-        var page = component.get('v.page');
-        page -= 1;
-        component.set('v.page', page);
+    firstPage: function (component, event, helper) {
+        component.set('v.page', 1);
+        helper.changePage(component, event);
+    },
+    nextPage: function (component, event, helper) {
+        component.set('v.page', component.get('v.page') + 1);
         helper.changePage(component, event);
     },
 
-    setPage : function(component, event, helper) {
-        var page = event.getSource().get('v.label');
-        console.log(page);
-        component.set('v.page', parseInt(page));
+    lastPage: function (component, event, helper) {
+        component.set('v.page', component.get('v.pageCount'));
         helper.changePage(component, event);
-    }
-})
+    },
+});

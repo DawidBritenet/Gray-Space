@@ -28,3 +28,38 @@
 .THIS .name {
     line-height: 1;
 }
+
+.THIS .rating {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.THIS .ratingInside {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.THIS .saleIcon {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    height: 32px;
+    width: 32px;
+}
+
+.THIS .saleIcon img{
+    height: 100%;
+    width: 100%;
+}
+
+.THIS .price {
+}
+
+.THIS .discountPrice {
+    color: red;
+    text-decoration: line-through;
+}

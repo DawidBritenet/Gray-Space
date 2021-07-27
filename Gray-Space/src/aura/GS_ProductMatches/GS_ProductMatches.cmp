@@ -1,0 +1,7 @@
+<aura:component description="GS_ProductMatches" implements="force:lightningQuickAction,force:hasRecordId,force:appHostable" access="global">
+    <aura:attribute name="recordId" type="String"/>
+
+    <ltng:require styles="{!$Resource.bigModal}"/>
+
+    <c:gS_ProductMatchesManager recordId="{! v.recordId }"/>
+</aura:component>

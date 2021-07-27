@@ -1,11 +1,15 @@
-<aura:component description="GS_AddPhoto" controller="GS_ProductController" implements="force:lightningQuickAction,force:hasRecordId,force:appHostable" access="global">
-    <aura:attribute name="recordId" type="String" />
+<aura:component description="GS_AddPhoto" controller="GS_ProductController"
+                implements="force:lightningQuickAction,force:hasRecordId,force:appHostable" access="global">
+    <aura:attribute name="recordId" type="String"/>
 
     <aura:registerEvent name="refreshEvent" type="c:GS_RefreshEditForm"/>
     <aura:registerEvent name="photoAdded" type="c:GS_PhotoAdded"/>
 
     <lightning:card title="{! $Label.c.GS_Add_Photo}">
-        <lightning:fileUpload recordId="{! v.recordId }" label="" onuploadfinished="{! c.photoAdded }" multiple="true" accept="['.png', '.jpg', '.jpeg']"/>
-        <span>{! $Label.c.GS_multiple_photos_info }</span>
+        <div align="center">
+            <lightning:fileUpload recordId="{! v.recordId }" label="" onuploadfinished="{! c.photoAdded }"
+                                  multiple="true" accept="['.png', '.jpg', '.jpeg']"/>
+            <span>{! $Label.c.GS_multiple_photos_info }</span>
+        </div>
     </lightning:card>
 </aura:component>

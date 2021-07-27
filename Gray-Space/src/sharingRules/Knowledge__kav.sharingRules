@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Default_Help_Center_Guest_Criteria_Based_Sharing_Rule</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Default Help Center Guest Criteria-Based Sharing Rule</label>
+        <sharedTo>
+            <guestUser>Default_Help_Center</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>IsVisibleInPkb</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>
