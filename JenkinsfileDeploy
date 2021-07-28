@@ -36,7 +36,21 @@ node {
             stage('Run Tests In Test') {
                 rc = command "${toolbelt}/sfdx force:apex:test:run --targetusername HubOrg --wait 10 --resultformat tap --codecoverage --testlevel ${TEST_LEVEL}"
                 if (rc != 0) {
+                    error 'Salesforce unit test run in test scratch org failed.'
+                }
+            }
+
+            stage('Run Tests In Test') {
+                rc = command "${toolbelt}/sfdx force:apex:test:run --targetusername HubOrg --wait 10 --resultformat tap --codecoverage --testlevel ${TEST_LEVEL}"
+                if (rc != 0) {
                     error 'Salesforce unit test run failed.'
+                }
+            }
+
+            stage('Deploy') {
+                rc = command "${toolbelt}/sfdx force:mdapi:deploy --targetusername HubOrg"
+                if (rc != 0) {
+                    error 'Salesforce deploy failed.'
                 }
             }
         }
