@@ -1,0 +1,9 @@
+<template>
+    <div class="tile slds-p-around_small" onclick={handleClick}>
+        <template if:true={product}>
+            <div class="tile-photo" style={photoLink}>
+                <h2 class="tile-title slds-align_absolute-center">{product.Name}</h2>
+            </div>
+        </template>
+    </div>
+</template>

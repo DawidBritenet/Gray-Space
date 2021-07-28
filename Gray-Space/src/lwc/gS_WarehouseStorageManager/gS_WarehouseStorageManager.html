@@ -1,0 +1,34 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="4" class="slds-p-around_small">
+            <lightning-card title="Storage Manager" icon-name="utility:agent_home">
+                <div class="slds-p-horizontal_medium">
+                    <template if:true={warehouse.data}>
+                        {label.LABEL_Name}: {warehouse.data.Name}
+                        <br>
+                        {label.LABEL_Capacity}: {warehouse.data.GS_Capacity__c}
+                        <br>
+                        {label.LABEL_Used_Capacity}: {usedCapacity}
+                        <br>
+                        <div class="slds-grid slds-grid_align-end">
+                            <lightning-button label={label.LABEL_Update} class="slds-m-around_xxx-small" variant="brand" onclick={updateStorage}></lightning-button>
+                            <lightning-button label={label.LABEL_Reset} class="slds-m-around_xxx-small" onclick={removeChanges}></lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item size="8" class="slds-p-around_small">
+            <lightning-card title={label.LABEL_Products} icon-name="utility:agent_home">
+                <lightning-layout multiple-rows="true">
+                    <template for:each={products} for:item="product">
+                        <lightning-layout-item key={product.id} size="2">
+                            <c-g-s_-warehouse-product-tile product={product} quantityleft={quantityLeft}
+                                onquantitychange={handleProductQuantityChange}></c-g-s_-warehouse-product-tile>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

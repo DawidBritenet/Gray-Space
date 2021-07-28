@@ -1,0 +1,27 @@
+<template>
+    <lightning-layout class="card">
+        <lightning-layout-item size="4">
+            <template if:true={isMember}>
+                <div class="slds-align_absolute-center">
+                    <h2 class="slds-text-heading_medium">{label.LABEL_You_Already_Member}</h2>
+                </div>
+            </template>
+            <template if:false={isMember}>
+                <div class="slds-align_absolute-center">
+                    <h2 class="slds-text-heading_medium">{label.LABEL_Join_GrayFamily}</h2>
+                </div>
+                <template if:true={typeValues.data}>
+                    <lightning-combobox label="Interest In" options={typeValues.data.values} onchange={handleChange}></lightning-combobox>
+                </template>
+                <span class="slds-text-color_weak">{label.LABEL_Discount_Info}</span>
+                <lightning-input type="checkbox" label={label.LABEL_Accept_Terms} onchange={hangleCheckbox} required></lightning-input>
+                <div class="slds-align_absolute-center">
+                    <lightning-button label={label.LABEL_Sign_In} onclick={handleSignIn} disabled={lock} variant="brand"></lightning-button>
+                </div>
+            </template>
+        </lightning-layout-item>
+        <lightning-layout-item size="8">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -47,8 +47,9 @@ node {
                 }
             }
 
+
             stage('Deploy') {
-                rc = command "${toolbelt}/sfdx force:mdapi:deploy --targetusername HubOrg"
+                rc = command "${toolbelt}/sfdx force:mdapi:deploy --wait 10 --deploydir Gray-Space/src --targetusername HubOrg"
                 if (rc != 0) {
                     error 'Salesforce deploy failed.'
                 }

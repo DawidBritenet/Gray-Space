@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Cart</label>
+            <name>Cart</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Cash</label>
+            <name>Cash</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Blik</label>
+            <name>Blik</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Payment</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

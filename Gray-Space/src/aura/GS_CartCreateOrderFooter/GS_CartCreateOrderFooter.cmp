@@ -1,0 +1,13 @@
+<aura:component description="GS_CartCreateOrderFooter" implements="lightning:availableForFlowScreens">
+    <aura:attribute name="payment" type="String"/>
+
+
+
+    <footer class="slds-p-top_medium slds-text-align_right">
+        <lightning:button label="Previous" variant="neutral" onclick="{! c.prevPage }"/>
+        <lightning:button label="Next" variant="brand" onclick="{! c.nextPage }"/>
+    </footer>
+
+    <lightning:navigation aura:id="navigation"/>
+
+</aura:component>

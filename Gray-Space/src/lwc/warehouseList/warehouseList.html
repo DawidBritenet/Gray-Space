@@ -1,0 +1,26 @@
+<template>
+	<lightning-card title={label.LABEL_WAREHOUSES} icon-name="utility:agent_home">
+		<div class="slds-card__body_inner">
+			<template if:true={warehouses.data}>
+				<lightning-input type="search"
+					onchange={handleSearchTermChange}
+					variant="label-hidden"
+					class="slds-var-m-bottom_small"
+					label={label.LABEL_SEARCH}
+					placeholder={label.LABEL_SEARCH_FOR_WAREHOUSES}
+					value={searchTerm}>
+				</lightning-input>
+				<template if:false={hasResults}>
+					<div class="slds-align_absolute-center slds-var-m-vertical_small">
+						{label.LABEL_WAREHOUSE_NO_RESULTS}
+					</div>
+				</template>
+			</template>
+			<template if:true={warehouses.error}>
+				<div class="slds-text-color_error">
+                    {warehouses.error.body.message}
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
