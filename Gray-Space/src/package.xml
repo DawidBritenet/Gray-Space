@@ -372,7 +372,6 @@
         <members>GS_UserVisitedProduct__c</members>
         <members>GS_WarehouseLineItem__c</members>
         <members>GS_Warehouse__c</members>
-        <members>Knowledge__kav</members>
         <members>Lead</members>
         <members>Opportunity</members>
         <members>Order</members>
