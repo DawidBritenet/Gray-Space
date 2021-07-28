@@ -1,0 +1,10 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <template for:each={products} for:item="productwrapper">
+            <lightning-layout-item key={productwrapper.product.id} size="3">
+                <c-g-s_-product-match-tile productwrapper={productwrapper} product1id={recordId}>
+                </c-g-s_-product-match-tile>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

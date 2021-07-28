@@ -1,0 +1,13 @@
+<template>
+    <template if:true={show}>
+        <lightning-card title={label.LABEL_Products_To_Combine}>
+            <div class="list">
+                <template for:each={products} for:item="product">
+                    <div key={product.id}>
+                        <c-g-s_-product-match-only-tile product={product}></c-g-s_-product-match-only-tile>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+</template>

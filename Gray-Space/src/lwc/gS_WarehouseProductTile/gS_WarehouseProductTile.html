@@ -1,0 +1,18 @@
+<template>
+    <div class="tile slds-p-around_small">
+        <div class={isModifiedClass}>
+            <div class="tile-photo" style={photoLink}>
+                <h2 class="tile-title slds-align_absolute-center">{myProduct.product.Name}</h2>
+            </div>
+            <div class="slds-align_absolute-center">
+                <lightning-button-group class="tile-buttons">
+                    <lightning-button-icon icon-name="utility:dash" onclick={handleQuantitySubtract}>
+                    </lightning-button-icon>
+                    <lightning-input type="number" variant="label-hidden" value={quantity}
+                        onchange={handleQuantityChange} min="0" step="1"></lightning-input>
+                    <lightning-button-icon icon-name="utility:add" onclick={handleQuantityAdd}></lightning-button-icon>
+                </lightning-button-group>
+            </div>
+        </div>
+    </div>
+</template>

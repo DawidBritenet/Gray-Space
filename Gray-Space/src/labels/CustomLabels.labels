@@ -1419,7 +1419,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Localization</shortDescription>
-        <value>Localization:</value>
+        <value>Location:</value>
     </labels>
     <labels>
         <fullName>GS_Meeting_Date</fullName>

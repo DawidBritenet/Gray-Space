@@ -79,7 +79,7 @@
     createEditProductModal: function (component, event, recordId) {
         $A.createComponent('c:GS_ProductFormFlow', {'recordId': recordId}, function (content, status) {
             if (status === "SUCCESS") {
-                let modalPromise = component.find('editProductModal').showCustomModal({
+                var modalPromise = component.find('editProductModal').showCustomModal({
                     header: $A.get('$Label.c.GS_Edit_Product'),
                     body: content,
                     showCloseButton: true,

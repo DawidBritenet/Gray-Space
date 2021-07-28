@@ -1,8 +1,0 @@
-.THIS .photoContainer {
-    height: 80px;
-}
-
-.THIS .photo {
-    height: 100%;
-    object-fit: contain;
-}

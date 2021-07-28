@@ -8,7 +8,6 @@
     <approvalPageFields>
         <field>Name</field>
         <field>GS_Product_Code__c</field>
-        <field>GS_Product_SKU__c</field>
         <field>Description</field>
         <field>GS_Space_Type__c</field>
     </approvalPageFields>
